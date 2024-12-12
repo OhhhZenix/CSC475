@@ -1,0 +1,72 @@
+start
+    Declarations
+        string name = ""
+        string color = ""
+        string food = ""
+        boolean greeted = false
+    
+    startColumn
+        Options
+            fill
+            center
+        
+        if !greeted then
+            startTextInput
+                set start value to name
+                on change set value to name
+                set label as "What is your name?"
+            endTextInput
+
+            startTextInput
+                set start value to color
+                on change set value to color
+                set label as "What is your favorite color?"
+            endTextInput
+
+            startTextInput
+                set start value to food
+                on change set value to food
+                set label as "What is your favorite food?"
+            endTextInput
+
+            addSpacing(16)
+
+            startButton
+                set on click to set greeted to true if name and color and food is not empty
+                enable only if name and color and food is not empty
+                set label as "Greet"
+            endButton
+        else
+            startText
+                set content as "Nice to meet you, " + name + "! My name is Gideon."
+            endText
+
+            if color is equal to "red" then
+                startText
+                    set content as "My favorite color is red as well!"
+                endText
+            else
+                startText
+                    set content as "Your favorite color is " + color + ", mine is red."
+                endText
+            endIf
+
+            if food is equal to "fried chicken" then
+                startText
+                    set content as "It is awesome that we both like fried chicken!"
+                endText
+            else
+                startText
+                    set content as "Your favorite food is " + food + ", mine is fried chicken."
+                endText
+            endIf
+
+            addSpacing(16)
+
+            startButton
+                set on click to set greeted to false
+                set label as "Greet again"
+            endButton
+        endIf
+    endColumn
+end
