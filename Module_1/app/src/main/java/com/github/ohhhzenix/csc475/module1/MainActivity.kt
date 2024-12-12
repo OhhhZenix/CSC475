@@ -85,8 +85,9 @@ fun Greeting() {
 
             Button(
                 onClick = {
-                    greeted = name.isNotEmpty() && color.isNotEmpty()
-                }
+                    greeted = name.isNotEmpty() && color.isNotEmpty() && food.isNotEmpty()
+                },
+                enabled = name.isNotEmpty() && color.isNotEmpty() && food.isNotEmpty()
             ) {
                 Text("Greet")
             }
