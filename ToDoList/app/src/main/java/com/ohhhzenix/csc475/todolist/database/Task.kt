@@ -1,12 +1,13 @@
 package com.ohhhzenix.csc475.todolist.database
 
+import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity
 data class Task(
-    @PrimaryKey(autoGenerate = true) val id: Int,
-    val title: String,
-    val description: String,
-    val completed: Boolean = false
+    @PrimaryKey(autoGenerate = true) val id: Int = 0,
+    @ColumnInfo(name = "title") val title: String,
+    @ColumnInfo(name = "description")val description: String,
+    @ColumnInfo(name = "completed") val completed: Boolean = false
 )
