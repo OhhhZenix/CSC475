@@ -9,5 +9,5 @@ import androidx.room.RoomDatabase
 )
 abstract class TaskDatabase: RoomDatabase() {
 
-    abstract fun taskDao(): TaskDao
+    abstract val taskDao: TaskDao
 }
