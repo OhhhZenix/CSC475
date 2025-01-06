@@ -2,7 +2,10 @@ package com.ohhhzenix.csc475.todolist
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.ohhhzenix.csc475.todolist.database.Task
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class TaskViewModel : ViewModel() {
 
@@ -21,10 +24,14 @@ class TaskViewModel : ViewModel() {
     }
 
     fun addTask(title: String, description: String) {
-        taskDao.upsertTask(Task(title = title, description = description))
+        viewModelScope.launch(Dispatchers.IO) {
+            taskDao.upsertTask(Task(title = title, description = description))
+        }
     }
 
     fun deleteTask(id: Int) {
-        taskDao.deleteTask(id)
+        viewModelScope.launch(Dispatchers.IO) {
+            taskDao.deleteTask(id)
+        }
     }
 }
