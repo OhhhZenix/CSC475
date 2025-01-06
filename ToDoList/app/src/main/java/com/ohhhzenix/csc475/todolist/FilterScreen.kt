@@ -1,4 +1,10 @@
 package com.ohhhzenix.csc475.todolist
 
-class FilterScreen {
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.tooling.preview.Preview
+
+@Preview
+@Composable
+fun FilterScreen() {
+
 }
