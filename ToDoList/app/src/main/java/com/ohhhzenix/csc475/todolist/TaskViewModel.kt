@@ -7,20 +7,17 @@ import com.ohhhzenix.csc475.todolist.database.Task
 class TaskViewModel : ViewModel() {
 
     private val taskDao = MainApplication.taskDatabase.getTaskDao();
-    val tasks: LiveData<List<Task>> = taskDao.getAll()
-    val completedTasks: LiveData<List<Task>> = taskDao.getAllCompleted()
-    val uncompletedTasks: LiveData<List<Task>> = taskDao.getAllUncompleted()
 
-    fun getAll(): List<Task> {
-        return emptyList()
+    fun getAll(): LiveData<List<Task>> {
+        return taskDao.getAll()
     }
 
-    fun getAllCompleted() {
-
+    fun getAllCompleted(): LiveData<List<Task>> {
+        return taskDao.getAllCompleted()
     }
 
-    fun getAllUncompleted() {
-
+    fun getAllUncompleted(): LiveData<List<Task>> {
+        return taskDao.getAllUncompleted()
     }
 
     fun addTask(title: String, description: String) {
