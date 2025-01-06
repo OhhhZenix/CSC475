@@ -7,7 +7,11 @@ import androidx.room.RoomDatabase
     entities = [Task::class],
     version = 1
 )
-abstract class TaskDatabase: RoomDatabase() {
+abstract class TaskDatabase : RoomDatabase() {
 
-    abstract val taskDao: TaskDao
+    companion object {
+        const val NAME = "tasks"
+    }
+
+    abstract fun getTaskDao(): TaskDao
 }
