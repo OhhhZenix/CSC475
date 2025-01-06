@@ -18,7 +18,7 @@ import androidx.compose.ui.unit.sp
 import com.ohhhzenix.csc475.todolist.database.Task
 
 @Composable
-fun EditTaskScreen(task: Task) {
+fun EditTaskScreen(viewModel: TaskViewModel, task: Task) {
     Column(
         modifier = Modifier.padding(8.dp)
     ) {
@@ -75,7 +75,9 @@ fun EditTaskScreen(task: Task) {
             Text(if (task.completed) "Unmark as completed" else "Mark as completed")
         }
         Button(
-            onClick = {},
+            onClick = {
+                viewModel.deleteTask(task.id)
+            },
             modifier = Modifier.fillMaxWidth()
         ) {
             Text("Delete task")
