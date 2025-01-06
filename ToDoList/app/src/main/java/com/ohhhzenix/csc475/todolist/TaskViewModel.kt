@@ -10,6 +10,7 @@ import kotlinx.coroutines.launch
 class TaskViewModel : ViewModel() {
 
     private val taskDao = MainApplication.taskDatabase.getTaskDao();
+    val tasks : LiveData<List<Task>> = taskDao.getAll()
 
     fun getAll(): LiveData<List<Task>> {
         return taskDao.getAll()
