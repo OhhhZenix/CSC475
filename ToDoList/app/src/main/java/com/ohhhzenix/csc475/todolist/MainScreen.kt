@@ -20,15 +20,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.ohhhzenix.csc475.todolist.database.Task
-
-val fakeTasks = listOf(
-    Task(1, "Hello", ""),
-    Task(2, "World", ""),
-    Task(3, "Android", "")
-)
 
 @Composable
 fun ToDoItem(task: Task) {
@@ -59,9 +52,14 @@ fun ToDoItem(task: Task) {
     }
 }
 
-@Preview
 @Composable
-fun MainScreen() {
+fun MainScreen(viewModel: TaskViewModel) {
+    val tasks = listOf(
+        Task(1, "Hello", ""),
+        Task(2, "World", ""),
+        Task(3, "Android", "")
+    )
+
     Column() {
         Row(
             modifier = Modifier
@@ -77,7 +75,7 @@ fun MainScreen() {
             }
         }
         LazyColumn(content = {
-            itemsIndexed(fakeTasks) { index: Int, item: Task ->
+            itemsIndexed(tasks) { index: Int, item: Task ->
                 ToDoItem(task = item)
             }
         })
