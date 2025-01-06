@@ -12,10 +12,10 @@ class MainApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        Room.databaseBuilder(
+       taskDatabase = Room.databaseBuilder(
             applicationContext,
             TaskDatabase::class.java,
             TaskDatabase.NAME
-        )
+        ).build()
     }
 }
