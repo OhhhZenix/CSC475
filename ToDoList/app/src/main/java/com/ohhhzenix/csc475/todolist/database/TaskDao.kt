@@ -22,6 +22,6 @@ interface TaskDao {
     @Upsert
     fun upsertTask(task: Task)
 
-    @Delete
-    fun deleteTask(task: Task)
+    @Query("DELETE FROM task where id = :id")
+    fun deleteTask(id: Int)
 }
