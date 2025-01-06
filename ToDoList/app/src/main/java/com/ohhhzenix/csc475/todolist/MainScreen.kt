@@ -59,7 +59,6 @@ fun ToDoItem(task: Task) {
     }
 }
 
-
 @Preview
 @Composable
 fun MainScreen() {
