@@ -18,7 +18,7 @@ import androidx.compose.ui.unit.sp
 import com.ohhhzenix.csc475.todolist.database.Task
 
 @Composable
-fun EditTaskScreen(task: Task = Task(0, "", "")) {
+fun EditTaskScreen(task: Task) {
     Column(
         modifier = Modifier.padding(8.dp)
     ) {
