@@ -2,20 +2,20 @@ package com.ohhhzenix.csc475.todolist
 
 import android.app.Application
 import androidx.room.Room
-import com.ohhhzenix.csc475.todolist.database.TaskDatabase
+import com.ohhhzenix.csc475.todolist.database.AppDatabase
 
 class MainApplication : Application() {
 
     companion object {
-        lateinit var taskDatabase: TaskDatabase
+        lateinit var appDatabase: AppDatabase
     }
 
     override fun onCreate() {
         super.onCreate()
-       taskDatabase = Room.databaseBuilder(
+        appDatabase = Room.databaseBuilder(
             applicationContext,
-            TaskDatabase::class.java,
-            TaskDatabase.NAME
+            AppDatabase::class.java,
+            AppDatabase.NAME
         ).build()
     }
 }
