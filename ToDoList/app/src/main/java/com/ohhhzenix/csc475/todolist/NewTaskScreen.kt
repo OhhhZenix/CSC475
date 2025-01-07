@@ -21,7 +21,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -102,7 +101,12 @@ fun NewTaskScreen(
                             .show()
                     } else {
                         coroutineScope.launch {
-                            taskDao.upsertTask(Task(title = title.value, description = description.value))
+                            taskDao.upsertTask(
+                                Task(
+                                    title = title.value,
+                                    description = description.value
+                                )
+                            )
                         }
                         navController.navigate(AppScreen.Main.name)
                     }
