@@ -3,7 +3,6 @@ package com.ohhhzenix.csc475.todolist.database
 import androidx.room.Dao
 import androidx.room.Query
 import androidx.room.Upsert
-import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface TaskDao {
