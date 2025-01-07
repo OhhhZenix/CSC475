@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class Task(
-    @PrimaryKey(autoGenerate = true) val id: Int = 0,
+    @PrimaryKey(autoGenerate = true) val id: Int = System.currentTimeMillis().toInt(),
     @ColumnInfo(name = "title") val title: String,
     @ColumnInfo(name = "description") val description: String,
     @ColumnInfo(name = "completed") val completed: Boolean = false
