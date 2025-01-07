@@ -236,3 +236,95 @@ start NewTaskScreen(nav, taskDao)
         end Column
     end Scaffold
 end NewTaskScreen
+
+start EditTaskScreen(nav, selectedTask, taskDao)
+    Declarations
+        int taskId = selectedTask
+        Task task = taskDao.getTask(taskId)
+        string tempTitle = task.title
+        string tempDescription = task.description
+        boolean tempCompleted = task.completed
+
+    start Scaffold
+        set top bar with title "Edit Task"
+
+        start Column
+            set padding to 8
+
+            addSpacing(8)
+
+            start Box
+                set width to fill
+                set content alignment to center
+
+                start Text
+                    set content to "(Selected Task ID: " + selectedTask.intValue +")"
+                    set font size to 12
+                    set text align to center
+                end Text
+            end Box
+
+            addSpacing(8)
+
+            start TextInput
+                set start value to tempTitle
+                on change set value to tempTitle
+                set label as "Title"
+                set width to fill
+            end TextInput
+
+            start TextInput
+                set start value to tempDescription
+                on change set value to tempDescription
+                set label as "Description"
+                set width to fill
+            end TextInput
+
+            addSpacing(4)
+
+            start Button
+                set onClick to tempCompleted = !tempCompleted
+                set width to fill
+
+                start Text
+                    if tempCompleted then 
+                        set content to "Unmark as completed"
+                    else 
+                        set content to "Mark as completed"
+                    endIf
+                end Text
+            end Button
+
+            start Button
+                set onClick to taskDao.deleteTask(taskId) and nav = "main"
+                set width to fill
+
+                start Text
+                    set content to "Delete task"
+                end Text
+            end Button
+
+            start Button
+                if tempTitle is empty then
+                    set onClick to notify user with "Title is empty. Try again."
+                else
+                    set onClick to taskDao.updateTask(taskId, tempTitle, tempDescription, tempCompleted) and nav = "main"
+                endIf
+                set width to fill
+
+                start Text
+                    set content to "Save task"
+                end Text
+            end Button
+
+            start Button
+                set onClick to nav = "main"
+                set width to fill
+
+                start Text
+                    set content to "Back"
+                end Text
+            end Button
+        end Column
+    end Scaffold
+end EditTaskScreen
