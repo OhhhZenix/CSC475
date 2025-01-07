@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.ohhhzenix.csc475.todolist.database.Task
 import com.ohhhzenix.csc475.todolist.ui.theme.ToDoListTheme
 
 class MainActivity : ComponentActivity() {
@@ -23,29 +24,34 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             ToDoListTheme {
-                AppScreens(viewModel = taskViewModel)
+                MyApp(viewModel = taskViewModel)
             }
         }
     }
 }
 
 @Composable
-fun AppScreens(viewModel: TaskViewModel) {
+fun MyApp(viewModel: TaskViewModel) {
     val navController = rememberNavController()
-    val filter by remember { mutableStateOf(FilterType.SHOW_UNCOMPLETED) }
+    val tasks = remember { mutableListOf<Task>() }
+    val filter = remember { mutableStateOf(FilterType.SHOW_UNCOMPLETED) }
+    val selectedTask = remember { mutableStateOf<Task?>(null) }
 
     NavHost(
         navController = navController,
         startDestination = AppScreen.Main.name
     ) {
         composable(AppScreen.Main.name) {
-            HomeScreen(viewModel, navController)
+            HomeScreen(navController, tasks, selectedTask, filter)
         }
         composable(AppScreen.Filter.name) {
             FilterScreen(navController, filter)
         }
         composable(AppScreen.NewTask.name) {
-            NewTaskScreen(viewModel)
+            NewTaskScreen(navController, tasks)
+        }
+        composable(AppScreen.EditTask.name) {
+            EditTaskScreen(navController, selectedTask, tasks)
         }
     }
 }
