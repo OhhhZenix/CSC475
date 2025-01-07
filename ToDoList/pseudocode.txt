@@ -1,0 +1,117 @@
+start MyApp(taskDao)
+    Declarations
+        NavController navController = NavController()
+        string filter = "show_uncompleted"
+        int selectedTask = 0
+    
+    start NavHost
+        if nav == "main" then
+            HomeScreen(nav, filter, selectedTask, taskDao)
+        else if nav == "filter" then
+            FilterScreen(nav, filter) 
+        else if nav == "newTask" then
+            NewTaskScreen(nav, taskDao)
+        else if nav == "editTask" then
+            EditTaskScreen(nav, selectedTask, taskDao)
+        endIf
+    end NavHost
+end MyApp
+
+start HomeScreen(nav, filter, selectedTask, taskDao)
+    Declarations
+        Task[] tasks = []
+
+    if filter == "showAll" then
+        tasks = taskDao.getAll()
+    else if filter == "showCompleted" then
+        tasks = taskDao.getAllCompleted()
+    else if filter == "showUncompleted" then
+        tasks = taskDao.getAllUncompleted()
+    endIf
+
+    start Scaffold
+        set top bar with title "To Do List"
+
+        start Column
+            start Row
+                set width to fill
+                set padding to 8
+
+                start Button
+                    set onClick to nav = "filter"
+                    set weight to 0.5
+                    set content as "Filter"
+                end Button
+
+                addSpacing(8)
+
+                start Button
+                    set onClick to nav = "newTask"
+                    set weight 0.5
+                    set content as "Add new task"
+                end Button
+            end Row
+
+            if tasks is empty then
+                start Box
+                    set width to fill
+                    set padding to 20
+                    set content alignment to center
+
+                    start Column
+                        set horizontal alignment to center 
+                        
+                        start Text
+                            set content as "Nothing to do."
+                            set font size 15
+                            set text align to center
+                        end Text
+                        
+                        start Text
+                            set content as "Add new task to get started."
+                            set font size 15
+                            set text align to center
+                        end Text
+                    end Column 
+                end Box
+            else
+                start LazyColumn
+                    for each task in tasks
+                        start Button
+                            set onClick to selectedTask = task.id and nav = "editTask"
+                            set width to fill
+                            set padding to 8
+                            set height to 80
+                            set shape to Rounded
+
+                            start Row
+                                set vertical alignment to center
+
+                                start Icon
+                                    if tasks is completed then
+                                        set image to check box empty
+                                    else
+                                        set image to check box finished
+                                    endIf
+                                end Icon
+
+                                addSpacing(8)
+
+                                start Text
+                                    set content to task's title
+                                    set weight to 1
+                                    if task is completed then
+                                        set style to line through
+                                    else
+                                        set style to none
+                                    endIf
+                                end Text
+                            end Row
+                        end Button
+                    endFor
+                end LazyColumn
+            endIf
+        end Column
+    end Scaffold
+end HomeScreen
+
