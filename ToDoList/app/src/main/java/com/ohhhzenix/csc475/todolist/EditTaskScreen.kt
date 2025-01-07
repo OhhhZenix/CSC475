@@ -16,30 +16,47 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.MutableIntState
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.asLiveData
 import androidx.navigation.NavController
 import com.ohhhzenix.csc475.todolist.database.Task
+import com.ohhhzenix.csc475.todolist.database.TaskDao
+import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun EditTaskScreen(
     navController: NavController,
-    selectedTask: MutableState<Task?>,
-    tasks: MutableList<Task>
+    selectedTask: MutableIntState,
+    taskDao: TaskDao
 ) {
     val context = LocalContext.current
-    val tempTitle = remember { mutableStateOf(selectedTask.value!!.title) }
-    val tempDescription = remember { mutableStateOf(selectedTask.value!!.description) }
-    val tempCompleted = remember { mutableStateOf(selectedTask.value!!.completed) }
+    val taskId = selectedTask.intValue
+    val tempTitle = remember { mutableStateOf("") }
+    val tempDescription = remember { mutableStateOf("") }
+    val tempCompleted = remember { mutableStateOf(false) }
+    val coroutineScope = rememberCoroutineScope()
+
+    LaunchedEffect(Unit) {
+        coroutineScope.launch {
+            val task = taskDao.getTask(taskId)
+            tempTitle.value = task.title
+            tempDescription.value = task.description
+            tempCompleted.value = task.completed
+        }
+    }
 
     Scaffold(
         topBar = {
@@ -65,7 +82,7 @@ fun EditTaskScreen(
                 contentAlignment = Alignment.Center
             ) {
                 Text(
-                    "(Selected Task ID: ${selectedTask.value!!.id})",
+                    "(Selected Task ID: ${selectedTask.intValue})",
                     fontSize = 12.sp,
                     textAlign = TextAlign.Center,
                 )
@@ -104,9 +121,8 @@ fun EditTaskScreen(
             }
             Button(
                 onClick = {
-//                viewModel.deleteTask(selectedTask.value!!.id)
-                    tasks.removeIf {
-                        selectedTask.value!!.id == it.id
+                    coroutineScope.launch {
+                        taskDao.deleteTask(taskId)
                     }
                     navController.navigate(AppScreen.Main.name)
                 },
@@ -120,14 +136,14 @@ fun EditTaskScreen(
                         Toast.makeText(context, "Title is empty. Try again.", Toast.LENGTH_SHORT)
                             .show()
                     } else {
-                        tasks.removeIf { it.id == selectedTask.value!!.id }
-                        tasks.add(
-                            Task(
-                                title = tempTitle.value,
-                                description = tempDescription.value,
-                                completed = tempCompleted.value
+                        coroutineScope.launch {
+                            taskDao.updateTask(
+                                taskId,
+                                tempTitle.value,
+                                tempDescription.value,
+                                tempCompleted.value
                             )
-                        )
+                        }
                         navController.navigate(AppScreen.Main.name)
                     }
                 },
