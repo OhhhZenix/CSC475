@@ -1,6 +1,7 @@
 package com.ohhhzenix.csc475.todolist
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -31,8 +32,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.ohhhzenix.csc475.todolist.database.Task
 import com.ohhhzenix.csc475.todolist.database.TaskDao
@@ -99,55 +102,77 @@ fun HomeScreen(
                     Text("Add new task")
                 }
             }
-            LazyColumn(content = {
-                items(tasks) { task: Task ->
-                    Button(
-                        onClick = {
-                            selectedTask.intValue = task.id
-                            navController.navigate(AppScreen.EditTask.name)
-                        },
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(8.dp)
-                            .height(80.dp),
-                        shape = RoundedCornerShape(16.dp),
-                        colors = ButtonColors(
-                            containerColor = MaterialTheme.colorScheme.secondary,
-                            contentColor = Color.White,
-                            disabledContainerColor = MaterialTheme.colorScheme.secondary,
-                            disabledContentColor = MaterialTheme.colorScheme.secondary
+            if (tasks.isEmpty()) {
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(20.dp),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                        Text(
+                            "Nothing to do.",
+                            fontSize = 15.sp,
+                            textAlign = TextAlign.Center,
                         )
-                    ) {
-                        Row(
-                            modifier = Modifier.background(color = MaterialTheme.colorScheme.secondary),
-                            verticalAlignment = Alignment.CenterVertically
-                        ) {
-                            Icon(
-                                painter = painterResource(
-                                    id = if (task.completed)
-                                        R.drawable.baseline_check_box_24
-                                    else
-                                        R.drawable.baseline_check_box_outline_blank_24
-                                ),
-                                contentDescription = "Delete",
-                                tint = Color.White
-                            )
-                            Spacer(Modifier.padding(8.dp))
-                            Text(
-                                task.title,
-                                color = Color.White,
-                                modifier = Modifier.weight(1f),
-                                style = TextStyle(
-                                    textDecoration = if (task.completed)
-                                        TextDecoration.LineThrough
-                                    else
-                                        TextDecoration.None
-                                )
-                            )
-                        }
+                        Text(
+                            "Add new task to get started.",
+                            fontSize = 15.sp,
+                            textAlign = TextAlign.Center,
+                        )
                     }
                 }
-            })
+            } else {
+                LazyColumn(content = {
+                    items(tasks) { task: Task ->
+                        Button(
+                            onClick = {
+                                selectedTask.intValue = task.id
+                                navController.navigate(AppScreen.EditTask.name)
+                            },
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(8.dp)
+                                .height(80.dp),
+                            shape = RoundedCornerShape(16.dp),
+                            colors = ButtonColors(
+                                containerColor = MaterialTheme.colorScheme.secondary,
+                                contentColor = Color.White,
+                                disabledContainerColor = MaterialTheme.colorScheme.secondary,
+                                disabledContentColor = MaterialTheme.colorScheme.secondary
+                            )
+                        ) {
+                            Row(
+                                modifier = Modifier.background(color = MaterialTheme.colorScheme.secondary),
+                                verticalAlignment = Alignment.CenterVertically
+                            ) {
+                                Icon(
+                                    painter = painterResource(
+                                        id = if (task.completed)
+                                            R.drawable.baseline_check_box_24
+                                        else
+                                            R.drawable.baseline_check_box_outline_blank_24
+                                    ),
+                                    contentDescription = "Delete",
+                                    tint = Color.White
+                                )
+                                Spacer(Modifier.padding(8.dp))
+                                Text(
+                                    task.title,
+                                    color = Color.White,
+                                    modifier = Modifier.weight(1f),
+                                    style = TextStyle(
+                                        textDecoration = if (task.completed)
+                                            TextDecoration.LineThrough
+                                        else
+                                            TextDecoration.None
+                                    )
+                                )
+                            }
+                        }
+                    }
+                })
+            }
         }
     }
 }
