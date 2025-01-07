@@ -1,8 +1,6 @@
 package com.ohhhzenix.csc475.todolist.database
 
-import androidx.lifecycle.LiveData
 import androidx.room.Dao
-import androidx.room.Delete
 import androidx.room.Query
 import androidx.room.Upsert
 import kotlinx.coroutines.flow.Flow
@@ -10,18 +8,24 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface TaskDao {
 
-    @Query("SELECT * FROM task ORDER BY completed ASC")
-    fun getAll(): LiveData<List<Task>>
+    @Query("SELECT * FROM tasks ORDER BY completed ASC")
+    suspend fun getAll(): List<Task>
 
-    @Query("SELECT * FROM task WHERE completed = 1")
-    fun getAllCompleted(): LiveData<List<Task>>
+    @Query("SELECT * FROM tasks WHERE completed = 1")
+    suspend fun getAllCompleted(): List<Task>
 
-    @Query("SELECT * FROM task WHERE completed = 0")
-    fun getAllUncompleted(): LiveData<List<Task>>
+    @Query("SELECT * FROM tasks WHERE completed = 0")
+    suspend fun getAllUncompleted(): List<Task>
+
+    @Query("SELECT * FROM tasks WHERE id=:id LIMIT 1")
+    suspend fun getTask(id: Int): Task
 
     @Upsert
-    fun upsertTask(task: Task)
+    suspend fun upsertTask(task: Task)
 
-    @Query("DELETE FROM task where id = :id")
-    fun deleteTask(id: Int)
+    @Query("DELETE FROM tasks where id = :id")
+    suspend fun deleteTask(id: Int)
+
+    @Query("UPDATE tasks SET title=:title, description=:description, completed=:completed WHERE id = :id")
+    suspend fun updateTask(id: Int, title: String, description: String, completed: Boolean)
 }
