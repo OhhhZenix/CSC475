@@ -115,3 +115,57 @@ start HomeScreen(nav, filter, selectedTask, taskDao)
     end Scaffold
 end HomeScreen
 
+start FilterScreen(nav, filter)
+    start Scaffold
+        set top bar with title "Filtering Option"
+
+        start Column
+            set padding to 8
+
+            start Box 
+                set width to fill
+                set padding to 10
+
+                start Text
+                    set content to "Current Filter: " + filter.value.name
+                end Text
+            end Box
+
+            start Button
+                set onClick to filter = "showAll"
+                set width to fill
+
+                start Text
+                    set content to "Show All"
+                end Text
+            end Button
+            
+            start Button
+                set onClick to filter = "showCompleted"
+                set width to fill
+
+                start Text
+                    set content to "Show Completed"
+                end Text
+            end Button
+
+            start Button
+                set onClick to filter = "showUncompleted"
+                set width to fill
+
+                start Text
+                    set content to "Show Uncompleted"
+                end Text
+            end Button
+
+            start Button
+                set onClick to nav = "main"
+                set width to fill
+
+                start Text
+                    set content to "Back"
+                end Text
+            end Button
+        end Column
+    end Scaffold
+end FilterScreen
