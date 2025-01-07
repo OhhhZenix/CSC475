@@ -43,7 +43,7 @@ fun FilterScreen(navController: NavController, filter: MutableState<FilterType>)
                     .fillMaxWidth()
                     .padding(20.dp)
             ) {
-                Text("Current Filter: " + filter.value.name)
+                Text("Current Filter: ${filter.value.name}")
             }
             Button(
                 onClick = {
