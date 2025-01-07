@@ -18,6 +18,7 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -27,13 +28,19 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.ohhhzenix.csc475.todolist.database.Task
+import com.ohhhzenix.csc475.todolist.database.TaskDao
+import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun NewTaskScreen(navController: NavController, tasks: MutableList<Task>) {
+fun NewTaskScreen(
+    navController: NavController,
+    taskDao: TaskDao
+) {
     val context = LocalContext.current
     val title = remember { mutableStateOf("") }
     val description = remember { mutableStateOf("") }
+    val coroutineScope = rememberCoroutineScope()
 
     Scaffold(
         topBar = {
@@ -83,15 +90,20 @@ fun NewTaskScreen(navController: NavController, tasks: MutableList<Task>) {
                 label = {
                     Text("Description")
                 },
-                modifier = Modifier.fillMaxWidth().height(240.dp),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(240.dp),
             )
             Spacer(Modifier.padding(8.dp))
             Button(
                 onClick = {
                     if (title.value.isEmpty()) {
-                        Toast.makeText(context,  "Title is empty. Try again.", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "Title is empty. Try again.", Toast.LENGTH_SHORT)
+                            .show()
                     } else {
-                        tasks.add(Task(title = title.value, description = description.value))
+                        coroutineScope.launch {
+                            taskDao.upsertTask(Task(title = title.value, description = description.value))
+                        }
                         navController.navigate(AppScreen.Main.name)
                     }
                 },
