@@ -7,10 +7,10 @@ import androidx.room.RoomDatabase
     entities = [Task::class],
     version = 1
 )
-abstract class TaskDatabase : RoomDatabase() {
+abstract class AppDatabase : RoomDatabase() {
 
     companion object {
-        const val NAME = "tasks"
+        const val NAME = "to-do-list-app"
     }
 
     abstract fun getTaskDao(): TaskDao
