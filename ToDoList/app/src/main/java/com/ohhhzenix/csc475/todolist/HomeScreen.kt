@@ -21,9 +21,15 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.MutableIntState
 import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
+import androidx.compose.runtime.mutableStateListOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -32,17 +38,34 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.asLiveData
 import androidx.navigation.NavController
 import com.ohhhzenix.csc475.todolist.database.Task
+import com.ohhhzenix.csc475.todolist.database.TaskDao
+import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(
     navController: NavController,
-    tasks: MutableList<Task>,
-    selectedTask: MutableState<Task?>,
-    filter: MutableState<FilterType>
+    filter: MutableState<FilterType>,
+    selectedTask: MutableIntState,
+    taskDao: TaskDao
 ) {
+    val tasks = remember { mutableStateListOf<Task>() }
+    val coroutineScope = rememberCoroutineScope()
+
+    LaunchedEffect(Unit) {
+        coroutineScope.launch {
+            tasks.clear()
+            when(filter.value) {
+                FilterType.SHOW_ALL -> tasks.addAll(taskDao.getAll())
+                FilterType.SHOW_COMPLETED -> tasks.addAll(taskDao.getAllCompleted())
+                FilterType.SHOW_UNCOMPLETED -> tasks.addAll(taskDao.getAllUncompleted())
+            }
+        }
+    }
+
     Scaffold(
         topBar = {
             TopAppBar(
@@ -83,16 +106,10 @@ fun HomeScreen(
                 }
             }
             LazyColumn(content = {
-                val filteredTask = when (filter.value) {
-                    FilterType.SHOW_ALL -> tasks.sortedBy { it.completed }
-                    FilterType.SHOW_COMPLETED -> tasks.filter { it.completed }
-                    FilterType.SHOW_UNCOMPLETED -> tasks.filter { !it.completed }
-                }
-
-                items(filteredTask) { task: Task ->
+                items(tasks) { task: Task ->
                     Button(
                         onClick = {
-                            selectedTask.value = task
+                            selectedTask.intValue = task.id
                             navController.navigate(AppScreen.EditTask.name)
                         },
                         modifier = Modifier
