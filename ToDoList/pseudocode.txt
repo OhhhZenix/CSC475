@@ -169,3 +169,70 @@ start FilterScreen(nav, filter)
         end Column
     end Scaffold
 end FilterScreen
+
+start NewTaskScreen(nav, taskDao)
+    Declarations
+        string title = ""
+        string description = ""
+
+    start Scaffold
+        set top bar with title "New Task"
+
+        start Column
+            set padding to 8
+
+            addSpacing(8)
+
+            start Box
+                set width to fill
+                set content alignment to center
+
+                start Text
+                    set content to "Fill boxes below."
+                    set font size to 15
+                    set text align to center
+                end Text
+            end Box
+
+            addSpacing(8)
+
+            start TextInput
+                set start value to title 
+                on change set value to title
+                set label as "Title"
+                set width to fill
+            end TextInput
+
+            start TextInput
+                set start value to description 
+                on change set value to description
+                set label as "Description"
+                set width to fill
+            end TextInput
+
+            addSpacing(8)
+
+            start Button
+                if title is empty then
+                    set onClick to notify user with "Title is empty. Try again."
+                else 
+                    set onClick to taskDao.upsert(title, description) and nav = "main"
+                endIf
+                set width to fill
+
+                start Text
+                    set content to "Add"
+                end Text
+            end Button
+
+            start Button
+                set onClick to nav = "main"
+                set width to fill
+
+                start Text
+                    set content to "Back"
+                end Text
+            end Button
+        end Column
+    end Scaffold
+end NewTaskScreen
