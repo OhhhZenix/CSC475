@@ -12,13 +12,14 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun FilterScreen(navController: NavController, filter: FilterType) {
+fun FilterScreen(navController: NavController, filter: MutableState<FilterType>) {
     Scaffold(
         topBar = {
             TopAppBar(
@@ -42,23 +43,27 @@ fun FilterScreen(navController: NavController, filter: FilterType) {
                     .fillMaxWidth()
                     .padding(20.dp)
             ) {
-                Text("Current: " + FilterType.SHOW_UNCOMPLETED.name)
+                Text("Current Filter: " + filter.value.name)
             }
             Button(
-                onClick = {},
+                onClick = {
+                    filter.value = FilterType.SHOW_ALL
+                },
                 modifier = Modifier.fillMaxWidth()
             ) {
                 Text("Show All")
             }
             Button(
-                onClick = {},
+                onClick = {
+                    filter.value = FilterType.SHOW_COMPLETED
+                },
                 modifier = Modifier.fillMaxWidth()
             ) {
                 Text("Show Completed Only")
             }
             Button(
                 onClick = {
-                    
+                    filter.value = FilterType.SHOW_UNCOMPLETED
                 },
                 modifier = Modifier.fillMaxWidth()
             ) {
