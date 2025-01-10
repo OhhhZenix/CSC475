@@ -11,19 +11,27 @@ import androidx.compose.runtime.remember
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.room.Room
+import com.ohhhzenix.csc475.todolist.database.AppDatabase
 import com.ohhhzenix.csc475.todolist.database.TaskDao
 import com.ohhhzenix.csc475.todolist.ui.theme.ToDoListTheme
 
 class MainActivity : ComponentActivity() {
 
-    private val taskDao = MainApplication.appDatabase.getTaskDao();
+    private val db by lazy {
+        Room.databaseBuilder(
+            applicationContext,
+            AppDatabase::class.java,
+            AppDatabase.NAME
+        ).build()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
             ToDoListTheme {
-                MyApp(taskDao)
+                MyApp(db.getTaskDao())
             }
         }
     }
