@@ -26,7 +26,10 @@ import androidx.compose.ui.unit.sp
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreen() {
+fun HomeScreen(
+    navStorageScreen: () -> Unit,
+    navInternetScreen: () -> Unit
+) {
     Scaffold(
         topBar = {
             TopAppBar(
@@ -72,13 +75,13 @@ fun HomeScreen() {
                 )
                 Spacer(Modifier.padding(8.dp))
                 Button(
-                    onClick = {},
+                    onClick = navStorageScreen,
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Text("View from storage")
                 }
                 Button(
-                    onClick = {},
+                    onClick = navInternetScreen,
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Text("View from internet")
