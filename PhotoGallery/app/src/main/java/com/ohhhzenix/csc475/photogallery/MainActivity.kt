@@ -5,6 +5,9 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.runtime.Composable
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.ohhhzenix.csc475.photogallery.ui.theme.PhotoGalleryTheme
 
 class MainActivity : ComponentActivity() {
@@ -21,5 +24,20 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun App() {
-    HomeScreen()
+    val navController = rememberNavController()
+
+    NavHost(
+        navController = navController,
+        startDestination = AppScreen.Home.name
+    ) {
+        composable(AppScreen.Home.name) {
+            HomeScreen()
+        }
+        composable(AppScreen.Storage.name) {
+            ViewInternetScreen()
+        }
+        composable(AppScreen.Internet.name) {
+            ViewInternetScreen()
+        }
+    }
 }
