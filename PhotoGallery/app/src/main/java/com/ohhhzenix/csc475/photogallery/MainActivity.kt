@@ -31,7 +31,14 @@ fun App() {
         startDestination = AppScreen.Home.name
     ) {
         composable(AppScreen.Home.name) {
-            HomeScreen()
+            HomeScreen(
+                navStorageScreen =  {
+                    navController.navigate(AppScreen.Storage.name)
+                },
+                navInternetScreen = {
+                    navController.navigate(AppScreen.Internet.name)
+                }
+            )
         }
         composable(AppScreen.Storage.name) {
             ViewInternetScreen()
