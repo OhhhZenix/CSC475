@@ -112,7 +112,7 @@ fun StorageScreen(
                                 .height(250.dp)
                                 .padding(8.dp)
                                 .background(Color.Black),
-                            contentScale = ContentScale.Crop
+                            contentScale = ContentScale.Fit
                         )
                     }
                 }
