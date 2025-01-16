@@ -32,7 +32,7 @@ fun App() {
     ) {
         composable(AppScreen.Home.name) {
             HomeScreen(
-                navStorageScreen =  {
+                navStorageScreen = {
                     navController.navigate(AppScreen.Storage.name)
                 },
                 navInternetScreen = {
