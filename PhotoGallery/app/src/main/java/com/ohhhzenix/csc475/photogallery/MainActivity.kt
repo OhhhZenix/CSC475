@@ -48,7 +48,11 @@ fun App() {
             )
         }
         composable(AppScreen.Internet.name) {
-            InternetScreen()
+            InternetScreen(
+                navHomeScreen = {
+                    navController.navigate(AppScreen.Home.name)
+                }
+            )
         }
     }
 }
