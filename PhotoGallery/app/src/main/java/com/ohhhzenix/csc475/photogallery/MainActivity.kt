@@ -41,10 +41,10 @@ fun App() {
             )
         }
         composable(AppScreen.Storage.name) {
-            ViewInternetScreen()
+            StorageScreen()
         }
         composable(AppScreen.Internet.name) {
-            ViewInternetScreen()
+            InternetScreen()
         }
     }
 }
