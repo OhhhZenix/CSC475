@@ -1,7 +1,6 @@
 package com.ohhhzenix.csc475.photogallery
 
 import android.net.Uri
-import android.util.Log
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
@@ -14,7 +13,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -100,7 +98,7 @@ fun StorageScreen(
             } else {
                 Text(
                     "Selected images:",
-                    modifier = Modifier.offset(x=8.dp)
+                    modifier = Modifier.offset(x = 8.dp)
                 )
                 LazyColumn(
                     modifier = Modifier.fillMaxSize()
