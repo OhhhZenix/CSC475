@@ -81,7 +81,7 @@ fun InternetScreen(
             Button(
                 onClick = {
                     coroutineScope.launch {
-                        val result = RetrofitClient.dogApi.getTenRandomDogImages();
+                        val result = RetrofitClient.dogApi.getTenRandomDogImages()
                         if (result.isSuccessful) {
                             result.body()?.let {
                                 images = it.message
@@ -91,7 +91,7 @@ fun InternetScreen(
                                 context,
                                 "Failed to get images. Try later.",
                                 Toast.LENGTH_SHORT
-                            ).show();
+                            ).show()
                         }
                     }
                 },
@@ -124,7 +124,7 @@ fun InternetScreen(
                                 .height(250.dp)
                                 .padding(8.dp)
                                 .background(Color.Black),
-                            contentScale = ContentScale.Crop
+                            contentScale = ContentScale.Fit
                         )
                     }
                 }
