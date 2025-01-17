@@ -1,0 +1,73 @@
+start  App()
+    Declarations
+        string nav = "home" 
+    
+    if nav = "home" then
+        HomeScreen(
+            { nav = "storage" },
+            { nav = "internet" }
+        )
+    endIf
+
+    if nav = "storage" then
+        StorageScreen(
+            { nav = "home" }
+        )
+    endIf
+
+    if nav = "internet" then
+        StorageScreen(
+            { nav = "home" }
+        )
+    endIf
+end App
+
+start HomeScreen(navStorageScreen, navInternetScreen)
+    start Scaffold
+        set top bar with title "Photo Gallery"
+
+        stat Box
+            set content alignment to center
+            set fill max size
+
+            start Column
+                set padding to 8
+                set align to top center
+                set offset to 25% of screen
+                set vertical arrangement to center
+                set horizontal alignment to center
+
+                stat Text
+                    set content to "Welcome!"
+                    set font size to 30
+                    set text align to center
+                end Text
+                
+                start Text
+                    set content to "To get started, select the options below."
+                    set text align to center
+                end Text
+
+                addSpacer(8)
+
+                start Button
+                    set on click to navStorageScreen
+                    set fill max width
+
+                    start Text
+                        set content to "View from storage"
+                    end Text
+                end Button
+
+                start Button
+                    set on click to navInternetScreen
+                    set fill max width
+
+                    start Text
+                        set content to "View from internet"
+                    end Text
+                end Button
+            end Column
+        end Box
+    end Scaffold
+end HomeScreen
