@@ -71,3 +71,64 @@ start HomeScreen(navStorageScreen, navInternetScreen)
         end Box
     end Scaffold
 end HomeScreen
+
+start StorageScreen(navHomeScreen)
+    start Scaffold
+        set top bar with title "Photo Gallery"
+
+        start Column
+            set fill max size
+
+            start Button
+                set on click to navHomeScreen
+                set padding to 8
+
+                start Text
+                    set content to "Get Started"
+                    set fill max width
+                    set text align to center
+                    set font size to 32
+                end Text
+
+                start Button
+                    on click to launch media selector with 10 limit
+                    set fill max width
+                    set padding to 8
+
+                    start Text
+                        set content to "Pick image from storage"
+                    end Text
+                end Button
+
+                if images is not empty then
+                    start Text
+                      set content to "No images are selected currently."
+                      set fill max width
+                      set text align to center 
+                    end Text
+                else
+                    start Text
+                        set content to "Selected images:"
+                        set offset x to 8
+                    end Text
+
+                    start LazyColumn
+                        set fill max size
+
+                        for image in images
+                            start AsyncImage
+                                set model to image
+                                set content description to empty
+                                set fill max width
+                                set height to 250
+                                set padding to 8
+                                set background to black
+                                set content scale to fit
+                            end AsyncImage
+                        endFor
+                    end LazyColumn
+                endIf
+            end Button
+        end Column
+    end Scaffold
+end StorageScreen
