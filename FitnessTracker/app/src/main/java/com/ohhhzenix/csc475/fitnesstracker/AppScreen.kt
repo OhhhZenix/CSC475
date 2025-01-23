@@ -4,7 +4,7 @@ enum class AppScreen {
     Home,
     MealLogging,
     ExerciseLogging,
-    CalculateGoals,
+    CalculateGoal,
     FoodCatalog,
     ExerciseCatalog,
 }
