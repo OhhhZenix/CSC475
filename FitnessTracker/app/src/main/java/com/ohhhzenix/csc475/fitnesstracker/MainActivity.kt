@@ -35,7 +35,7 @@ fun App() {
             HomeScreen(
                 navMealLogScreen = { navController.navigate(AppScreen.MealLogging.name) },
                 navExerciseLogScreen = { navController.navigate(AppScreen.ExerciseLogging.name) },
-                navCalculateGoalScreen = { navController.navigate(AppScreen.CalculateGoals.name) },
+                navCalculateGoalScreen = { navController.navigate(AppScreen.CalculateGoal.name) },
                 navFoodCatalogScreen = { navController.navigate(AppScreen.FoodCatalog.name) },
                 navExerciseCatalogScreen = { navController.navigate(AppScreen.ExerciseCatalog.name) })
         }
