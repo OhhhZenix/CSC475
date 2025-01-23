@@ -41,7 +41,9 @@ fun App() {
                 navExerciseCatalogScreen = { navController.navigate(AppScreen.ExerciseCatalog.name) })
         }
         composable(AppScreen.MealLog.name) {
-            MealLogScreen()
+            MealLogScreen(
+                navHomeScreen = { navController.navigate(AppScreen.Home.name) }
+            )
         }
     }
 }
