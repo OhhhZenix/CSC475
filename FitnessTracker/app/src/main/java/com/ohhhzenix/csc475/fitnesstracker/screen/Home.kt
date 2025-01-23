@@ -59,7 +59,7 @@ fun HomeScreen(
             )
             Spacer(Modifier.padding(4.dp))
             Button(
-                onClick = {},
+                onClick = navMealLogScreen,
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(start = 8.dp, end = 8.dp)
@@ -67,7 +67,7 @@ fun HomeScreen(
                 Text("Meal Log")
             }
             Button(
-                onClick = {},
+                onClick = navExerciseLogScreen,
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(start = 8.dp, end = 8.dp)
@@ -75,7 +75,7 @@ fun HomeScreen(
                 Text("Exercise Log")
             }
             Button(
-                onClick = {},
+                onClick = navCalculateGoalScreen,
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(start = 8.dp, end = 8.dp)
@@ -83,7 +83,7 @@ fun HomeScreen(
                 Text("Calculate Goals")
             }
             Button(
-                onClick = {},
+                onClick = navFoodCatalogScreen,
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(start = 8.dp, end = 8.dp)
@@ -91,7 +91,7 @@ fun HomeScreen(
                 Text("Food Catalog")
             }
             Button(
-                onClick = {},
+                onClick = navExerciseCatalogScreen,
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(start = 8.dp, end = 8.dp)
