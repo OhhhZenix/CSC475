@@ -11,6 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.rememberNavController
 import com.ohhhzenix.csc475.fitnesstracker.ui.theme.FitnessTrackerTheme
 
 class MainActivity : ComponentActivity() {
@@ -27,5 +28,5 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun App() {
-    
+    val navController = rememberNavController()
 }
