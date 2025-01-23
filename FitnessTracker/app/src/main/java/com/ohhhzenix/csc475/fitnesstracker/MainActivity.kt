@@ -28,7 +28,8 @@ fun App() {
     val navController = rememberNavController()
 
     NavHost(
-        navController = navController, startDestination = AppScreen.Home.name
+        navController = navController,
+        startDestination = AppScreen.Home.name
     ) {
         composable(AppScreen.Home.name) {
             HomeScreen(
