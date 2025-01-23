@@ -9,6 +9,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.ohhhzenix.csc475.fitnesstracker.screen.HomeScreen
+import com.ohhhzenix.csc475.fitnesstracker.screen.MealLogScreen
 import com.ohhhzenix.csc475.fitnesstracker.ui.theme.FitnessTrackerTheme
 
 class MainActivity : ComponentActivity() {
@@ -33,11 +34,14 @@ fun App() {
     ) {
         composable(AppScreen.Home.name) {
             HomeScreen(
-                navMealLogScreen = { navController.navigate(AppScreen.MealLogging.name) },
-                navExerciseLogScreen = { navController.navigate(AppScreen.ExerciseLogging.name) },
+                navMealLogScreen = { navController.navigate(AppScreen.MealLog.name) },
+                navExerciseLogScreen = { navController.navigate(AppScreen.ExerciseLog.name) },
                 navCalculateGoalScreen = { navController.navigate(AppScreen.CalculateGoal.name) },
                 navFoodCatalogScreen = { navController.navigate(AppScreen.FoodCatalog.name) },
                 navExerciseCatalogScreen = { navController.navigate(AppScreen.ExerciseCatalog.name) })
+        }
+        composable(AppScreen.MealLog.name) {
+            MealLogScreen()
         }
     }
 }
