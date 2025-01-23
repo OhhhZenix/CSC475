@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
@@ -13,12 +14,19 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreen() {
+fun HomeScreen(
+    navMealLogScreen: () -> Unit,
+    navExerciseLogScreen: () -> Unit,
+    navCalculateGoalScreen: () -> Unit,
+    navFoodCatalogScreen: () -> Unit,
+    navExerciseCatalogScreen: () -> Unit
+) {
     Scaffold(
         topBar = {
             TopAppBar(
@@ -39,14 +47,57 @@ fun HomeScreen() {
         ) {
             Spacer(Modifier.padding(8.dp))
             Text(
-                "Get your fitness journey started!",
-                modifier = Modifier.fillMaxWidth(),
-                textAlign = TextAlign.Center
+                "Options",
+                modifier = Modifier.padding(start = 8.dp),
+                fontSize = 32.sp
             )
-            Spacer(Modifier.padding(8.dp))
+            Spacer(Modifier.padding(2.dp))
             Text(
-                "Options"
+                "Get your fitness journey started!",
+                modifier = Modifier.padding(start = 8.dp),
+                fontStyle = FontStyle.Italic
             )
+            Spacer(Modifier.padding(4.dp))
+            Button(
+                onClick = {},
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(start = 8.dp, end = 8.dp)
+            ) {
+                Text("Meal Log")
+            }
+            Button(
+                onClick = {},
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(start = 8.dp, end = 8.dp)
+            ) {
+                Text("Exercise Log")
+            }
+            Button(
+                onClick = {},
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(start = 8.dp, end = 8.dp)
+            ) {
+                Text("Calculate Goals")
+            }
+            Button(
+                onClick = {},
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(start = 8.dp, end = 8.dp)
+            ) {
+                Text("Food Catalog")
+            }
+            Button(
+                onClick = {},
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(start = 8.dp, end = 8.dp)
+            ) {
+                Text("Exercise Catalog")
+            }
         }
     }
 }
