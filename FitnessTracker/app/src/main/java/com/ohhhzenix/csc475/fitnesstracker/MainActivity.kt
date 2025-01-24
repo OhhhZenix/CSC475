@@ -8,24 +8,36 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.room.Room
+import com.ohhhzenix.csc475.fitnesstracker.database.AppDatabase
+import com.ohhhzenix.csc475.fitnesstracker.database.MealLogDao
 import com.ohhhzenix.csc475.fitnesstracker.screen.HomeScreen
 import com.ohhhzenix.csc475.fitnesstracker.screen.MealLogScreen
 import com.ohhhzenix.csc475.fitnesstracker.ui.theme.FitnessTrackerTheme
 
 class MainActivity : ComponentActivity() {
+
+    private val db by lazy {
+        Room.databaseBuilder(
+            applicationContext,
+            AppDatabase::class.java,
+            AppDatabase.NAME
+        ).build()
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
             FitnessTrackerTheme {
-                App()
+                App(db.getMealLogDao())
             }
         }
     }
 }
 
 @Composable
-fun App() {
+fun App(mealLogDao: MealLogDao) {
     val navController = rememberNavController()
 
     NavHost(
