@@ -45,17 +45,10 @@ fun App(mealLogDao: MealLogDao) {
         startDestination = AppScreen.Home.name
     ) {
         composable(AppScreen.Home.name) {
-            HomeScreen(
-                navMealLogScreen = { navController.navigate(AppScreen.MealLog.name) },
-                navExerciseLogScreen = { navController.navigate(AppScreen.ExerciseLog.name) },
-                navCalculateGoalScreen = { navController.navigate(AppScreen.CalculateGoal.name) },
-                navFoodCatalogScreen = { navController.navigate(AppScreen.FoodCatalog.name) },
-                navExerciseCatalogScreen = { navController.navigate(AppScreen.ExerciseCatalog.name) })
+            HomeScreen(navController)
         }
         composable(AppScreen.MealLog.name) {
-            MealLogScreen(
-                navHomeScreen = { navController.navigate(AppScreen.Home.name) }
-            )
+            MealLogScreen(navController, mealLogDao)
         }
     }
 }
