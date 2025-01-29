@@ -39,7 +39,7 @@ import kotlinx.coroutines.launch
 fun FoodCatalogScreen(
     navController: NavController,
     foodCatalogDao: FoodCatalogDao,
-    selectedFoodId: MutableIntState
+    selectedFoodCatalog: MutableIntState
 ) {
     val coroutineScope = rememberCoroutineScope()
     val food = remember { mutableStateListOf<FoodCatalog>() }
@@ -109,7 +109,7 @@ fun FoodCatalogScreen(
                     items(food.sortedBy { it.name }) {
                         Button(
                             onClick = {
-                                selectedFoodId.intValue = it.id
+                                selectedFoodCatalog.intValue = it.id
                                 navController.navigate(AppScreen.EditFood.name)
                             },
                             modifier = Modifier
