@@ -59,6 +59,8 @@ fun App(
     exerciseCatalogDao: ExerciseCatalogDao
 ) {
     val navController = rememberNavController()
+    val selectedMealLog = remember { mutableIntStateOf(0) }
+    val selectedExerciseLog = remember { mutableIntStateOf(0) }
     val selectedFoodCatalog = remember { mutableIntStateOf(0) }
     val selectedExerciseCatalog = remember { mutableIntStateOf(0) }
 
