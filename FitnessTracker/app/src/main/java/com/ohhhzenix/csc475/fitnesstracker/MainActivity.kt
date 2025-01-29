@@ -12,9 +12,9 @@ import androidx.room.Room
 import com.ohhhzenix.csc475.fitnesstracker.database.AppDatabase
 import com.ohhhzenix.csc475.fitnesstracker.database.MealLogDao
 import com.ohhhzenix.csc475.fitnesstracker.screen.CalculateGoalScreen
-import com.ohhhzenix.csc475.fitnesstracker.screen.food.FoodCatalogScreen
+import com.ohhhzenix.csc475.fitnesstracker.screen.catalog.food.FoodCatalogScreen
 import com.ohhhzenix.csc475.fitnesstracker.screen.HomeScreen
-import com.ohhhzenix.csc475.fitnesstracker.screen.meallog.MealLogScreen
+import com.ohhhzenix.csc475.fitnesstracker.screen.log.meal.MealLogScreen
 import com.ohhhzenix.csc475.fitnesstracker.ui.theme.FitnessTrackerTheme
 
 class MainActivity : ComponentActivity() {
