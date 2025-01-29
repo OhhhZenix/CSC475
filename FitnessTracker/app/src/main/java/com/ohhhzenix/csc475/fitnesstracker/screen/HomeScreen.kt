@@ -57,6 +57,14 @@ fun HomeScreen(
             )
             Spacer(Modifier.padding(4.dp))
             Button(
+                onClick = { navController.navigate(AppScreen.CalculateGoal.name) },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(start = 8.dp, end = 8.dp)
+            ) {
+                Text("Calculate Goals")
+            }
+            Button(
                 onClick = { navController.navigate(AppScreen.MealLog.name) },
                 modifier = Modifier
                     .fillMaxWidth()
@@ -71,14 +79,6 @@ fun HomeScreen(
                     .padding(start = 8.dp, end = 8.dp)
             ) {
                 Text("Exercise Log")
-            }
-            Button(
-                onClick = { navController.navigate(AppScreen.CalculateGoal.name) },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(start = 8.dp, end = 8.dp)
-            ) {
-                Text("Calculate Goals")
             }
             Button(
                 onClick = { navController.navigate(AppScreen.FoodCatalog.name) },
