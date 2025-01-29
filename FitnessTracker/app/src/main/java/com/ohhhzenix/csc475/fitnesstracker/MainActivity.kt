@@ -10,10 +10,11 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.room.Room
 import com.ohhhzenix.csc475.fitnesstracker.database.AppDatabase
+import com.ohhhzenix.csc475.fitnesstracker.database.catalog.food.FoodCatalogDao
 import com.ohhhzenix.csc475.fitnesstracker.database.log.meal.MealLogDao
 import com.ohhhzenix.csc475.fitnesstracker.screen.CalculateGoalScreen
-import com.ohhhzenix.csc475.fitnesstracker.screen.catalog.food.FoodCatalogScreen
 import com.ohhhzenix.csc475.fitnesstracker.screen.HomeScreen
+import com.ohhhzenix.csc475.fitnesstracker.screen.catalog.food.FoodCatalogScreen
 import com.ohhhzenix.csc475.fitnesstracker.screen.log.meal.MealLogScreen
 import com.ohhhzenix.csc475.fitnesstracker.ui.theme.FitnessTrackerTheme
 
@@ -32,14 +33,14 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             FitnessTrackerTheme {
-                App(db.getMealLogDao())
+                App(db.getMealLogDao(), db.getFoodCatalogDao())
             }
         }
     }
 }
 
 @Composable
-fun App(mealLogDao: MealLogDao) {
+fun App(mealLogDao: MealLogDao, foodCatalogDao: FoodCatalogDao) {
     val navController = rememberNavController()
 
     NavHost(
@@ -60,25 +61,25 @@ fun App(mealLogDao: MealLogDao) {
         composable(AppScreen.MealLog.name) {
             MealLogScreen(navController, mealLogDao)
         }
-        composable(AppScreen.AddMealLog.name) {  }
-        composable(AppScreen.EditMealLog.name) {  }
+        composable(AppScreen.AddMealLog.name) { }
+        composable(AppScreen.EditMealLog.name) { }
 
         // Exercise Log
-        composable(AppScreen.ExerciseLog.name) {  }
-        composable(AppScreen.AddExerciseLog.name) {  }
-        composable(AppScreen.EditExerciseLog.name) {  }
+        composable(AppScreen.ExerciseLog.name) { }
+        composable(AppScreen.AddExerciseLog.name) { }
+        composable(AppScreen.EditExerciseLog.name) { }
 
 
         // Food Catalog
         composable(AppScreen.FoodCatalog.name) {
             FoodCatalogScreen(navController)
         }
-        composable(AppScreen.AddFood.name) {  }
-        composable(AppScreen.EditFood.name) {  }
+        composable(AppScreen.AddFood.name) { }
+        composable(AppScreen.EditFood.name) { }
 
         // Exercise Catalog
-        composable(AppScreen.ExerciseCatalog.name) {  }
-        composable(AppScreen.AddExercise.name) {  }
-        composable(AppScreen.EditExercise.name) {  }
+        composable(AppScreen.ExerciseCatalog.name) { }
+        composable(AppScreen.AddExercise.name) { }
+        composable(AppScreen.EditExercise.name) { }
     }
 }
