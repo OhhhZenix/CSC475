@@ -35,7 +35,9 @@ import kotlinx.coroutines.launch
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun EditFoodCatalogScreen(
-    navController: NavController, foodCatalogDao: FoodCatalogDao, selectedFoodId: MutableIntState
+    navController: NavController,
+    foodCatalogDao: FoodCatalogDao,
+    selectedFoodCatalog: MutableIntState
 ) {
     val context = LocalContext.current
     val coroutineScope = rememberCoroutineScope()
@@ -44,7 +46,7 @@ fun EditFoodCatalogScreen(
 
     LaunchedEffect(Unit) {
         coroutineScope.launch {
-            foodCatalogDao.getFood(selectedFoodId.intValue)?.let {
+            foodCatalogDao.getFood(selectedFoodCatalog.intValue)?.let {
                 name.value = it.name
                 calories.doubleValue = it.calories
             }
@@ -67,7 +69,7 @@ fun EditFoodCatalogScreen(
         ) {
             Spacer(Modifier.padding(8.dp))
             Text(
-                "(Selected Food ID: ${selectedFoodId.intValue})",
+                "(Selected Food ID: ${selectedFoodCatalog.intValue})",
                 modifier = Modifier.fillMaxWidth(),
                 fontSize = 12.sp,
                 textAlign = TextAlign.Center,
@@ -110,7 +112,7 @@ fun EditFoodCatalogScreen(
                     } else {
                         coroutineScope.launch {
                             foodCatalogDao.updateFood(
-                                selectedFoodId.intValue,
+                                selectedFoodCatalog.intValue,
                                 name.value,
                                 calories.doubleValue
                             )
@@ -126,7 +128,7 @@ fun EditFoodCatalogScreen(
             }
             Button(
                 onClick = {
-                    coroutineScope.launch { foodCatalogDao.removeFood(selectedFoodId.intValue) }
+                    coroutineScope.launch { foodCatalogDao.removeFood(selectedFoodCatalog.intValue) }
                     navController.navigate(AppScreen.FoodCatalog.name)
                 },
                 modifier = Modifier
