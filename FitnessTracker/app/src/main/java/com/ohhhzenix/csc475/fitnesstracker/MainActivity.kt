@@ -59,7 +59,8 @@ fun App(
     exerciseCatalogDao: ExerciseCatalogDao
 ) {
     val navController = rememberNavController()
-    val selectedFoodId = remember { mutableIntStateOf(0) }
+    val selectedFoodCatalog = remember { mutableIntStateOf(0) }
+    val selectedExerciseCatalog = remember { mutableIntStateOf(0) }
 
     NavHost(
         navController = navController,
@@ -100,13 +101,13 @@ fun App(
 
         // Food Catalog
         composable(AppScreen.FoodCatalog.name) {
-            FoodCatalogScreen(navController, foodCatalogDao, selectedFoodId)
+            FoodCatalogScreen(navController, foodCatalogDao, selectedFoodCatalog)
         }
         composable(AppScreen.AddFood.name) {
             AddFoodCatalogScreen(navController, foodCatalogDao)
         }
         composable(AppScreen.EditFood.name) {
-            EditFoodCatalogScreen(navController, foodCatalogDao, selectedFoodId)
+            EditFoodCatalogScreen(navController, foodCatalogDao, selectedFoodCatalog)
         }
 
         // Exercise Catalog
