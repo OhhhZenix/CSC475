@@ -91,10 +91,8 @@ fun MealLogScreen(
             }
             if (mealsFromToday.isEmpty()) {
                 Box(
-                    modifier = Modifier.fillMaxSize(),
-                    contentAlignment = Alignment.Center,
-
-                    ) {
+                    modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center
+                ) {
                     Column(
                         horizontalAlignment = Alignment.CenterHorizontally,
                         verticalArrangement = Arrangement.Center
