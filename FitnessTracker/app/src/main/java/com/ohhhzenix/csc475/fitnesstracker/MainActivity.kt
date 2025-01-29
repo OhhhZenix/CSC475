@@ -101,7 +101,7 @@ fun App(mealLogDao: MealLogDao, foodCatalogDao: FoodCatalogDao) {
             AddFoodCatalogScreen(navController, foodCatalogDao)
         }
         composable(AppScreen.EditFood.name) {
-            EditFoodCatalogScreen()
+            EditFoodCatalogScreen(navController, foodCatalogDao, selectedFoodId)
         }
 
         // Exercise Catalog
