@@ -7,8 +7,6 @@ import androidx.room.Upsert
 @Dao
 interface FoodCatalogDao {
 
-    // add, get, update, delete
-
     @Upsert
     suspend fun addFood(food: FoodCatalog)
 
