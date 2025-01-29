@@ -114,7 +114,7 @@ fun App(
 
         // Exercise Catalog
         composable(AppScreen.ExerciseCatalog.name) {
-            ExerciseCatalogScreen()
+            ExerciseCatalogScreen(navController, exerciseCatalogDao, selectedExerciseCatalog)
         }
         composable(AppScreen.AddExercise.name) {
             AddExerciseCatalogScreen()
