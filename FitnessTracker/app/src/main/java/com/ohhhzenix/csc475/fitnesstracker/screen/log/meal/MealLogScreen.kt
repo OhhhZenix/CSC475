@@ -39,8 +39,8 @@ fun MealLogScreen(
     navController: NavController,
     mealLogDao: MealLogDao,
 ) {
-    val mealsFromToday = remember { mutableStateListOf<MealLog>() }
     val coroutineScope = rememberCoroutineScope()
+    val mealsFromToday = remember { mutableStateListOf<MealLog>() }
 
     LaunchedEffect(Unit) {
         coroutineScope.launch {
