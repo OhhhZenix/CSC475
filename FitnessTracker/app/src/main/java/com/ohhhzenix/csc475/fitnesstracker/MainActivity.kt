@@ -120,7 +120,7 @@ fun App(
             AddExerciseCatalogScreen(navController, exerciseCatalogDao)
         }
         composable(AppScreen.EditExercise.name) {
-            EditExerciseCatalogScreen()
+            EditExerciseCatalogScreen(navController, exerciseCatalogDao, selectedExerciseCatalog)
         }
     }
 }
