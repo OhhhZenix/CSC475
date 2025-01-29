@@ -44,10 +44,9 @@ fun EditFoodCatalogScreen(
 
     LaunchedEffect(Unit) {
         coroutineScope.launch {
-            val food = foodCatalogDao.getFood(selectedFoodId.intValue)
-            if (food != null) {
-                name.value = food.name
-                calories.doubleValue = food.calories
+            foodCatalogDao.getFood(selectedFoodId.intValue)?.let {
+                name.value = it.name
+                calories.doubleValue = it.calories
             }
         }
     }
