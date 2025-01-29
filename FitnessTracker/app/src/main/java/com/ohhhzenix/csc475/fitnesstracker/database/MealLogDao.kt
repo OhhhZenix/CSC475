@@ -10,7 +10,7 @@ interface MealLogDao {
     @Upsert
     suspend fun addLog(log: MealLog)
 
-    @Query("SELECT * FROM meal_logs WHERE cast(date_time as Date) = cast(getdate() as Date)")
+    @Query("SELECT * FROM meal_logs WHERE cast(datetime(date_time) as Date) = cast(datetime(current_timestamp) as Date)")
     suspend fun getTodayLogs(): List<MealLog>
 
     @Query("SELECT * FROM meal_logs")
