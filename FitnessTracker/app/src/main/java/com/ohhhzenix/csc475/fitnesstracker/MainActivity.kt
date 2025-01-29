@@ -5,6 +5,8 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.remember
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -52,6 +54,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun App(mealLogDao: MealLogDao, foodCatalogDao: FoodCatalogDao) {
     val navController = rememberNavController()
+    val selectedFoodId = remember { mutableIntStateOf(0) }
 
     NavHost(
         navController = navController,
@@ -92,10 +95,10 @@ fun App(mealLogDao: MealLogDao, foodCatalogDao: FoodCatalogDao) {
 
         // Food Catalog
         composable(AppScreen.FoodCatalog.name) {
-            FoodCatalogScreen(navController)
+            FoodCatalogScreen(navController, foodCatalogDao, selectedFoodId)
         }
         composable(AppScreen.AddFood.name) {
-            AddFoodCatalogScreen()
+            AddFoodCatalogScreen(navController, foodCatalogDao)
         }
         composable(AppScreen.EditFood.name) {
             EditFoodCatalogScreen()
