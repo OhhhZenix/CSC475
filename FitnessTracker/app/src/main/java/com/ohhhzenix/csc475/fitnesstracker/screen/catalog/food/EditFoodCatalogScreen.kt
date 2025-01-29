@@ -1,5 +1,6 @@
 package com.ohhhzenix.csc475.fitnesstracker.screen.catalog.food
 
+import android.widget.Toast
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -21,6 +22,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -35,6 +37,7 @@ import kotlinx.coroutines.launch
 fun EditFoodCatalogScreen(
     navController: NavController, foodCatalogDao: FoodCatalogDao, selectedFoodId: MutableIntState
 ) {
+    val context = LocalContext.current
     val coroutineScope = rememberCoroutineScope()
     val name = remember { mutableStateOf("") }
     val calories = remember { mutableDoubleStateOf(0.0) }
@@ -94,7 +97,28 @@ fun EditFoodCatalogScreen(
             )
             Spacer(Modifier.padding(4.dp))
             Button(
-                onClick = {},
+                onClick = {
+                    if (name.value.isEmpty()) {
+                        Toast.makeText(context, "Name is empty. Try again.", Toast.LENGTH_SHORT)
+                            .show()
+                    } else if (calories.doubleValue <= 0.0) {
+                        Toast.makeText(
+                            context,
+                            "Calories must be greater than zero. Try again.",
+                            Toast.LENGTH_SHORT
+                        )
+                            .show()
+                    } else {
+                        coroutineScope.launch {
+                            foodCatalogDao.updateFood(
+                                selectedFoodId.intValue,
+                                name.value,
+                                calories.doubleValue
+                            )
+                        }
+                        navController.navigate(AppScreen.FoodCatalog.name)
+                    }
+                },
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(start = 8.dp, end = 8.dp)
