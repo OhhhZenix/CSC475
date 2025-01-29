@@ -14,7 +14,17 @@ import com.ohhhzenix.csc475.fitnesstracker.database.catalog.food.FoodCatalogDao
 import com.ohhhzenix.csc475.fitnesstracker.database.log.meal.MealLogDao
 import com.ohhhzenix.csc475.fitnesstracker.screen.CalculateGoalScreen
 import com.ohhhzenix.csc475.fitnesstracker.screen.HomeScreen
+import com.ohhhzenix.csc475.fitnesstracker.screen.catalog.exercise.AddExerciseCatalogScreen
+import com.ohhhzenix.csc475.fitnesstracker.screen.catalog.exercise.EditExerciseCatalogScreen
+import com.ohhhzenix.csc475.fitnesstracker.screen.catalog.exercise.ExerciseCatalogScreen
+import com.ohhhzenix.csc475.fitnesstracker.screen.catalog.food.AddFoodCatalogScreen
+import com.ohhhzenix.csc475.fitnesstracker.screen.catalog.food.EditFoodCatalogScreen
 import com.ohhhzenix.csc475.fitnesstracker.screen.catalog.food.FoodCatalogScreen
+import com.ohhhzenix.csc475.fitnesstracker.screen.log.exercise.AddExerciseLogScreen
+import com.ohhhzenix.csc475.fitnesstracker.screen.log.exercise.EditExerciseLogScreen
+import com.ohhhzenix.csc475.fitnesstracker.screen.log.exercise.ExerciseLogScreen
+import com.ohhhzenix.csc475.fitnesstracker.screen.log.meal.AddMealLogScreen
+import com.ohhhzenix.csc475.fitnesstracker.screen.log.meal.EditMealLogScreen
 import com.ohhhzenix.csc475.fitnesstracker.screen.log.meal.MealLogScreen
 import com.ohhhzenix.csc475.fitnesstracker.ui.theme.FitnessTrackerTheme
 
@@ -61,25 +71,45 @@ fun App(mealLogDao: MealLogDao, foodCatalogDao: FoodCatalogDao) {
         composable(AppScreen.MealLog.name) {
             MealLogScreen(navController, mealLogDao)
         }
-        composable(AppScreen.AddMealLog.name) { }
-        composable(AppScreen.EditMealLog.name) { }
+        composable(AppScreen.AddMealLog.name) {
+            AddMealLogScreen()
+        }
+        composable(AppScreen.EditMealLog.name) {
+            EditMealLogScreen()
+        }
 
         // Exercise Log
-        composable(AppScreen.ExerciseLog.name) { }
-        composable(AppScreen.AddExerciseLog.name) { }
-        composable(AppScreen.EditExerciseLog.name) { }
+        composable(AppScreen.ExerciseLog.name) {
+            ExerciseLogScreen()
+        }
+        composable(AppScreen.AddExerciseLog.name) {
+            AddExerciseLogScreen()
+        }
+        composable(AppScreen.EditExerciseLog.name) {
+            EditExerciseLogScreen()
+        }
 
 
         // Food Catalog
         composable(AppScreen.FoodCatalog.name) {
             FoodCatalogScreen(navController)
         }
-        composable(AppScreen.AddFood.name) { }
-        composable(AppScreen.EditFood.name) { }
+        composable(AppScreen.AddFood.name) {
+            AddFoodCatalogScreen()
+        }
+        composable(AppScreen.EditFood.name) {
+            EditFoodCatalogScreen()
+        }
 
         // Exercise Catalog
-        composable(AppScreen.ExerciseCatalog.name) { }
-        composable(AppScreen.AddExercise.name) { }
-        composable(AppScreen.EditExercise.name) { }
+        composable(AppScreen.ExerciseCatalog.name) {
+            ExerciseCatalogScreen()
+        }
+        composable(AppScreen.AddExercise.name) {
+            AddExerciseCatalogScreen()
+        }
+        composable(AppScreen.EditExercise.name) {
+            EditExerciseCatalogScreen()
+        }
     }
 }
