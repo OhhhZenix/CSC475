@@ -12,9 +12,15 @@ data class MealLog(
     @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
 
-    @ColumnInfo(name = "date_time")
-    val dateTime: LocalDateTime,
+    @ColumnInfo(name = "date")
+    val date: Long,
+
+    @ColumnInfo(name = "time")
+    val time: Long,
 
     @ColumnInfo(name = "food_id")
     val foodId: Int,
+
+    @ColumnInfo(name = "quantity")
+    val quantity: Double,
 )
