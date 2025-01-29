@@ -1,4 +1,6 @@
 package com.ohhhzenix.csc475.fitnesstracker.screen
 
-class CalculateGoalScreen {
-}
+import androidx.compose.runtime.Composable
+
+@Composable
+fun CalculateGoalScreen() {}

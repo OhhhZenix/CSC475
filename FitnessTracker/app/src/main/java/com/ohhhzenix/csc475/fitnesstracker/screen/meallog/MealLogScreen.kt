@@ -1,4 +1,4 @@
-package com.ohhhzenix.csc475.fitnesstracker.screen
+package com.ohhhzenix.csc475.fitnesstracker.screen.meallog
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
