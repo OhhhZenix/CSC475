@@ -1,17 +1,19 @@
 package com.ohhhzenix.csc475.fitnesstracker.database
 
 import androidx.room.TypeConverter
+import java.time.Instant
 import java.time.LocalDateTime
+import java.time.ZoneOffset
 
 class LocalDateTimeConverter {
 
     @TypeConverter
-    fun dateTimeToString(dateTime: LocalDateTime): String {
-        return dateTime.toString()
+    fun dateTimeToTimestamp(dateTime: LocalDateTime): Long {
+        return dateTime.atZone(ZoneOffset.UTC).toInstant().toEpochMilli()
     }
 
     @TypeConverter
-    fun stringToDateTime(string: String): LocalDateTime {
-        return LocalDateTime.parse(string)
+    fun timestampToDateTime(timestamp: Long): LocalDateTime {
+        return Instant.ofEpochMilli(timestamp).atZone(ZoneOffset.UTC).toLocalDateTime()
     }
 }
