@@ -17,15 +17,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import com.ohhhzenix.csc475.fitnesstracker.AppScreen
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(
-    navMealLogScreen: () -> Unit,
-    navExerciseLogScreen: () -> Unit,
-    navCalculateGoalScreen: () -> Unit,
-    navFoodCatalogScreen: () -> Unit,
-    navExerciseCatalogScreen: () -> Unit
+    navController: NavController,
 ) {
     Scaffold(
         topBar = {
@@ -59,7 +57,7 @@ fun HomeScreen(
             )
             Spacer(Modifier.padding(4.dp))
             Button(
-                onClick = navMealLogScreen,
+                onClick = { navController.navigate(AppScreen.MealLog.name) },
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(start = 8.dp, end = 8.dp)
@@ -67,7 +65,7 @@ fun HomeScreen(
                 Text("Meal Log")
             }
             Button(
-                onClick = navExerciseLogScreen,
+                onClick = { navController.navigate(AppScreen.ExerciseLog.name) },
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(start = 8.dp, end = 8.dp)
@@ -75,7 +73,7 @@ fun HomeScreen(
                 Text("Exercise Log")
             }
             Button(
-                onClick = navCalculateGoalScreen,
+                onClick = { navController.navigate(AppScreen.CalculateGoal.name) },
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(start = 8.dp, end = 8.dp)
@@ -83,7 +81,7 @@ fun HomeScreen(
                 Text("Calculate Goals")
             }
             Button(
-                onClick = navFoodCatalogScreen,
+                onClick = { navController.navigate(AppScreen.FoodCatalog.name) },
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(start = 8.dp, end = 8.dp)
@@ -91,7 +89,7 @@ fun HomeScreen(
                 Text("Food Catalog")
             }
             Button(
-                onClick = navExerciseCatalogScreen,
+                onClick = { navController.navigate(AppScreen.ExerciseCatalog.name) },
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(start = 8.dp, end = 8.dp)
