@@ -24,11 +24,12 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.ohhhzenix.csc475.fitnesstracker.AppScreen
+import com.ohhhzenix.csc475.fitnesstracker.database.catalog.food.FoodCatalog
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun FoodCatalogScreen(navController: NavController) {
-    val food = remember { mutableListOf<String>() }
+    val food = remember { mutableListOf<FoodCatalog>() }
 
     Scaffold(topBar = {
         TopAppBar(
@@ -85,7 +86,7 @@ fun FoodCatalogScreen(navController: NavController) {
                     "Currently available selection:", modifier = Modifier.padding(start = 8.dp)
                 )
                 LazyColumn {
-                    items(food) {
+                    items(food.sortedBy { it.name }) {
 
                     }
                 }
