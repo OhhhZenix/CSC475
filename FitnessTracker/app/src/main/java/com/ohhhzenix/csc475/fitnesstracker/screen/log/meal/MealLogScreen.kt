@@ -29,8 +29,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.ohhhzenix.csc475.fitnesstracker.AppScreen
-import com.ohhhzenix.csc475.fitnesstracker.database.MealLog
-import com.ohhhzenix.csc475.fitnesstracker.database.MealLogDao
+import com.ohhhzenix.csc475.fitnesstracker.database.log.meal.MealLog
+import com.ohhhzenix.csc475.fitnesstracker.database.log.meal.MealLogDao
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)

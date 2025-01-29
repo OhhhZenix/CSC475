@@ -3,6 +3,9 @@ package com.ohhhzenix.csc475.fitnesstracker.database
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
+import com.ohhhzenix.csc475.fitnesstracker.database.converters.LocalDateTimeConverter
+import com.ohhhzenix.csc475.fitnesstracker.database.log.meal.MealLog
+import com.ohhhzenix.csc475.fitnesstracker.database.log.meal.MealLogDao
 
 @Database(
     entities = [MealLog::class],

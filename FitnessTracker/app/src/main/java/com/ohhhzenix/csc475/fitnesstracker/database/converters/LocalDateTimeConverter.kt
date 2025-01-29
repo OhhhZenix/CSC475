@@ -1,4 +1,4 @@
-package com.ohhhzenix.csc475.fitnesstracker.database
+package com.ohhhzenix.csc475.fitnesstracker.database.converters
 
 import androidx.room.TypeConverter
 import java.time.Instant

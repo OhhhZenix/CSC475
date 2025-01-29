@@ -1,4 +1,4 @@
-package com.ohhhzenix.csc475.fitnesstracker.database
+package com.ohhhzenix.csc475.fitnesstracker.database.catalog.food
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

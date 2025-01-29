@@ -1,4 +1,4 @@
-package com.ohhhzenix.csc475.fitnesstracker.database
+package com.ohhhzenix.csc475.fitnesstracker.database.log.meal
 
 import androidx.room.Dao
 import androidx.room.Query

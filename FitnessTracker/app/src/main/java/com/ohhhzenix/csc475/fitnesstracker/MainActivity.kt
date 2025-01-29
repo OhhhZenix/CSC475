@@ -10,7 +10,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.room.Room
 import com.ohhhzenix.csc475.fitnesstracker.database.AppDatabase
-import com.ohhhzenix.csc475.fitnesstracker.database.MealLogDao
+import com.ohhhzenix.csc475.fitnesstracker.database.log.meal.MealLogDao
 import com.ohhhzenix.csc475.fitnesstracker.screen.CalculateGoalScreen
 import com.ohhhzenix.csc475.fitnesstracker.screen.catalog.food.FoodCatalogScreen
 import com.ohhhzenix.csc475.fitnesstracker.screen.HomeScreen
