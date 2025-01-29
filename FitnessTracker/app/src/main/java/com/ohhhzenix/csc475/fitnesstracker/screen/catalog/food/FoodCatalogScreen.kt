@@ -102,7 +102,7 @@ fun FoodCatalogScreen(
                 }
             } else {
                 Text(
-                    "Currently available selection:", modifier = Modifier.padding(start = 8.dp)
+                    "Current catalog:", modifier = Modifier.padding(start = 8.dp)
                 )
                 Spacer(Modifier.padding(4.dp))
                 LazyColumn {
