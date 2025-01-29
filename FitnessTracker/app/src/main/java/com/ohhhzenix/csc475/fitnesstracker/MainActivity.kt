@@ -11,6 +11,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.room.Room
 import com.ohhhzenix.csc475.fitnesstracker.database.AppDatabase
 import com.ohhhzenix.csc475.fitnesstracker.database.MealLogDao
+import com.ohhhzenix.csc475.fitnesstracker.screen.FoodCatalogScreen
 import com.ohhhzenix.csc475.fitnesstracker.screen.HomeScreen
 import com.ohhhzenix.csc475.fitnesstracker.screen.MealLogScreen
 import com.ohhhzenix.csc475.fitnesstracker.ui.theme.FitnessTrackerTheme
@@ -49,6 +50,9 @@ fun App(mealLogDao: MealLogDao) {
         }
         composable(AppScreen.MealLog.name) {
             MealLogScreen(navController, mealLogDao)
+        }
+        composable(AppScreen.FoodCatalog.name) {
+            FoodCatalogScreen(navController)
         }
     }
 }
