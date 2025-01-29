@@ -12,6 +12,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.room.Room
 import com.ohhhzenix.csc475.fitnesstracker.database.AppDatabase
+import com.ohhhzenix.csc475.fitnesstracker.database.catalog.exercise.ExerciseCatalogDao
 import com.ohhhzenix.csc475.fitnesstracker.database.catalog.food.FoodCatalogDao
 import com.ohhhzenix.csc475.fitnesstracker.database.log.meal.MealLogDao
 import com.ohhhzenix.csc475.fitnesstracker.screen.CalculateGoalScreen
@@ -45,14 +46,18 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             FitnessTrackerTheme {
-                App(db.getMealLogDao(), db.getFoodCatalogDao())
+                App(db.getMealLogDao(), db.getFoodCatalogDao(), db.getExerciseCatalogDao())
             }
         }
     }
 }
 
 @Composable
-fun App(mealLogDao: MealLogDao, foodCatalogDao: FoodCatalogDao) {
+fun App(
+    mealLogDao: MealLogDao,
+    foodCatalogDao: FoodCatalogDao,
+    exerciseCatalogDao: ExerciseCatalogDao
+) {
     val navController = rememberNavController()
     val selectedFoodId = remember { mutableIntStateOf(0) }
 
