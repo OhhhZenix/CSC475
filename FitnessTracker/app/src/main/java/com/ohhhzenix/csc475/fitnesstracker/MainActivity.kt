@@ -98,7 +98,12 @@ fun App(
 
         // Exercise Log
         composable(AppScreen.ExerciseLog.name) {
-            ExerciseLogScreen()
+            ExerciseLogScreen(
+                navController,
+                exerciseLogDao,
+                exerciseCatalogDao,
+                selectedExerciseLog
+            )
         }
         composable(AppScreen.AddExerciseLog.name) {
             AddExerciseLogScreen(navController, exerciseLogDao, exerciseCatalogDao)
