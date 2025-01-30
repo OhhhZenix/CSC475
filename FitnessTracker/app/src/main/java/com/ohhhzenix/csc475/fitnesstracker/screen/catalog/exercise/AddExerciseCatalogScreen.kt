@@ -20,11 +20,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.ohhhzenix.csc475.fitnesstracker.AppScreen
 import com.ohhhzenix.csc475.fitnesstracker.database.catalog.exercise.ExerciseCatalog
@@ -91,10 +88,14 @@ fun AddExerciseCatalogScreen(
                     if (name.value.isEmpty()) {
                         Toast.makeText(context, "Name is empty. Try again.", Toast.LENGTH_SHORT)
                             .show()
+                    } else if (calories.value.isEmpty()) {
+
+                        Toast.makeText(context, "Calories is empty. Try again.", Toast.LENGTH_SHORT)
+                            .show()
                     } else if (calories.value.toDouble() <= 0.0) {
                         Toast.makeText(
                             context,
-                            "Calories must be greater than zero. Try again.",
+                            "Calories is less than or equal to zero. Try again.",
                             Toast.LENGTH_SHORT
                         )
                             .show()
