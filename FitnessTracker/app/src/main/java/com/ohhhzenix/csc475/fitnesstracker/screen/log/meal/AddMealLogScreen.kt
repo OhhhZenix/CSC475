@@ -29,6 +29,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.ohhhzenix.csc475.fitnesstracker.AppScreen
 import com.ohhhzenix.csc475.fitnesstracker.database.catalog.food.FoodCatalogDao
+import com.ohhhzenix.csc475.fitnesstracker.isDouble
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -51,7 +52,7 @@ fun AddMealLogScreen(
     Scaffold(topBar = {
         TopAppBar(
             title = {
-                Text("Meal Log")
+                Text("New Meal Log")
             },
             colors = TopAppBarDefaults.topAppBarColors(
                 containerColor = MaterialTheme.colorScheme.primaryContainer,
@@ -62,7 +63,7 @@ fun AddMealLogScreen(
         Column(
             modifier = Modifier.padding(innerPadding)
         ) {
-            Spacer(Modifier.padding(8.dp))
+            Spacer(Modifier.padding(4.dp))
             ExposedDropdownMenuBox(
                 expanded = isExpanded.value,
                 onExpandedChange = { isExpanded.value = !isExpanded.value },
@@ -100,18 +101,19 @@ fun AddMealLogScreen(
             OutlinedTextField(
                 value = quantity.value,
                 onValueChange = {
-                    if (it.toDoubleOrNull() != null) {
+                    if (isDouble(it)) {
                         quantity.value = it
                     }
                 },
                 label = { Text("Quantity") },
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(start = 8.dp, end = 8.dp, bottom = 4.dp),
+                    .padding(start = 8.dp, end = 8.dp),
                 keyboardOptions = KeyboardOptions(
                     keyboardType = KeyboardType.Number
                 )
             )
+            Spacer(Modifier.padding(4.dp))
             Button(
                 onClick = { },
                 modifier = Modifier
