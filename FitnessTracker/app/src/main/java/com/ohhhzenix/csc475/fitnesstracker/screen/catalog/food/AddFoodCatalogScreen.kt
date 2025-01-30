@@ -85,10 +85,14 @@ fun AddFoodCatalogScreen(navController: NavController, foodCatalogDao: FoodCatal
                     if (name.value.isEmpty()) {
                         Toast.makeText(context, "Name is empty. Try again.", Toast.LENGTH_SHORT)
                             .show()
+                    } else if (calories.value.isEmpty()) {
+
+                        Toast.makeText(context, "Calories is empty. Try again.", Toast.LENGTH_SHORT)
+                            .show()
                     } else if (calories.value.toDouble() <= 0.0) {
                         Toast.makeText(
                             context,
-                            "Calories must be greater than zero. Try again.",
+                            "Calories is less than or equal to zero. Try again.",
                             Toast.LENGTH_SHORT
                         )
                             .show()
