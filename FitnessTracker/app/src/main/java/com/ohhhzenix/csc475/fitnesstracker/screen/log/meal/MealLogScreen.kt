@@ -131,7 +131,7 @@ fun MealLogScreen(
                         it.second?.let { food ->
                             Button(
                                 onClick = {
-                                    selectedMealLog.intValue = it.first.foodId
+                                    selectedMealLog.intValue = it.first.id
                                     navController.navigate(AppScreen.EditMealLog.name)
                                 },
                                 modifier = Modifier
