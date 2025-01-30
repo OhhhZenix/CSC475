@@ -19,6 +19,7 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.MutableIntState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableDoubleStateOf
 import androidx.compose.runtime.mutableStateListOf
@@ -47,7 +48,8 @@ import java.time.format.DateTimeFormatter
 fun MealLogScreen(
     navController: NavController,
     mealLogDao: MealLogDao,
-    foodCatalogDao: FoodCatalogDao
+    foodCatalogDao: FoodCatalogDao,
+    selectedMealLog: MutableIntState
 ) {
     val coroutineScope = rememberCoroutineScope()
     val meals = remember { mutableStateListOf<Pair<MealLog, FoodCatalog?>>() }
@@ -128,7 +130,10 @@ fun MealLogScreen(
                     items(meals.sortedBy { it.first.dateTime }.reversed()) {
                         it.second?.let { food ->
                             Button(
-                                onClick = {},
+                                onClick = {
+                                    selectedMealLog.intValue = it.first.foodId
+                                    navController.navigate(AppScreen.EditMealLog.name)
+                                },
                                 modifier = Modifier
                                     .fillMaxWidth()
                                     .padding(start = 8.dp, end = 8.dp, bottom = 8.dp),
