@@ -68,7 +68,6 @@ fun MealLogScreen(
             ) {
                 Text("Back")
             }
-            Spacer(Modifier.padding(8.dp))
             Text(
                 "Today's Intake",
                 modifier = Modifier.fillMaxWidth(),
