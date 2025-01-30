@@ -256,7 +256,7 @@ fun AddMealLogScreen(
                                 )
                             )
                         }
-
+                        navController.navigate(AppScreen.MealLog.name)
                     }
                 }, modifier = Modifier
                     .fillMaxWidth()
@@ -274,8 +274,4 @@ fun AddMealLogScreen(
             }
         }
     }
-}
-
-fun convertMillisToDate(it: Long) {
-
 }
