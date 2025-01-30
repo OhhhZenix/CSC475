@@ -70,7 +70,6 @@ fun ExerciseCatalogScreen(
             ) {
                 Text("Back")
             }
-            Spacer(Modifier.padding(8.dp))
             Text(
                 "Add your favorite exercise!",
                 modifier = Modifier.fillMaxWidth(),
