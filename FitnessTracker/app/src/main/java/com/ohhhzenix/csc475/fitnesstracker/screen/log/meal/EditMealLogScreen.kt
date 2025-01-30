@@ -102,7 +102,7 @@ fun EditMealLogScreen(
             pickedTime = it.dateTime.toLocalTime()
             quantity.value = it.quantity.toString()
             selectedFoodId.intValue = it.foodId
-            selectedFoodName.value = foodCatalogDao.getFood(selectedFoodId.value)?.name ?: ""
+            selectedFoodName.value = foodCatalogDao.getFood(selectedFoodId.intValue)?.name ?: ""
         }
     }
 
