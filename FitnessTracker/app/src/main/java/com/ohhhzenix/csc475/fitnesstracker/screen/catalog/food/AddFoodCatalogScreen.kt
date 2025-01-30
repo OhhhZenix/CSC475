@@ -15,21 +15,18 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableDoubleStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.ohhhzenix.csc475.fitnesstracker.AppScreen
 import com.ohhhzenix.csc475.fitnesstracker.database.catalog.food.FoodCatalog
 import com.ohhhzenix.csc475.fitnesstracker.database.catalog.food.FoodCatalogDao
+import com.ohhhzenix.csc475.fitnesstracker.isDouble
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -38,12 +35,12 @@ fun AddFoodCatalogScreen(navController: NavController, foodCatalogDao: FoodCatal
     val context = LocalContext.current
     val coroutineScope = rememberCoroutineScope()
     val name = remember { mutableStateOf("") }
-    val calories = remember { mutableDoubleStateOf(0.0) }
+    val calories = remember { mutableStateOf("") }
 
     Scaffold(topBar = {
         TopAppBar(
             title = {
-                Text("Add Food")
+                Text("New Food")
             },
             colors = TopAppBarDefaults.topAppBarColors(
                 containerColor = MaterialTheme.colorScheme.primaryContainer,
@@ -54,20 +51,7 @@ fun AddFoodCatalogScreen(navController: NavController, foodCatalogDao: FoodCatal
         Column(
             modifier = Modifier.padding(innerPadding)
         ) {
-            Spacer(Modifier.padding(8.dp))
-            Text(
-                "Create New Food",
-                modifier = Modifier.fillMaxWidth(),
-                textAlign = TextAlign.Center,
-                fontSize = 32.sp
-            )
-            Text(
-                "Get started by filling the form below.",
-                modifier = Modifier.fillMaxWidth(),
-                textAlign = TextAlign.Center,
-                fontStyle = FontStyle.Italic
-            )
-            Spacer(Modifier.padding(8.dp))
+            Spacer(Modifier.padding(4.dp))
             OutlinedTextField(
                 value = name.value,
                 onValueChange = { name.value = it },
@@ -79,8 +63,12 @@ fun AddFoodCatalogScreen(navController: NavController, foodCatalogDao: FoodCatal
                     .padding(start = 8.dp, end = 8.dp)
             )
             OutlinedTextField(
-                value = calories.doubleValue.toString(),
-                onValueChange = { calories.doubleValue = it.toDouble() },
+                value = calories.value,
+                onValueChange = {
+                    if (isDouble(it)) {
+                        calories.value = it
+                    }
+                },
                 label = {
                     Text("Calories")
                 },
@@ -91,13 +79,13 @@ fun AddFoodCatalogScreen(navController: NavController, foodCatalogDao: FoodCatal
                     keyboardType = KeyboardType.Number
                 )
             )
-            Spacer(Modifier.padding(8.dp))
+            Spacer(Modifier.padding(4.dp))
             Button(
                 onClick = {
                     if (name.value.isEmpty()) {
                         Toast.makeText(context, "Name is empty. Try again.", Toast.LENGTH_SHORT)
                             .show()
-                    } else if (calories.doubleValue <= 0.0) {
+                    } else if (calories.value.toDouble() <= 0.0) {
                         Toast.makeText(
                             context,
                             "Calories must be greater than zero. Try again.",
@@ -109,7 +97,7 @@ fun AddFoodCatalogScreen(navController: NavController, foodCatalogDao: FoodCatal
                             foodCatalogDao.addFood(
                                 FoodCatalog(
                                     name = name.value,
-                                    calories = calories.doubleValue
+                                    calories = calories.value.toDouble()
                                 )
                             )
                         }
