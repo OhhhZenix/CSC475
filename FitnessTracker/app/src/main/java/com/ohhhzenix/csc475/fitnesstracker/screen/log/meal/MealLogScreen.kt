@@ -19,9 +19,12 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableDoubleStateOf
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontStyle
@@ -36,6 +39,7 @@ import com.ohhhzenix.csc475.fitnesstracker.database.catalog.food.FoodCatalogDao
 import com.ohhhzenix.csc475.fitnesstracker.database.log.meal.MealLog
 import com.ohhhzenix.csc475.fitnesstracker.database.log.meal.MealLogDao
 import kotlinx.coroutines.launch
+import java.text.DecimalFormat
 import java.time.format.DateTimeFormatter
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -47,12 +51,15 @@ fun MealLogScreen(
 ) {
     val coroutineScope = rememberCoroutineScope()
     val meals = remember { mutableStateListOf<Pair<MealLog, FoodCatalog?>>() }
+    var totalCalories by remember { mutableDoubleStateOf(0.0) }
+    val decimalFormatter = DecimalFormat("#,###.0")
 
     LaunchedEffect(Unit) {
         coroutineScope.launch {
             mealLogDao.getTodayLogs().forEach { log ->
                 val food = foodCatalogDao.getFood(log.foodId)
                 meals.add(Pair(log, food))
+                totalCalories += (food?.calories ?: 0.0) * log.quantity
             }
         }
     }
@@ -84,7 +91,7 @@ fun MealLogScreen(
                 fontSize = 32.sp
             )
             Text(
-                "Total Calories: 0",
+                text = "Total Calories: ${decimalFormatter.format(totalCalories)}",
                 modifier = Modifier.fillMaxWidth(),
                 textAlign = TextAlign.Center,
                 fontStyle = FontStyle.Italic
@@ -138,11 +145,11 @@ fun MealLogScreen(
                                             fontSize = 16.sp
                                         )
                                         Text(
-                                            text = "Quantity: ${it.first.quantity}",
+                                            text = "Quantity: ${decimalFormatter.format(it.first.quantity)}",
                                             fontWeight = FontWeight.Light
                                         )
                                         Text(
-                                            text = "Total Calories: ${food.calories * it.first.quantity}",
+                                            text = "Total Calories: ${decimalFormatter.format(food.calories * it.first.quantity)}",
                                             fontWeight = FontWeight.Light
                                         )
                                     }
