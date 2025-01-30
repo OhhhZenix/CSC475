@@ -8,14 +8,17 @@ import com.ohhhzenix.csc475.fitnesstracker.database.catalog.exercise.ExerciseCat
 import com.ohhhzenix.csc475.fitnesstracker.database.catalog.food.FoodCatalog
 import com.ohhhzenix.csc475.fitnesstracker.database.catalog.food.FoodCatalogDao
 import com.ohhhzenix.csc475.fitnesstracker.database.converters.LocalDateTimeConverter
+import com.ohhhzenix.csc475.fitnesstracker.database.log.exercise.ExerciseLog
+import com.ohhhzenix.csc475.fitnesstracker.database.log.exercise.ExerciseLogDao
 import com.ohhhzenix.csc475.fitnesstracker.database.log.meal.MealLog
 import com.ohhhzenix.csc475.fitnesstracker.database.log.meal.MealLogDao
 
 @Database(
     entities = [
         MealLog::class,
+        ExerciseLog::class,
         FoodCatalog::class,
-        ExerciseCatalog::class
+        ExerciseCatalog::class,
     ],
     version = 1
 )
@@ -27,6 +30,8 @@ abstract class AppDatabase : RoomDatabase() {
     }
 
     abstract fun getMealLogDao(): MealLogDao
+
+    abstract fun getExerciseLogDao(): ExerciseLogDao
 
     abstract fun getFoodCatalogDao(): FoodCatalogDao
 
