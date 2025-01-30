@@ -54,7 +54,7 @@ fun ExerciseLogScreen(
     val coroutineScope = rememberCoroutineScope()
     val exercises = remember { mutableStateListOf<Pair<ExerciseLog, ExerciseCatalog?>>() }
     var totalCalories by remember { mutableDoubleStateOf(0.0) }
-    val decimalFormatter = DecimalFormat("#,###.0")
+    val decimalFormatter = DecimalFormat("#,###.#")
 
     LaunchedEffect(Unit) {
         coroutineScope.launch {
@@ -87,7 +87,7 @@ fun ExerciseLogScreen(
                 Text("Back")
             }
             Text(
-                "Today's Intake",
+                "Today's Expenditure",
                 modifier = Modifier.fillMaxWidth(),
                 textAlign = TextAlign.Center,
                 fontSize = 32.sp
