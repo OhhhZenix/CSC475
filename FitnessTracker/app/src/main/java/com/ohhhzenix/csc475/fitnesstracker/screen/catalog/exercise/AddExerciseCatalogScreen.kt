@@ -46,7 +46,7 @@ fun AddExerciseCatalogScreen(
     Scaffold(topBar = {
         TopAppBar(
             title = {
-                Text("Add Exercise")
+                Text("New Exercise")
             },
             colors = TopAppBarDefaults.topAppBarColors(
                 containerColor = MaterialTheme.colorScheme.primaryContainer,
@@ -57,20 +57,7 @@ fun AddExerciseCatalogScreen(
         Column(
             modifier = Modifier.padding(innerPadding)
         ) {
-            Spacer(Modifier.padding(8.dp))
-            Text(
-                "Create New Exercise",
-                modifier = Modifier.fillMaxWidth(),
-                textAlign = TextAlign.Center,
-                fontSize = 32.sp
-            )
-            Text(
-                "Get started by filling the form below.",
-                modifier = Modifier.fillMaxWidth(),
-                textAlign = TextAlign.Center,
-                fontStyle = FontStyle.Italic
-            )
-            Spacer(Modifier.padding(8.dp))
+            Spacer(Modifier.padding(4.dp))
             OutlinedTextField(
                 value = name.value,
                 onValueChange = { name.value = it },
@@ -82,7 +69,7 @@ fun AddExerciseCatalogScreen(
                     .padding(start = 8.dp, end = 8.dp)
             )
             OutlinedTextField(
-                value = calories.value.toString(),
+                value = calories.value,
                 onValueChange = {
                     if (isDouble(it)) {
                         calories.value = it
@@ -98,7 +85,7 @@ fun AddExerciseCatalogScreen(
                     keyboardType = KeyboardType.Number
                 )
             )
-            Spacer(Modifier.padding(8.dp))
+            Spacer(Modifier.padding(4.dp))
             Button(
                 onClick = {
                     if (name.value.isEmpty()) {
