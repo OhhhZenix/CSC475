@@ -80,10 +80,10 @@ fun App(
 
         // Meal Log
         composable(AppScreen.MealLog.name) {
-            MealLogScreen(navController, mealLogDao)
+            MealLogScreen(navController, mealLogDao, foodCatalogDao)
         }
         composable(AppScreen.AddMealLog.name) {
-            AddMealLogScreen(navController, foodCatalogDao)
+            AddMealLogScreen(navController, mealLogDao, foodCatalogDao)
         }
         composable(AppScreen.EditMealLog.name) {
             EditMealLogScreen()
