@@ -82,7 +82,7 @@ fun App(
 
         // Calculate Goal
         composable(AppScreen.CalculateGoal.name) {
-            CalculateGoalScreen()
+            CalculateGoalScreen(navController)
         }
 
         // Meal Log
