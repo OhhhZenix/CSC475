@@ -44,7 +44,6 @@ fun MealLogScreen(
 
     LaunchedEffect(Unit) {
         coroutineScope.launch {
-            mealsFromToday.clear()
             mealsFromToday.addAll(mealLogDao.getTodayLogs())
         }
     }
@@ -83,7 +82,8 @@ fun MealLogScreen(
                 fontStyle = FontStyle.Italic
             )
             Button(
-                onClick = {}, modifier = Modifier
+                onClick = { navController.navigate(AppScreen.AddMealLog.name) },
+                modifier = Modifier
                     .fillMaxWidth()
                     .padding(8.dp)
             ) {
