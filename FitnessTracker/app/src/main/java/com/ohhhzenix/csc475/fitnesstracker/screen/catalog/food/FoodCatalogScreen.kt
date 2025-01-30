@@ -70,7 +70,6 @@ fun FoodCatalogScreen(
             ) {
                 Text("Back")
             }
-            Spacer(Modifier.padding(8.dp))
             Text(
                 "Add your favorite food!",
                 modifier = Modifier.fillMaxWidth(),
