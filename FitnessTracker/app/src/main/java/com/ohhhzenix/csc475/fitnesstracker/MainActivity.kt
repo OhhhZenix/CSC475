@@ -86,7 +86,7 @@ fun App(
             AddMealLogScreen(navController, mealLogDao, foodCatalogDao)
         }
         composable(AppScreen.EditMealLog.name) {
-            EditMealLogScreen()
+            EditMealLogScreen(navController, mealLogDao, foodCatalogDao, selectedMealLog)
         }
 
         // Exercise Log
