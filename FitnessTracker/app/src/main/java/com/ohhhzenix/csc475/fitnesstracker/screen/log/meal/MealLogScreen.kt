@@ -54,7 +54,7 @@ fun MealLogScreen(
     val coroutineScope = rememberCoroutineScope()
     val meals = remember { mutableStateListOf<Pair<MealLog, FoodCatalog?>>() }
     var totalCalories by remember { mutableDoubleStateOf(0.0) }
-    val decimalFormatter = DecimalFormat("#,###.0")
+    val decimalFormatter = DecimalFormat("#,###.#")
 
     LaunchedEffect(Unit) {
         coroutineScope.launch {
