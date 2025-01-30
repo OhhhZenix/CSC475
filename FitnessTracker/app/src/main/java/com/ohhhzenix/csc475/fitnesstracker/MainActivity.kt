@@ -14,6 +14,7 @@ import androidx.room.Room
 import com.ohhhzenix.csc475.fitnesstracker.database.AppDatabase
 import com.ohhhzenix.csc475.fitnesstracker.database.catalog.exercise.ExerciseCatalogDao
 import com.ohhhzenix.csc475.fitnesstracker.database.catalog.food.FoodCatalogDao
+import com.ohhhzenix.csc475.fitnesstracker.database.log.exercise.ExerciseLogDao
 import com.ohhhzenix.csc475.fitnesstracker.database.log.meal.MealLogDao
 import com.ohhhzenix.csc475.fitnesstracker.screen.CalculateGoalScreen
 import com.ohhhzenix.csc475.fitnesstracker.screen.HomeScreen
@@ -46,7 +47,12 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             FitnessTrackerTheme {
-                App(db.getMealLogDao(), db.getFoodCatalogDao(), db.getExerciseCatalogDao())
+                App(
+                    db.getMealLogDao(),
+                    db.getExerciseLogDao(),
+                    db.getFoodCatalogDao(),
+                    db.getExerciseCatalogDao()
+                )
             }
         }
     }
@@ -55,6 +61,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun App(
     mealLogDao: MealLogDao,
+    exerciseLogDao: ExerciseLogDao,
     foodCatalogDao: FoodCatalogDao,
     exerciseCatalogDao: ExerciseCatalogDao
 ) {
@@ -94,10 +101,15 @@ fun App(
             ExerciseLogScreen()
         }
         composable(AppScreen.AddExerciseLog.name) {
-            AddExerciseLogScreen()
+            AddExerciseLogScreen(navController, exerciseLogDao, exerciseCatalogDao)
         }
         composable(AppScreen.EditExerciseLog.name) {
-            EditExerciseLogScreen()
+            EditExerciseLogScreen(
+                navController,
+                exerciseLogDao,
+                exerciseCatalogDao,
+                selectedExerciseLog
+            )
         }
 
 
