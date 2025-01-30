@@ -15,7 +15,6 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableDoubleStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
@@ -30,6 +29,7 @@ import androidx.navigation.NavController
 import com.ohhhzenix.csc475.fitnesstracker.AppScreen
 import com.ohhhzenix.csc475.fitnesstracker.database.catalog.exercise.ExerciseCatalog
 import com.ohhhzenix.csc475.fitnesstracker.database.catalog.exercise.ExerciseCatalogDao
+import com.ohhhzenix.csc475.fitnesstracker.isDouble
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -41,7 +41,7 @@ fun AddExerciseCatalogScreen(
     val context = LocalContext.current
     val coroutineScope = rememberCoroutineScope()
     val name = remember { mutableStateOf("") }
-    val calories = remember { mutableDoubleStateOf(0.0) }
+    val calories = remember { mutableStateOf("") }
 
     Scaffold(topBar = {
         TopAppBar(
@@ -82,8 +82,12 @@ fun AddExerciseCatalogScreen(
                     .padding(start = 8.dp, end = 8.dp)
             )
             OutlinedTextField(
-                value = calories.doubleValue.toString(),
-                onValueChange = { calories.doubleValue = it.toDouble() },
+                value = calories.value.toString(),
+                onValueChange = {
+                    if (isDouble(it)) {
+                        calories.value = it
+                    }
+                },
                 label = {
                     Text("Calories")
                 },
@@ -100,7 +104,7 @@ fun AddExerciseCatalogScreen(
                     if (name.value.isEmpty()) {
                         Toast.makeText(context, "Name is empty. Try again.", Toast.LENGTH_SHORT)
                             .show()
-                    } else if (calories.doubleValue <= 0.0) {
+                    } else if (calories.value.toDouble() <= 0.0) {
                         Toast.makeText(
                             context,
                             "Calories must be greater than zero. Try again.",
@@ -112,7 +116,7 @@ fun AddExerciseCatalogScreen(
                             exerciseCatalogDao.addExercise(
                                 ExerciseCatalog(
                                     name = name.value,
-                                    calories = calories.doubleValue
+                                    calories = calories.value.toDouble()
                                 )
                             )
                         }
