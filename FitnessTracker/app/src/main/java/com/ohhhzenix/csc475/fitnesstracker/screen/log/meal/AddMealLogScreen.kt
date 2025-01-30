@@ -244,7 +244,15 @@ fun AddMealLogScreen(
                             context, "A food is not selected. Try again.", Toast.LENGTH_SHORT
                         ).show()
                     } else if (quantity.value.isEmpty()) {
+
                         Toast.makeText(context, "Quantity is empty. Try again.", Toast.LENGTH_SHORT)
+                            .show()
+                    } else if (quantity.value.toDouble() <= 0.0) {
+                        Toast.makeText(
+                            context,
+                            "Quantity is less than or equal to zero. Try again.",
+                            Toast.LENGTH_SHORT
+                        )
                             .show()
                     } else {
                         coroutineScope.launch {
