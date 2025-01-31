@@ -1401,3 +1401,175 @@ start FoodCatalogScreen(navController, foodCatalogDao, selectedFoodCatalog)
         end Column
     end Scaffold
 end FoodCatalogScreen
+
+start AddFoodCatalogScreen(navController, foodCatalogDao)
+    Declarations
+        context = get current context
+        coroutineScope = initialize coroutine scope
+        name = initialize mutable state with empty string
+        calories = initialize mutable state with empty string
+
+    start Scaffold
+        set top bar with title "New Food"
+
+        start Column
+            set padding to innerPadding
+
+            addSpacer(4)
+
+            start OutlinedTextField
+                set value to name
+                set on value change to update name
+                set label to "Name"
+                set fill max width
+                set padding to 8 (start, end)
+            end OutlinedTextField
+
+            start OutlinedTextField
+                set value to calories
+                set on value change to
+                    if input is a valid double then
+                        set calories to input
+                set label to "Calories"
+                set fill max width
+                set padding to 8 (start, end)
+                set keyboard type to number
+            end OutlinedTextField
+
+            addSpacer(4)
+
+            start Button
+                set on click to
+                    if name is empty then
+                        show toast "Name is empty. Try again."
+                    else if calories is empty then
+                        show toast "Calories is empty. Try again."
+                    else if calories is less than or equal to 0 then
+                        show toast "Calories is less than or equal to zero. Try again."
+                    else
+                        launch coroutine
+                            add new FoodCatalog to foodCatalogDao with
+                                name = name
+                                calories = calories
+                        navigate to "FoodCatalog"
+                set fill max width
+                set padding to 8 (start, end)
+
+                start Text
+                    set content to "Add"
+                end Text
+            end Button
+
+            start Button
+                set on click to navigate to "FoodCatalog"
+                set fill max width
+                set padding to 8 (start, end)
+
+                start Text
+                    set content to "Back"
+                end Text
+            end Button
+        end Column
+    end Scaffold
+end AddFoodCatalogScreen
+
+start EditFoodCatalogScreen(navController, foodCatalogDao, selectedFoodCatalog)
+    Declarations
+        context = get current context
+        coroutineScope = initialize coroutine scope
+        name = initialize mutable state with empty string
+        calories = initialize mutable state with empty string
+
+    start LaunchedEffect
+        launch coroutine
+            get food with selectedFoodCatalog.intValue from foodCatalogDao
+                set name to food.name
+                set calories to food.calories (as string)
+        endLaunch
+    end LaunchedEffect
+
+    start Scaffold
+        set top bar with title "Edit Food"
+
+        start Column
+            set padding to innerPadding
+
+            addSpacer(4)
+
+            start Text
+                set content to "(Selected Food ID: [selectedFoodCatalog.intValue])"
+                set fill max width
+                set font size to 12
+                set text align to center
+            end Text
+
+            start OutlinedTextField
+                set value to name
+                set on value change to update name
+                set label to "Name"
+                set fill max width
+                set padding to 8 (start, end)
+            end OutlinedTextField
+
+            start OutlinedTextField
+                set value to calories
+                set on value change to
+                    if input is a valid double then
+                        set calories to input
+                set label to "Calories"
+                set fill max width
+                set padding to 8 (start, end)
+                set keyboard type to number
+            end OutlinedTextField
+
+            addSpacer(4)
+
+            start Button
+                set on click to
+                    if name is empty then
+                        show toast "Name is empty. Try again."
+                    else if calories is empty then
+                        show toast "Calories is empty. Try again."
+                    else if calories is less than or equal to 0 then
+                        show toast "Calories is less than or equal to zero. Try again."
+                    else
+                        launch coroutine
+                            update food in foodCatalogDao with
+                                id = selectedFoodCatalog.intValue
+                                name = name
+                                calories = calories
+                        navigate to "FoodCatalog"
+                set fill max width
+                set padding to 8 (start, end)
+
+                start Text
+                    set content to "Save"
+                end Text
+            end Button
+
+            start Button
+                set on click to
+                    launch coroutine
+                        remove food with selectedFoodCatalog.intValue from foodCatalogDao
+                    navigate to "FoodCatalog"
+                set fill max width
+                set padding to 8 (start, end)
+
+                start Text
+                    set content to "Delete"
+                end Text
+            end Button
+
+            start Button
+                set on click to navigate to "FoodCatalog"
+                set fill max width
+                set padding to 8 (start, end)
+
+                start Text
+                    set content to "Back"
+                end Text
+            end Button
+        end Column
+    end Scaffold
+end EditFoodCatalogScreen
+
