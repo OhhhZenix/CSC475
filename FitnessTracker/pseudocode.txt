@@ -1746,3 +1746,103 @@ start AddExerciseCatalogScreen(navController, exerciseCatalogDao)
         end Column
     end Scaffold
 end AddExerciseCatalogScreen
+
+start EditExerciseCatalogScreen(navController, exerciseCatalogDao, selectedExerciseCatalog)
+    Declarations
+        context = get current context
+        coroutineScope = initialize coroutine scope
+        name = initialize mutable state with empty string
+        calories = initialize mutable state with empty string
+
+    start LaunchedEffect
+        launch coroutine
+            get exercise with selectedExerciseCatalog.intValue from exerciseCatalogDao
+                set name to exercise.name
+                set calories to exercise.calories (as string)
+        endLaunch
+    end LaunchedEffect
+
+    start Scaffold
+        set top bar with title "Edit Exercise"
+
+        start Column
+            set padding to innerPadding
+
+            addSpacer(4)
+
+            start Text
+                set content to "(Selected Exercise ID: [selectedExerciseCatalog.intValue])"
+                set fill max width
+                set font size to 12
+                set text align to center
+            end Text
+
+            start OutlinedTextField
+                set value to name
+                set on value change to update name
+                set label to "Name"
+                set fill max width
+                set padding to 8 (start, end)
+            end OutlinedTextField
+
+            start OutlinedTextField
+                set value to calories
+                set on value change to
+                    if input is a valid double then
+                        set calories to input
+                set label to "Calories"
+                set fill max width
+                set padding to 8 (start, end)
+                set keyboard type to number
+            end OutlinedTextField
+
+            addSpacer(4)
+
+            start Button
+                set on click to
+                    if name is empty then
+                        show toast "Name is empty. Try again."
+                    else if calories is empty then
+                        show toast "Calories is empty. Try again."
+                    else if calories is less than or equal to 0 then
+                        show toast "Calories is less than or equal to zero. Try again."
+                    else
+                        launch coroutine
+                            update exercise in exerciseCatalogDao with
+                                id = selectedExerciseCatalog.intValue
+                                name = name
+                                calories = calories
+                        navigate to "ExerciseCatalog"
+                set fill max width
+                set padding to 8 (start, end)
+
+                start Text
+                    set content to "Save"
+                end Text
+            end Button
+
+            start Button
+                set on click to
+                    launch coroutine
+                        remove exercise with selectedExerciseCatalog.intValue from exerciseCatalogDao
+                    navigate to "ExerciseCatalog"
+                set fill max width
+                set padding to 8 (start, end)
+
+                start Text
+                    set content to "Delete"
+                end Text
+            end Button
+
+            start Button
+                set on click to navigate to "ExerciseCatalog"
+                set fill max width
+                set padding to 8 (start, end)
+
+                start Text
+                    set content to "Back"
+                end Text
+            end Button
+        end Column
+    end Scaffold
+end EditExerciseCatalogScreen
