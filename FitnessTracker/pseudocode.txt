@@ -12,64 +12,64 @@ start App(mealLogDao, exerciseLogDao, foodCatalogDao, exerciseCatalogDao)
 
         // Home Screen
         if current destination is "Home" then
-            start HomeScreen(navController)
+            HomeScreen(navController)
         endIf
 
         // Calculate Goal Screen
         if current destination is "CalculateGoal" then
-            start CalculateGoalScreen(navController)
+            CalculateGoalScreen(navController)
         endIf
 
         // Meal Log Screens
         if current destination is "MealLog" then
-            start MealLogScreen(navController, mealLogDao, foodCatalogDao, selectedMealLog)
+            MealLogScreen(navController, mealLogDao, foodCatalogDao, selectedMealLog)
         endIf
 
         if current destination is "AddMealLog" then
-            start AddMealLogScreen(navController, mealLogDao, foodCatalogDao)
+            AddMealLogScreen(navController, mealLogDao, foodCatalogDao)
         endIf
 
         if current destination is "EditMealLog" then
-            start EditMealLogScreen(navController, mealLogDao, foodCatalogDao, selectedMealLog)
+            EditMealLogScreen(navController, mealLogDao, foodCatalogDao, selectedMealLog)
         endIf
 
         // Exercise Log Screens
         if current destination is "ExerciseLog" then
-            start ExerciseLogScreen(navController, exerciseLogDao, exerciseCatalogDao, selectedExerciseLog)
+            ExerciseLogScreen(navController, exerciseLogDao, exerciseCatalogDao, selectedExerciseLog)
         endIf
 
         if current destination is "AddExerciseLog" then
-            start AddExerciseLogScreen(navController, exerciseLogDao, exerciseCatalogDao)
+            AddExerciseLogScreen(navController, exerciseLogDao, exerciseCatalogDao)
         endIf
 
         if current destination is "EditExerciseLog" then
-            start EditExerciseLogScreen(navController, exerciseLogDao, exerciseCatalogDao, selectedExerciseLog)
+            EditExerciseLogScreen(navController, exerciseLogDao, exerciseCatalogDao, selectedExerciseLog)
         endIf
 
         // Food Catalog Screens
         if current destination is "FoodCatalog" then
-            start FoodCatalogScreen(navController, foodCatalogDao, selectedFoodCatalog)
+            FoodCatalogScreen(navController, foodCatalogDao, selectedFoodCatalog)
         endIf
 
         if current destination is "AddFood" then
-            start AddFoodCatalogScreen(navController, foodCatalogDao)
+            AddFoodCatalogScreen(navController, foodCatalogDao)
         endIf
 
         if current destination is "EditFood" then
-            start EditFoodCatalogScreen(navController, foodCatalogDao, selectedFoodCatalog)
+            EditFoodCatalogScreen(navController, foodCatalogDao, selectedFoodCatalog)
         endIf
 
         // Exercise Catalog Screens
         if current destination is "ExerciseCatalog" then
-            start ExerciseCatalogScreen(navController, exerciseCatalogDao, selectedExerciseCatalog)
+            ExerciseCatalogScreen(navController, exerciseCatalogDao, selectedExerciseCatalog)
         endIf
 
         if current destination is "AddExercise" then
-            start AddExerciseCatalogScreen(navController, exerciseCatalogDao)
+            AddExerciseCatalogScreen(navController, exerciseCatalogDao)
         endIf
 
         if current destination is "EditExercise" then
-            start EditExerciseCatalogScreen(navController, exerciseCatalogDao, selectedExerciseCatalog)
+            EditExerciseCatalogScreen(navController, exerciseCatalogDao, selectedExerciseCatalog)
         endIf
     end NavHost
 end App
