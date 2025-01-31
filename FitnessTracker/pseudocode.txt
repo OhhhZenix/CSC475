@@ -1675,3 +1675,74 @@ start ExerciseCatalogScreen(navController, exerciseCatalogDao, selectedExerciseC
         end Column
     end Scaffold
 end ExerciseCatalogScreen
+
+start AddExerciseCatalogScreen(navController, exerciseCatalogDao)
+    Declarations
+        context = get current context
+        coroutineScope = initialize coroutine scope
+        name = initialize mutable state with empty string
+        calories = initialize mutable state with empty string
+
+    start Scaffold
+        set top bar with title "New Exercise"
+
+        start Column
+            set padding to innerPadding
+
+            addSpacer(4)
+
+            start OutlinedTextField
+                set value to name
+                set on value change to update name
+                set label to "Name"
+                set fill max width
+                set padding to 8 (start, end)
+            end OutlinedTextField
+
+            start OutlinedTextField
+                set value to calories
+                set on value change to
+                    if input is a valid double then
+                        set calories to input
+                set label to "Calories"
+                set fill max width
+                set padding to 8 (start, end)
+                set keyboard type to number
+            end OutlinedTextField
+
+            addSpacer(4)
+
+            start Button
+                set on click to
+                    if name is empty then
+                        show toast "Name is empty. Try again."
+                    else if calories is empty then
+                        show toast "Calories is empty. Try again."
+                    else if calories is less than or equal to 0 then
+                        show toast "Calories is less than or equal to zero. Try again."
+                    else
+                        launch coroutine
+                            add new ExerciseCatalog to exerciseCatalogDao with
+                                name = name
+                                calories = calories
+                        navigate to "ExerciseCatalog"
+                set fill max width
+                set padding to 8 (start, end)
+
+                start Text
+                    set content to "Add"
+                end Text
+            end Button
+
+            start Button
+                set on click to navigate to "ExerciseCatalog"
+                set fill max width
+                set padding to 8 (start, end)
+
+                start Text
+                    set content to "Back"
+                end Text
+            end Button
+        end Column
+    end Scaffold
+end AddExerciseCatalogScreen
