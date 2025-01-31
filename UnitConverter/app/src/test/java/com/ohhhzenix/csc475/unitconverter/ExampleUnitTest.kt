@@ -1,4 +1,4 @@
-package com.ohhhzenix.unitconverter
+package com.ohhhzenix.csc475.unitconverter
 
 import org.junit.Test
 

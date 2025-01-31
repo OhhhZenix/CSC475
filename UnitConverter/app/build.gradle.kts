@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.ohhhzenix.unitconverter"
+    namespace = "com.ohhhzenix.csc475.unitconverter"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.ohhhzenix.unitconverter"
+        applicationId = "com.ohhhzenix.csc475.unitconverter"
         minSdk = 24
         targetSdk = 35
         versionCode = 1

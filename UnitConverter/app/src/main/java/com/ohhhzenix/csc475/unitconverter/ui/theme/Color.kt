@@ -1,4 +1,4 @@
-package com.ohhhzenix.unitconverter.ui.theme
+package com.ohhhzenix.csc475.unitconverter.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

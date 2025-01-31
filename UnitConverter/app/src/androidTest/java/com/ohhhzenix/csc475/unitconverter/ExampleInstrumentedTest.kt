@@ -1,4 +1,4 @@
-package com.ohhhzenix.unitconverter
+package com.ohhhzenix.csc475.unitconverter
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("com.ohhhzenix.unitconverter", appContext.packageName)
+        assertEquals("com.ohhhzenix.csc475.unitconverter", appContext.packageName)
     }
 }
