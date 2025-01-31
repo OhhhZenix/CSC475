@@ -1298,3 +1298,106 @@ start EditExerciseLogScreen(navController, exerciseLogDao, exerciseCatalogDao, s
         end Column
     end Scaffold
 end EditExerciseLogScreen
+
+start FoodCatalogScreen(navController, foodCatalogDao, selectedFoodCatalog)
+    Declarations
+        coroutineScope = initialize coroutine scope
+        food = initialize mutable state list of FoodCatalog
+
+    start LaunchedEffect
+        launch coroutine
+            add all food from foodCatalogDao.getAllFood() to food
+        endLaunch
+    end LaunchedEffect
+
+    start Scaffold
+        set top bar with title "Food Catalog"
+
+        start Column
+            set padding to innerPadding
+
+            start Button
+                set on click to navigate to "Home"
+                set padding to 8
+
+                start Text
+                    set content to "Back"
+                end Text
+            end Button
+
+            start Text
+                set content to "Add your favorite food!"
+                set fill max width
+                set text align to center
+            end Text
+
+            start Button
+                set on click to navigate to "AddFood"
+                set fill max width
+                set padding to 8
+
+                start Text
+                    set content to "Add Food"
+                end Text
+            end Button
+
+            if food is empty then
+                start Box
+                    set fill max size
+                    set content alignment to center
+
+                    start Column
+                        set horizontal alignment to center
+                        set vertical arrangement to center
+
+                        start Text
+                            set content to "No food exists currently."
+                            set text align to center
+                        end Text
+
+                        start Text
+                            set content to "Get started by adding one."
+                            set text align to center
+                        end Text
+                    end Column
+                end Box
+            else
+                start Text
+                    set content to "Current catalog:"
+                    set padding to 8 (start)
+                end Text
+
+                addSpacer(4)
+
+                start LazyColumn
+                    for each item in food (sorted by name)
+                        start Button
+                            set on click to
+                                set selectedFoodCatalog to item.id
+                                navigate to "EditFood"
+                            set fill max width
+                            set padding to 8 (start, end, bottom)
+
+                            start Column
+                                set horizontal alignment to center
+
+                                start Text
+                                    set content to item.name
+                                    set font size to 16
+                                    set text align to center
+                                    set font weight to bold
+                                end Text
+
+                                start Text
+                                    set content to "[item.calories] Calories"
+                                    set text align to center
+                                    set font weight to light
+                                end Text
+                            end Column
+                        end Button
+                    endFor
+                end LazyColumn
+            endIf
+        end Column
+    end Scaffold
+end FoodCatalogScreen
