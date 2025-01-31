@@ -1110,3 +1110,191 @@ start AddExerciseLogScreen(navController, exerciseLogDao, exerciseCatalogDao)
         end Column
     end Scaffold
 end AddExerciseLogScreen
+
+start EditExerciseLogScreen(navController, exerciseLogDao, exerciseCatalogDao, selectedExerciseLog)
+    Declarations
+        context = get current context
+        coroutineScope = initialize coroutine scope
+        isExpanded = initialize mutable state with false
+        exercises = initialize mutable state list of pairs (String, Int)
+        selectedExerciseName = initialize mutable state with empty string
+        selectedExerciseId = initialize mutable state with 0
+        quantity = initialize mutable state with empty string
+        pickedDate = initialize mutable state with current date
+        pickedTime = initialize mutable state with current time
+        formattedDate = derive formatted date from pickedDate (pattern: "MMM dd yyyy")
+        formattedTime = derive formatted time from pickedTime (pattern: "hh:mm a")
+        datePickerState = initialize date picker state
+        timePickerState = initialize time picker state
+        showDateDialog = initialize mutable state with false
+        showTimeDialog = initialize mutable state with false
+
+    start LaunchedEffect
+        for each exercise in exerciseCatalogDao.getAllExercise()
+            add (exercise.name, exercise.id) to exercises
+        endFor
+
+        get exercise log with selectedExerciseLog.intValue
+            set pickedDate to log.dateTime (date part)
+            set pickedTime to log.dateTime (time part)
+            set quantity to log.quantity (as string)
+            set selectedExerciseId to log.exerciseId
+            set selectedExerciseName to exercise name from exerciseCatalogDao using selectedExerciseId
+        endGet
+    end LaunchedEffect
+
+    start Scaffold
+        set top bar with title "Edit Exercise Log"
+
+        start Column
+            set padding to innerPadding
+
+            addSpacer(4)
+
+            start Text
+                set content to "(Selected Exercise Log ID: [selectedExerciseLog.intValue])"
+                set fill max width
+                set font size to 12
+                set text align to center
+            end Text
+
+            start ExposedDropdownMenuBox
+                set expanded to isExpanded
+                set on expanded change to toggle isExpanded
+                set fill max width
+                set padding to 8 (start, end)
+
+                start OutlinedTextField
+                    set value to selectedExerciseName
+                    set on value change to do nothing
+                    set label to "Exercise"
+                    set read only to true
+                    set trailing icon to dropdown icon
+                    set fill max width
+                    set menu anchor type to primary editable
+                end OutlinedTextField
+
+                start ExposedDropdownMenu
+                    set expanded to isExpanded
+                    set on dismiss request to set isExpanded to false
+
+                    for each item in exercises
+                        start DropdownMenuItem
+                            set text to item.first
+                            set on click to
+                                set selectedExerciseName to item.first
+                                set selectedExerciseId to item.second
+                                set isExpanded to false
+                        end DropdownMenuItem
+                    endFor
+                end ExposedDropdownMenu
+            end ExposedDropdownMenuBox
+
+            start OutlinedTextField
+                set value to quantity
+                set on value change to
+                    if input is a valid double then
+                        set quantity to input
+                set label to "Quantity"
+                set fill max width
+                set padding to 8 (start, end)
+                set keyboard type to number
+            end OutlinedTextField
+
+            start OutlinedTextField
+                set value to formattedDate
+                set on value change to do nothing
+                set label to "Date"
+                set read only to true
+                set trailing icon to date picker icon
+                set on icon click to set showDateDialog to true
+                set fill max width
+                set padding to 8 (start, end)
+            end OutlinedTextField
+
+            if showDateDialog is true then
+                start DatePickerDialog
+                    set on dismiss request to set showDateDialog to false
+                    set dismiss button to "Cancel"
+                    set confirm button to "OK"
+                    set on confirm to
+                        set pickedDate to selected date from datePickerState
+                        set showDateDialog to false
+                    set content to DatePicker with datePickerState
+                end DatePickerDialog
+            endIf
+
+            start OutlinedTextField
+                set value to formattedTime
+                set on value change to do nothing
+                set label to "Time"
+                set read only to true
+                set trailing icon to time picker icon
+                set on icon click to set showTimeDialog to true
+                set fill max width
+                set padding to 8 (start, end)
+            end OutlinedTextField
+
+            if showTimeDialog is true then
+                start AlertDialog
+                    set on dismiss request to set showTimeDialog to false
+                    set dismiss button to "Cancel"
+                    set confirm button to "OK"
+                    set on confirm to
+                        set pickedTime to selected time from timePickerState
+                        set showTimeDialog to false
+                    set content to TimePicker with timePickerState
+                end AlertDialog
+            endIf
+
+            addSpacer(4)
+
+            start Button
+                set on click to
+                    if selectedExerciseName is empty then
+                        show toast "An exercise is not selected. Try again."
+                    else if quantity is empty then
+                        show toast "Quantity is empty. Try again."
+                    else if quantity is less than or equal to 0 then
+                        show toast "Quantity is less than or equal to zero. Try again."
+                    else
+                        launch coroutine
+                            update exercise log in exerciseLogDao with
+                                id = selectedExerciseLog.intValue
+                                dateTime = pickedDate at pickedTime
+                                exerciseId = selectedExerciseId
+                                quantity = quantity
+                        navigate to "ExerciseLog"
+                set fill max width
+                set padding to 8 (start, end)
+
+                start Text
+                    set content to "Save"
+                end Text
+            end Button
+
+            start Button
+                set on click to
+                    launch coroutine
+                        remove exercise log with selectedExerciseLog.intValue from exerciseLogDao
+                    navigate to "ExerciseLog"
+                set fill max width
+                set padding to 8 (start, end)
+
+                start Text
+                    set content to "Delete"
+                end Text
+            end Button
+
+            start Button
+                set on click to navigate to "ExerciseLog"
+                set fill max width
+                set padding to 8 (start, end)
+
+                start Text
+                    set content to "Back"
+                end Text
+            end Button
+        end Column
+    end Scaffold
+end EditExerciseLogScreen
