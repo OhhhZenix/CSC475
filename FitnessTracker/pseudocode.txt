@@ -821,3 +821,133 @@ start EditMealLogScreen(navController, mealLogDao, foodCatalogDao, selectedMealL
         end Column
     end Scaffold
 end EditMealLogScreen
+
+start ExerciseLogScreen(navController, exerciseLogDao, exerciseCatalogDao, selectedExerciseLog)
+    Declarations
+        coroutineScope = initialize coroutine scope
+        exercises = initialize mutable state list of pairs (ExerciseLog, ExerciseCatalog?)
+        totalCalories = initialize mutable state with 0.0
+        decimalFormatter = initialize decimal formatter with pattern "#,###.#"
+
+    start LaunchedEffect
+        launch coroutine
+            for each log in exerciseLogDao.getTodayLogs()
+                exercise = exerciseCatalogDao.getExercise(log.exerciseId)
+                add (log, exercise) to exercises
+                add (exercise.calories * log.quantity) to totalCalories
+            endFor
+        endLaunch
+    end LaunchedEffect
+
+    start Scaffold
+        set top bar with title "Exercise Log"
+
+        start Column
+            set padding to innerPadding
+
+            start Button
+                set on click to navigate to "Home"
+                set padding to 8
+
+                start Text
+                    set content to "Back"
+                end Text
+            end Button
+
+            start Text
+                set content to "Today's Expenditure"
+                set fill max width
+                set text align to center
+                set font size to 32
+            end Text
+
+            start Text
+                set content to "Total Calories: [formatted totalCalories]"
+                set fill max width
+                set text align to center
+                set font style to italic
+            end Text
+
+            start Button
+                set on click to navigate to "AddExerciseLog"
+                set fill max width
+                set padding to 8
+
+                start Text
+                    set content to "Add exercise"
+                end Text
+            end Button
+
+            if exercises is empty then
+                start Box
+                    set fill max size
+                    set content alignment to center
+
+                    start Column
+                        set horizontal alignment to center
+                        set vertical arrangement to center
+
+                        start Text
+                            set content to "No logs available from today."
+                            set text align to center
+                        end Text
+
+                        start Text
+                            set content to "Get started by adding one."
+                            set text align to center
+                        end Text
+                    end Column
+                end Box
+            else
+                start Text
+                    set content to "Exercises from Today:"
+                    set padding to 8 (start)
+                end Text
+
+                start LazyColumn
+                    for each exercise in exercises (sorted by dateTime, reversed)
+                        if exercise.second is not null then
+                            start Button
+                                set on click to
+                                    set selectedExerciseLog to exercise.first.id
+                                    navigate to "EditExerciseLog"
+                                set fill max width
+                                set padding to 8 (start, end, bottom)
+                                set shape to rounded corners (8)
+
+                                start Row
+                                    set horizontal arrangement to space between
+                                    set vertical alignment to center
+
+                                    start Column
+                                        start Text
+                                            set content to exercise.second.name
+                                            set font weight to bold
+                                            set font size to 16
+                                        end Text
+
+                                        start Text
+                                            set content to "Quantity: [formatted exercise.first.quantity]"
+                                            set font weight to light
+                                        end Text
+
+                                        start Text
+                                            set content to "Total Calories: [formatted exercise.second.calories * exercise.first.quantity]"
+                                            set font weight to light
+                                        end Text
+                                    end Column
+
+                                    start Text
+                                        set content to formatted exercise.first.dateTime (pattern: "MMM dd yyyy hh:mm a")
+                                        set text align to end
+                                        set fill max width
+                                    end Text
+                                end Row
+                            end Button
+                        endIf
+                    endFor
+                end LazyColumn
+            endIf
+        end Column
+    end Scaffold
+end ExerciseLogScreen
