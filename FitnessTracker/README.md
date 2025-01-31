@@ -10,3 +10,10 @@ A simple fitness tracking app made for Android using Kotlin.
 4. Enjoy interacting with the app.
 
 ## Examples
+
+![Main Screen](./example_one.png)
+![Calculate Goal Screen](./example_two.png)
+![Meal Log Screen](./example_three.png)
+![Exercise Log Screen](./example_four.png)
+![Food Catalog Screen](./example_five.png)
+![Exercise Catalog Screen](./example_six.png)
