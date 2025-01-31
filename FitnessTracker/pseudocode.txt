@@ -74,6 +74,85 @@ start App(mealLogDao, exerciseLogDao, foodCatalogDao, exerciseCatalogDao)
     end NavHost
 end App
 
+start HomeScreen(navController)
+    start Scaffold
+        set top bar with title "Fitness Tracker"
+
+        start Column
+            set fill max size
+            set padding to innerPadding
+
+            addSpacer(8)
+
+            start Text
+                set content to "Options"
+                set padding to 8 (start)
+                set font size to 32
+            end Text
+
+            addSpacer(2)
+
+            start Text
+                set content to "Get your fitness journey started!"
+                set padding to 8 (start)
+                set font style to italic
+            end Text
+
+            addSpacer(4)
+
+            start Button
+                set on click to navigate to "CalculateGoal"
+                set fill max width
+                set padding to 8 (start, end)
+
+                start Text
+                    set content to "Calculate Goals"
+                end Text
+            end Button
+
+            start Button
+                set on click to navigate to "MealLog"
+                set fill max width
+                set padding to 8 (start, end)
+
+                start Text
+                    set content to "Meal Log"
+                end Text
+            end Button
+
+            start Button
+                set on click to navigate to "ExerciseLog"
+                set fill max width
+                set padding to 8 (start, end)
+
+                start Text
+                    set content to "Exercise Log"
+                end Text
+            end Button
+
+            start Button
+                set on click to navigate to "FoodCatalog"
+                set fill max width
+                set padding to 8 (start, end)
+
+                start Text
+                    set content to "Food Catalog"
+                end Text
+            end Button
+
+            start Button
+                set on click to navigate to "ExerciseCatalog"
+                set fill max width
+                set padding to 8 (start, end)
+
+                start Text
+                    set content to "Exercise Catalog"
+                end Text
+            end Button
+        end Column
+    end Scaffold
+end HomeScreen
+
 start CalculateGoalScreen(navController)
     Declarations
         context = get current context
