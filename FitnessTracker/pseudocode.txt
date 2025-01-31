@@ -344,3 +344,133 @@ start CalculateGoalScreen(navController)
         end Column
     end Scaffold
 end CalculateGoalScreen
+
+start MealLogScreen(navController, mealLogDao, foodCatalogDao, selectedMealLog)
+    Declarations
+        coroutineScope = initialize coroutine scope
+        meals = initialize mutable state list of pairs (MealLog, FoodCatalog?)
+        totalCalories = initialize mutable state with 0.0
+        decimalFormatter = initialize decimal formatter with pattern "#,###.#"
+
+    start LaunchedEffect
+        launch coroutine
+            for each log in mealLogDao.getTodayLogs()
+                food = foodCatalogDao.getFood(log.foodId)
+                add (log, food) to meals
+                add (food.calories * log.quantity) to totalCalories
+            endFor
+        endLaunch
+    end LaunchedEffect
+
+    start Scaffold
+        set top bar with title "Meal Log"
+
+        start Column
+            set padding to innerPadding
+
+            start Button
+                set on click to navigate to "Home"
+                set padding to 8
+
+                start Text
+                    set content to "Back"
+                end Text
+            end Button
+
+            start Text
+                set content to "Today's Intake"
+                set fill max width
+                set text align to center
+                set font size to 32
+            end Text
+
+            start Text
+                set content to "Total Calories: [formatted totalCalories]"
+                set fill max width
+                set text align to center
+                set font style to italic
+            end Text
+
+            start Button
+                set on click to navigate to "AddMealLog"
+                set fill max width
+                set padding to 8
+
+                start Text
+                    set content to "Add meal"
+                end Text
+            end Button
+
+            if meals is empty then
+                start Box
+                    set fill max size
+                    set content alignment to center
+
+                    start Column
+                        set horizontal alignment to center
+                        set vertical arrangement to center
+
+                        start Text
+                            set content to "No logs available from today."
+                            set text align to center
+                        end Text
+
+                        start Text
+                            set content to "Get started by adding one."
+                            set text align to center
+                        end Text
+                    end Column
+                end Box
+            else
+                start Text
+                    set content to "Meals from Today:"
+                    set padding to 8 (start)
+                end Text
+
+                start LazyColumn
+                    for each meal in meals (sorted by dateTime, reversed)
+                        if meal.second is not null then
+                            start Button
+                                set on click to
+                                    set selectedMealLog to meal.first.id
+                                    navigate to "EditMealLog"
+                                set fill max width
+                                set padding to 8 (start, end, bottom)
+                                set shape to rounded corners (8)
+
+                                start Row
+                                    set horizontal arrangement to space between
+                                    set vertical alignment to center
+
+                                    start Column
+                                        start Text
+                                            set content to meal.second.name
+                                            set font weight to bold
+                                            set font size to 16
+                                        end Text
+
+                                        start Text
+                                            set content to "Quantity: [formatted meal.first.quantity]"
+                                            set font weight to light
+                                        end Text
+
+                                        start Text
+                                            set content to "Total Calories: [formatted meal.second.calories * meal.first.quantity]"
+                                            set font weight to light
+                                        end Text
+                                    end Column
+
+                                    start Text
+                                        set content to formatted meal.first.dateTime (pattern: "MMM dd yyyy hh:mm a")
+                                        set text align to end
+                                        set fill max width
+                                    end Text
+                                end Row
+                            end Button
+                        endIf
+                    endFor
+                end LazyColumn
+            endIf
+        end Column
+    end Scaffold
+end MealLogScreen
