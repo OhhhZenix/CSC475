@@ -1,4 +1,4 @@
-# Photo Gallery
+# Fitness Tracker
 
 A simple fitness tracking app made for Android using Kotlin.
 
