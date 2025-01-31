@@ -1573,3 +1573,105 @@ start EditFoodCatalogScreen(navController, foodCatalogDao, selectedFoodCatalog)
     end Scaffold
 end EditFoodCatalogScreen
 
+start ExerciseCatalogScreen(navController, exerciseCatalogDao, selectedExerciseCatalog)
+    Declarations
+        coroutineScope = initialize coroutine scope
+        exercises = initialize mutable state list of ExerciseCatalog
+
+    start LaunchedEffect
+        launch coroutine
+            add all exercises from exerciseCatalogDao.getAllExercise() to exercises
+        endLaunch
+    end LaunchedEffect
+
+    start Scaffold
+        set top bar with title "Exercise Catalog"
+
+        start Column
+            set padding to innerPadding
+
+            start Button
+                set on click to navigate to "Home"
+                set padding to 8
+
+                start Text
+                    set content to "Back"
+                end Text
+            end Button
+
+            start Text
+                set content to "Add your favorite exercise!"
+                set fill max width
+                set text align to center
+            end Text
+
+            start Button
+                set on click to navigate to "AddExercise"
+                set fill max width
+                set padding to 8
+
+                start Text
+                    set content to "Add Exercise"
+                end Text
+            end Button
+
+            if exercises is empty then
+                start Box
+                    set fill max size
+                    set content alignment to center
+
+                    start Column
+                        set horizontal alignment to center
+                        set vertical arrangement to center
+
+                        start Text
+                            set content to "No exercise exists currently."
+                            set text align to center
+                        end Text
+
+                        start Text
+                            set content to "Get started by adding one."
+                            set text align to center
+                        end Text
+                    end Column
+                end Box
+            else
+                start Text
+                    set content to "Current catalog:"
+                    set padding to 8 (start)
+                end Text
+
+                addSpacer(4)
+
+                start LazyColumn
+                    for each item in exercises (sorted by name)
+                        start Button
+                            set on click to
+                                set selectedExerciseCatalog to item.id
+                                navigate to "EditExercise"
+                            set fill max width
+                            set padding to 8 (start, end, bottom)
+
+                            start Column
+                                set horizontal alignment to center
+
+                                start Text
+                                    set content to item.name
+                                    set font size to 16
+                                    set text align to center
+                                    set font weight to bold
+                                end Text
+
+                                start Text
+                                    set content to "[item.calories] Calories"
+                                    set text align to center
+                                    set font weight to light
+                                end Text
+                            end Column
+                        end Button
+                    endFor
+                end LazyColumn
+            endIf
+        end Column
+    end Scaffold
+end ExerciseCatalogScreen
