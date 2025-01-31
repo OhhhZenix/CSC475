@@ -73,3 +73,195 @@ start App(mealLogDao, exerciseLogDao, foodCatalogDao, exerciseCatalogDao)
         endIf
     end NavHost
 end App
+
+start CalculateGoalScreen(navController)
+    Declarations
+        context = get current context
+        age = initialize mutable state with empty string
+        height = initialize mutable state with empty string
+        weight = initialize mutable state with empty string
+        sexOptions = initialize mutable list with ["Male", "Female"]
+        selectedSex = initialize mutable state with empty string
+        isExpanded = initialize mutable state with false
+        calculated = initialize mutable state with false
+        bmr = initialize mutable state with 0.0
+        decimalFormatter = initialize decimal formatter with pattern "#,###.#"
+
+    start Scaffold
+        set top bar with title "Calculate Goals"
+
+        start Column
+            set padding to innerPadding
+
+            if calculated is true then
+                start Column
+                    set padding to 8 (start, end), 4 (top, bottom)
+
+                    start Text
+                        set content to "Given the following details:"
+                    end Text
+
+                    start Text
+                        set content to "- Sex: [selectedSex]"
+                    end Text
+
+                    start Text
+                        set content to "- Age: [formatted age] years old"
+                    end Text
+
+                    start Text
+                        set content to "- Height: [formatted height] cm"
+                    end Text
+
+                    start Text
+                        set content to "- Weight: [formatted weight] kg"
+                    end Text
+
+                    start Text
+                        set content to "Here are the options:"
+                    end Text
+
+                    start Text
+                        set content to "- Maintain Weight: [formatted bmr] Calories"
+                    end Text
+
+                    start Text
+                        set content to "- Gain Weight: [formatted bmr + 500] Calories"
+                    end Text
+
+                    start Text
+                        set content to "- Lose Weight: [formatted bmr - 500] Calories"
+                    end Text
+                end Column
+
+                start Button
+                    set on click to set calculated to false
+                    set fill max width
+                    set padding to 8 (start, end)
+
+                    start Text
+                        set content to "Recalculate"
+                    end Text
+                end Button
+
+                start Button
+                    set on click to navigate to "Home"
+                    set fill max width
+                    set padding to 8 (start, end)
+
+                    start Text
+                        set content to "Back to Home"
+                    end Text
+                end Button
+            else
+                addSpacer(4)
+
+                start ExposedDropdownMenuBox
+                    set expanded to isExpanded
+                    set on expanded change to toggle isExpanded
+                    set fill max width
+                    set padding to 8 (start, end)
+
+                    start OutlinedTextField
+                        set value to selectedSex
+                        set on value change to do nothing
+                        set label to "Sex"
+                        set read only to true
+                        set trailing icon to dropdown icon
+                        set fill max width
+                        set menu anchor type to primary editable
+                    end OutlinedTextField
+
+                    start ExposedDropdownMenu
+                        set expanded to isExpanded
+                        set on dismiss request to set isExpanded to false
+
+                        for each option in sexOptions
+                            start DropdownMenuItem
+                                set text to option
+                                set on click to
+                                    set selectedSex to option
+                                    set isExpanded to false
+                            end DropdownMenuItem
+                        endFor
+                    end ExposedDropdownMenu
+                end ExposedDropdownMenuBox
+
+                start OutlinedTextField
+                    set value to age
+                    set on value change to
+                        if input is a valid double then
+                            set age to input
+                    set label to "Age (years)"
+                    set fill max width
+                    set padding to 8 (start, end)
+                    set keyboard type to number
+                end OutlinedTextField
+
+                start OutlinedTextField
+                    set value to height
+                    set on value change to
+                        if input is a valid double then
+                            set height to input
+                    set label to "Height (cm)"
+                    set fill max width
+                    set padding to 8 (start, end)
+                    set keyboard type to number
+                end OutlinedTextField
+
+                start OutlinedTextField
+                    set value to weight
+                    set on value change to
+                        if input is a valid double then
+                            set weight to input
+                    set label to "Weight (kg)"
+                    set fill max width
+                    set padding to 8 (start, end)
+                    set keyboard type to number
+                end OutlinedTextField
+
+                addSpacer(4)
+
+                start Button
+                    set on click to
+                        if selectedSex is empty then
+                            show toast "A sex has not been selected. Try again."
+                        else if age is empty then
+                            show toast "Age is empty. Try again."
+                        else if age is less than or equal to 0 then
+                            show toast "Age must be greater than zero. Try again."
+                        else if height is empty then
+                            show toast "Height is empty. Try again."
+                        else if height is less than or equal to 0 then
+                            show toast "Height must be greater than zero. Try again."
+                        else if weight is empty then
+                            show toast "Weight is empty. Try again."
+                        else if weight is less than or equal to 0 then
+                            show toast "Weight must be greater than zero. Try again."
+                        else
+                            if selectedSex is "Male" then
+                                set bmr to calculateMaleBMR(weight, height, age)
+                            else if selectedSex is "Female" then
+                                set bmr to calculateFemaleBMR(weight, height, age)
+                            set calculated to true
+                    set fill max width
+                    set padding to 8 (start, end)
+
+                    start Text
+                        set content to "Calculate"
+                    end Text
+                end Button
+
+                start Button
+                    set on click to navigate to "Home"
+                    set fill max width
+                    set padding to 8 (start, end)
+
+                    start Text
+                        set content to "Back"
+                    end Text
+                end Button
+            endIf
+        end Column
+    end Scaffold
+end CalculateGoalScreen
