@@ -396,185 +396,241 @@ fun LengthUnits() {
                 nauticalMile = kilometerToNauticalMile(kilometer.toDouble()).toString()
             }
         },
-        label = {
-            Text("Kilometer")
-        },
+        label = { Text("Kilometer") },
         modifier = Modifier
             .fillMaxWidth()
             .padding(start = 8.dp, end = 8.dp),
-        keyboardOptions = KeyboardOptions(
-            keyboardType = KeyboardType.Number
-        )
+        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
     )
     OutlinedTextField(
         value = meter,
         onValueChange = {
             if (isDouble(it)) {
                 meter = it
+                kilometer = meterToKilometer(meter.toDouble()).toString()
+                centimeter = meterToCentimeter(meter.toDouble()).toString()
+                millimeter = meterToMillimeter(meter.toDouble()).toString()
+                micrometer = meterToMicrometer(meter.toDouble()).toString()
+                nanometer = meterToNanometer(meter.toDouble()).toString()
+                mile = meterToMile(meter.toDouble()).toString()
+                yard = meterToYard(meter.toDouble()).toString()
+                foot = meterToFoot(meter.toDouble()).toString()
+                inch = meterToInch(meter.toDouble()).toString()
+                nauticalMile = meterToNauticalMile(meter.toDouble()).toString()
             }
         },
-        label = {
-            Text("Meter")
-        },
+        label = { Text("Meter") },
         modifier = Modifier
             .fillMaxWidth()
             .padding(start = 8.dp, end = 8.dp),
-        keyboardOptions = KeyboardOptions(
-            keyboardType = KeyboardType.Number
-        )
+        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
     )
     OutlinedTextField(
         value = centimeter,
         onValueChange = {
             if (isDouble(it)) {
                 centimeter = it
+                kilometer = centimeterToKilometer(centimeter.toDouble()).toString()
+                meter = centimeterToMeter(centimeter.toDouble()).toString()
+                millimeter = centimeterToMillimeter(centimeter.toDouble()).toString()
+                micrometer = centimeterToMicrometer(centimeter.toDouble()).toString()
+                nanometer = centimeterToNanometer(centimeter.toDouble()).toString()
+                mile = centimeterToMile(centimeter.toDouble()).toString()
+                yard = centimeterToYard(centimeter.toDouble()).toString()
+                foot = centimeterToFoot(centimeter.toDouble()).toString()
+                inch = centimeterToInch(centimeter.toDouble()).toString()
+                nauticalMile = centimeterToNauticalMile(centimeter.toDouble()).toString()
             }
         },
-        label = {
-            Text("Centimeter")
-        },
+        label = { Text("Centimeter") },
         modifier = Modifier
             .fillMaxWidth()
             .padding(start = 8.dp, end = 8.dp),
-        keyboardOptions = KeyboardOptions(
-            keyboardType = KeyboardType.Number
-        )
+        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
     )
     OutlinedTextField(
         value = millimeter,
         onValueChange = {
             if (isDouble(it)) {
                 millimeter = it
+                kilometer = millimeterToKilometer(millimeter.toDouble()).toString()
+                meter = millimeterToMeter(millimeter.toDouble()).toString()
+                centimeter = millimeterToCentimeter(millimeter.toDouble()).toString()
+                micrometer = millimeterToMicrometer(millimeter.toDouble()).toString()
+                nanometer = millimeterToNanometer(millimeter.toDouble()).toString()
+                mile = millimeterToMile(millimeter.toDouble()).toString()
+                yard = millimeterToYard(millimeter.toDouble()).toString()
+                foot = millimeterToFoot(millimeter.toDouble()).toString()
+                inch = millimeterToInch(millimeter.toDouble()).toString()
+                nauticalMile = millimeterToNauticalMile(millimeter.toDouble()).toString()
             }
         },
-        label = {
-            Text("Millimeter")
-        },
+        label = { Text("Millimeter") },
         modifier = Modifier
             .fillMaxWidth()
             .padding(start = 8.dp, end = 8.dp),
-        keyboardOptions = KeyboardOptions(
-            keyboardType = KeyboardType.Number
-        )
+        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
     )
     OutlinedTextField(
         value = micrometer,
         onValueChange = {
             if (isDouble(it)) {
                 micrometer = it
+                kilometer = micrometerToKilometer(micrometer.toDouble()).toString()
+                meter = micrometerToMeter(micrometer.toDouble()).toString()
+                centimeter = micrometerToCentimeter(micrometer.toDouble()).toString()
+                millimeter = micrometerToMillimeter(micrometer.toDouble()).toString()
+                nanometer = micrometerToNanometer(micrometer.toDouble()).toString()
+                mile = micrometerToMile(micrometer.toDouble()).toString()
+                yard = micrometerToYard(micrometer.toDouble()).toString()
+                foot = micrometerToFoot(micrometer.toDouble()).toString()
+                inch = micrometerToInch(micrometer.toDouble()).toString()
+                nauticalMile = micrometerToNauticalMile(micrometer.toDouble()).toString()
             }
         },
-        label = {
-            Text("Micrometer")
-        },
+        label = { Text("Micrometer") },
         modifier = Modifier
             .fillMaxWidth()
             .padding(start = 8.dp, end = 8.dp),
-        keyboardOptions = KeyboardOptions(
-            keyboardType = KeyboardType.Number
-        )
+        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
     )
     OutlinedTextField(
         value = nanometer,
         onValueChange = {
             if (isDouble(it)) {
                 nanometer = it
+                kilometer = nanometerToKilometer(nanometer.toDouble()).toString()
+                meter = nanometerToMeter(nanometer.toDouble()).toString()
+                centimeter = nanometerToCentimeter(nanometer.toDouble()).toString()
+                millimeter = nanometerToMillimeter(nanometer.toDouble()).toString()
+                micrometer = nanometerToMicrometer(nanometer.toDouble()).toString()
+                mile = nanometerToMile(nanometer.toDouble()).toString()
+                yard = nanometerToYard(nanometer.toDouble()).toString()
+                foot = nanometerToFoot(nanometer.toDouble()).toString()
+                inch = nanometerToInch(nanometer.toDouble()).toString()
+                nauticalMile = nanometerToNauticalMile(nanometer.toDouble()).toString()
             }
         },
-        label = {
-            Text("Nanometer")
-        },
+        label = { Text("Nanometer") },
         modifier = Modifier
             .fillMaxWidth()
             .padding(start = 8.dp, end = 8.dp),
-        keyboardOptions = KeyboardOptions(
-            keyboardType = KeyboardType.Number
-        )
+        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
     )
     OutlinedTextField(
         value = mile,
         onValueChange = {
             if (isDouble(it)) {
                 mile = it
+                kilometer = mileToKilometer(mile.toDouble()).toString()
+                meter = mileToMeter(mile.toDouble()).toString()
+                centimeter = mileToCentimeter(mile.toDouble()).toString()
+                millimeter = mileToMillimeter(mile.toDouble()).toString()
+                micrometer = mileToMicrometer(mile.toDouble()).toString()
+                nanometer = mileToNanometer(mile.toDouble()).toString()
+                yard = mileToYard(mile.toDouble()).toString()
+                foot = mileToFoot(mile.toDouble()).toString()
+                inch = mileToInch(mile.toDouble()).toString()
+                nauticalMile = mileToNauticalMile(mile.toDouble()).toString()
             }
         },
-        label = {
-            Text("Mile")
-        },
+        label = { Text("Mile") },
         modifier = Modifier
             .fillMaxWidth()
             .padding(start = 8.dp, end = 8.dp),
-        keyboardOptions = KeyboardOptions(
-            keyboardType = KeyboardType.Number
-        )
+        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
     )
     OutlinedTextField(
         value = yard,
         onValueChange = {
             if (isDouble(it)) {
                 yard = it
+                kilometer = yardToKilometer(yard.toDouble()).toString()
+                meter = yardToMeter(yard.toDouble()).toString()
+                centimeter = yardToCentimeter(yard.toDouble()).toString()
+                millimeter = yardToMillimeter(yard.toDouble()).toString()
+                micrometer = yardToMicrometer(yard.toDouble()).toString()
+                nanometer = yardToNanometer(yard.toDouble()).toString()
+                mile = yardToMile(yard.toDouble()).toString()
+                foot = yardToFoot(yard.toDouble()).toString()
+                inch = yardToInch(yard.toDouble()).toString()
+                nauticalMile = yardToNauticalMile(yard.toDouble()).toString()
             }
         },
-        label = {
-            Text("Yard")
-        },
+        label = { Text("Yard") },
         modifier = Modifier
             .fillMaxWidth()
             .padding(start = 8.dp, end = 8.dp),
-        keyboardOptions = KeyboardOptions(
-            keyboardType = KeyboardType.Number
-        )
+        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
     )
     OutlinedTextField(
         value = foot,
         onValueChange = {
             if (isDouble(it)) {
                 foot = it
+                kilometer = footToKilometer(foot.toDouble()).toString()
+                meter = footToMeter(foot.toDouble()).toString()
+                centimeter = footToCentimeter(foot.toDouble()).toString()
+                millimeter = footToMillimeter(foot.toDouble()).toString()
+                micrometer = footToMicrometer(foot.toDouble()).toString()
+                nanometer = footToNanometer(foot.toDouble()).toString()
+                mile = footToMile(foot.toDouble()).toString()
+                yard = footToYard(foot.toDouble()).toString()
+                inch = footToInch(foot.toDouble()).toString()
+                nauticalMile = footToNauticalMile(foot.toDouble()).toString()
             }
         },
-        label = {
-            Text("Foot")
-        },
+        label = { Text("Foot") },
         modifier = Modifier
             .fillMaxWidth()
             .padding(start = 8.dp, end = 8.dp),
-        keyboardOptions = KeyboardOptions(
-            keyboardType = KeyboardType.Number
-        )
+        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
     )
     OutlinedTextField(
         value = inch,
         onValueChange = {
             if (isDouble(it)) {
                 inch = it
+                kilometer = inchToKilometer(inch.toDouble()).toString()
+                meter = inchToMeter(inch.toDouble()).toString()
+                centimeter = inchToCentimeter(inch.toDouble()).toString()
+                millimeter = inchToMillimeter(inch.toDouble()).toString()
+                micrometer = inchToMicrometer(inch.toDouble()).toString()
+                nanometer = inchToNanometer(inch.toDouble()).toString()
+                mile = inchToMile(inch.toDouble()).toString()
+                yard = inchToYard(inch.toDouble()).toString()
+                foot = inchToFoot(inch.toDouble()).toString()
+                nauticalMile = inchToNauticalMile(inch.toDouble()).toString()
             }
         },
-        label = {
-            Text("Inch")
-        },
+        label = { Text("Inch") },
         modifier = Modifier
             .fillMaxWidth()
             .padding(start = 8.dp, end = 8.dp),
-        keyboardOptions = KeyboardOptions(
-            keyboardType = KeyboardType.Number
-        )
+        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
     )
     OutlinedTextField(
         value = nauticalMile,
         onValueChange = {
             if (isDouble(it)) {
                 nauticalMile = it
+                kilometer = nauticalMileToKilometer(nauticalMile.toDouble()).toString()
+                meter = nauticalMileToMeter(nauticalMile.toDouble()).toString()
+                centimeter = nauticalMileToCentimeter(nauticalMile.toDouble()).toString()
+                millimeter = nauticalMileToMillimeter(nauticalMile.toDouble()).toString()
+                micrometer = nauticalMileToMicrometer(nauticalMile.toDouble()).toString()
+                nanometer = nauticalMileToNanometer(nauticalMile.toDouble()).toString()
+                mile = nauticalMileToMile(nauticalMile.toDouble()).toString()
+                yard = nauticalMileToYard(nauticalMile.toDouble()).toString()
+                foot = nauticalMileToFoot(nauticalMile.toDouble()).toString()
+                inch = nauticalMileToInch(nauticalMile.toDouble()).toString()
             }
         },
-        label = {
-            Text("Nautical mile")
-        },
+        label = { Text("Nautical Mile") },
         modifier = Modifier
             .fillMaxWidth()
             .padding(start = 8.dp, end = 8.dp),
-        keyboardOptions = KeyboardOptions(
-            keyboardType = KeyboardType.Number
-        )
+        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
     )
 }
 
@@ -818,6 +874,7 @@ fun MassUnits() {
 fun App() {
     var unitType by remember { mutableStateOf(UnitType.Temperature) }
     var optionScreen by remember { mutableStateOf(false) }
+    val scrollState = rememberScrollState()
 
     Scaffold(
         topBar = {
@@ -836,7 +893,7 @@ fun App() {
             modifier = Modifier
                 .padding(innerPadding)
                 .fillMaxSize()
-                .verticalScroll(rememberScrollState())
+                .verticalScroll(scrollState)
         ) {
             if (optionScreen) {
                 Text(
