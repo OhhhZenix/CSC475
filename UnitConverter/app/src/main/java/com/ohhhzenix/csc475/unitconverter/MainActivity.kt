@@ -45,6 +45,7 @@ fun kelvinToFahrenheit(kelvin: Double) {}
 @Composable
 fun App() {
     val options = listOf("Temperature", "");
+    val options = listOf("Temperature", "Length", "Mass");
 
     Scaffold(
         topBar = {
