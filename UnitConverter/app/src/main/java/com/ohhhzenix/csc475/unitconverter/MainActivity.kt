@@ -409,6 +409,7 @@ fun LengthUnits() {
                 microgram = kilogramToMicrogram(kilogram.toDouble()).toString()
                 imperialTon = kilogramToImperialTon(kilogram.toDouble()).toString()
                 usTon = kilogramToUSTon(kilogram.toDouble()).toString()
+                stone = kilogramToStone(kilogram.toDouble()).toString()
                 pound = kilogramToPound(kilogram.toDouble()).toString()
                 ounce = kilogramToOunce(kilogram.toDouble()).toString()
             }
