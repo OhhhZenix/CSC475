@@ -29,22 +29,33 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-fun celsiusToFahrenheit(celsius: Double) {}
+fun celsiusToFahrenheit(celsius: Double): Double {
+    return (celsius * 9/5) + 32
+}
 
-fun celsiusToKelvin(celsius: Double) {}
+fun celsiusToKelvin(celsius: Double): Double {
+    return celsius + 273.15
+}
 
-fun fahrenheitToCelsius(fahrenheit: Double) {}
+fun fahrenheitToCelsius(fahrenheit: Double): Double {
+    return (fahrenheit - 32) * 5/9
+}
 
-fun fahrenheitToKelvin(fahrenheit: Double) {}
+fun fahrenheitToKelvin(fahrenheit: Double): Double {
+    return (fahrenheit - 32) * 5/9 + 273.15
+}
 
-fun kelvinToCelsius(kelvin: Double) {}
+fun kelvinToCelsius(kelvin: Double): Double {
+    return kelvin - 273.15
+}
 
-fun kelvinToFahrenheit(kelvin: Double) {}
+fun kelvinToFahrenheit(kelvin: Double): Double {
+    return (kelvin - 273.15) * 9/5 + 32
+}
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun App() {
-    val options = listOf("Temperature", "");
     val options = listOf("Temperature", "Length", "Mass");
 
     Scaffold(
