@@ -373,7 +373,11 @@ fun App() {
                     .fillMaxWidth()
                     .padding(start = 8.dp, end = 8.dp)
             ) { Text("Options") }
-            TemperatureUnits()
+            when (unitType) {
+                UnitType.Temperature -> TemperatureUnits()
+                UnitType.Length -> {}
+                UnitType.Mass -> {}
+            }
         }
     }
 }
