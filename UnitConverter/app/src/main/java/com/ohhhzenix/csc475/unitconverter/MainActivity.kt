@@ -8,7 +8,9 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
@@ -186,13 +188,165 @@ fun nauticalMileToYard(nm: Double): Double = nm * 2025.37
 fun nauticalMileToFoot(nm: Double): Double = nm * 6076.12
 fun nauticalMileToInch(nm: Double): Double = nm * 72913.4
 
+// Metric Ton to other units
+fun metricTonToKilogram(metricTon: Double): Double = metricTon * 1000
+fun metricTonToGram(metricTon: Double): Double = metricTon * 1_000_000
+fun metricTonToMilligram(metricTon: Double): Double = metricTon * 1_000_000_000
+fun metricTonToMicrogram(metricTon: Double): Double = metricTon * 1_000_000_000_000
+fun metricTonToImperialTon(metricTon: Double): Double = metricTon * 0.984207
+fun metricTonToStone(metricTon: Double): Double = metricTon * 157.473
+fun metricTonToPound(metricTon: Double): Double = metricTon * 2204.62
+fun metricTonToOunce(metricTon: Double): Double = metricTon * 35_273.96
+
+// Kilogram to other units
+fun kilogramToMetricTon(kg: Double): Double = kg / 1000
+fun kilogramToGram(kg: Double): Double = kg * 1000
+fun kilogramToMilligram(kg: Double): Double = kg * 1_000_000
+fun kilogramToMicrogram(kg: Double): Double = kg * 1_000_000_000
+fun kilogramToImperialTon(kg: Double): Double = kg / 1016.05
+fun kilogramToStone(kg: Double): Double = kg / 6.35
+fun kilogramToPound(kg: Double): Double = kg * 2.20462
+fun kilogramToOunce(kg: Double): Double = kg * 35.274
+
+// Gram to other units
+fun gramToMetricTon(g: Double): Double = g / 1_000_000
+fun gramToKilogram(g: Double): Double = g / 1000
+fun gramToMilligram(g: Double): Double = g * 1000
+fun gramToMicrogram(g: Double): Double = g * 1_000_000
+fun gramToImperialTon(g: Double): Double = g / 1_016_050
+fun gramToStone(g: Double): Double = g / 6350.293
+fun gramToPound(g: Double): Double = g / 453.592
+fun gramToOunce(g: Double): Double = g / 28.3495
+
+// Milligram to other units
+fun milligramToMetricTon(mg: Double): Double = mg / 1_000_000_000
+fun milligramToKilogram(mg: Double): Double = mg / 1_000_000
+fun milligramToGram(mg: Double): Double = mg / 1000
+fun milligramToMicrogram(mg: Double): Double = mg * 1000
+fun milligramToImperialTon(mg: Double): Double = mg / 1_016_050_000
+fun milligramToStone(mg: Double): Double = mg / 6_350_293
+fun milligramToPound(mg: Double): Double = mg / 453_592_370
+fun milligramToOunce(mg: Double): Double = mg / 28_349_523.125
+
+// Microgram to other units
+fun microgramToMetricTon(ug: Double): Double = ug / 1_000_000_000_000
+fun microgramToKilogram(ug: Double): Double = ug / 1_000_000_000
+fun microgramToGram(ug: Double): Double = ug / 1_000_000
+fun microgramToMilligram(ug: Double): Double = ug / 1000
+fun microgramToImperialTon(ug: Double): Double = ug / 1_016_050_000_000
+fun microgramToStone(ug: Double): Double = ug / 6_350_293_000
+fun microgramToPound(ug: Double): Double = ug / 453_592_370_000
+fun microgramToOunce(ug: Double): Double = ug / 28_349_523_125
+
+// Imperial Ton to other units
+fun imperialTonToMetricTon(impTon: Double): Double = impTon / 0.984207
+fun imperialTonToKilogram(impTon: Double): Double = impTon * 1016.05
+fun imperialTonToGram(impTon: Double): Double = impTon * 1_016_050
+fun imperialTonToMilligram(impTon: Double): Double = impTon * 1_016_050_000
+fun imperialTonToMicrogram(impTon: Double): Double = impTon * 1_016_050_000_000
+fun imperialTonToStone(impTon: Double): Double = impTon * 20.0000
+fun imperialTonToPound(impTon: Double): Double = impTon * 2_240
+fun imperialTonToOunce(impTon: Double): Double = impTon * 35_840
+
+// Stone to other units
+fun stoneToMetricTon(stone: Double): Double = stone / 157.473
+fun stoneToKilogram(stone: Double): Double = stone * 6.35
+fun stoneToGram(stone: Double): Double = stone * 6350.293
+fun stoneToMilligram(stone: Double): Double = stone * 6_350_293
+fun stoneToMicrogram(stone: Double): Double = stone * 6_350_293_000
+fun stoneToImperialTon(stone: Double): Double = stone / 20
+fun stoneToPound(stone: Double): Double = stone * 14
+fun stoneToOunce(stone: Double): Double = stone * 224
+
+// Pound to other units
+fun poundToMetricTon(pound: Double): Double = pound / 2204.62
+fun poundToKilogram(pound: Double): Double = pound / 2.20462
+fun poundToGram(pound: Double): Double = pound * 453.592
+fun poundToMilligram(pound: Double): Double = pound * 453_592
+fun poundToMicrogram(pound: Double): Double = pound * 453_592_370
+fun poundToImperialTon(pound: Double): Double = pound / 2240
+fun poundToStone(pound: Double): Double = pound / 14
+fun poundToOunce(pound: Double): Double = pound * 16
+
+// Ounce to other units
+fun ounceToMetricTon(ounce: Double): Double = ounce / 35_273.96
+fun ounceToKilogram(ounce: Double): Double = ounce / 35.274
+fun ounceToGram(ounce: Double): Double = ounce * 28.3495
+fun ounceToMilligram(ounce: Double): Double = ounce * 28_349.5
+fun ounceToMicrogram(ounce: Double): Double = ounce * 28_349_523.125
+fun ounceToImperialTon(ounce: Double): Double = ounce / 35_840
+fun ounceToStone(ounce: Double): Double = ounce / 224
+fun ounceToPound(ounce: Double): Double = ounce / 16
+
+@Composable
+fun TemperatureUnits() {
+    var celsius by remember { mutableStateOf("") }
+    var fahrenheit by remember { mutableStateOf("") }
+    var kelvin by remember { mutableStateOf("") }
+
+    OutlinedTextField(
+        value = celsius,
+        onValueChange = {
+            if (isDouble(it)) {
+                celsius = it
+                fahrenheit = celsiusToFahrenheit(celsius.toDouble()).toString()
+                kelvin = celsiusToKelvin(celsius.toDouble()).toString()
+            }
+        },
+        label = {
+            Text("Celsius")
+        },
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(start = 8.dp, end = 8.dp),
+        keyboardOptions = KeyboardOptions(
+            keyboardType = KeyboardType.Number
+        )
+    )
+    OutlinedTextField(
+        value = fahrenheit,
+        onValueChange = {
+            if (isDouble(it)) {
+                fahrenheit = it
+                celsius = fahrenheitToCelsius(fahrenheit.toDouble()).toString()
+                kelvin = fahrenheitToKelvin(fahrenheit.toDouble()).toString()
+            }
+        },
+        label = {
+            Text("Fahrenheit")
+        },
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(start = 8.dp, end = 8.dp),
+        keyboardOptions = KeyboardOptions(
+            keyboardType = KeyboardType.Number
+        )
+    )
+    OutlinedTextField(
+        value = kelvin,
+        onValueChange = {
+            if (isDouble(it)) {
+                kelvin = it
+                celsius = kelvinToCelsius(kelvin.toDouble()).toString()
+                fahrenheit = kelvinToFahrenheit(kelvin.toDouble()).toString()
+            }
+        },
+        label = {
+            Text("Kelvin")
+        },
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(start = 8.dp, end = 8.dp),
+        keyboardOptions = KeyboardOptions(
+            keyboardType = KeyboardType.Number
+        )
+    )
+}
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun App() {
     var unitType by remember { mutableStateOf(UnitType.Temperature) }
-    var celsius by remember { mutableStateOf("") }
-    var fahrenheit by remember { mutableStateOf("") }
-    var kelvin by remember { mutableStateOf("") }
 
     Scaffold(
         topBar = {
@@ -212,63 +366,14 @@ fun App() {
                 .padding(innerPadding)
                 .fillMaxSize()
         ) {
-            OutlinedTextField(
-                value = celsius,
-                onValueChange = {
-                    if (isDouble(it)) {
-                        celsius = it
-                        fahrenheit = celsiusToFahrenheit(celsius.toDouble()).toString()
-                        kelvin = celsiusToKelvin(celsius.toDouble()).toString()
-                    }
-                },
-                label = {
-                    Text("Celsius")
-                },
+            Button(
+                onClick = {},
+                shape = RoundedCornerShape(4.dp),
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(start = 8.dp, end = 8.dp),
-                keyboardOptions = KeyboardOptions(
-                    keyboardType = KeyboardType.Number
-                )
-            )
-            OutlinedTextField(
-                value = fahrenheit,
-                onValueChange = {
-                    if (isDouble(it)) {
-                        fahrenheit = it
-                        celsius = fahrenheitToCelsius(fahrenheit.toDouble()).toString()
-                        kelvin = fahrenheitToKelvin(fahrenheit.toDouble()).toString()
-                    }
-                },
-                label = {
-                    Text("Fahrenheit")
-                },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(start = 8.dp, end = 8.dp),
-                keyboardOptions = KeyboardOptions(
-                    keyboardType = KeyboardType.Number
-                )
-            )
-            OutlinedTextField(
-                value = kelvin,
-                onValueChange = {
-                    if (isDouble(it)) {
-                        kelvin = it
-                        celsius = kelvinToCelsius(kelvin.toDouble()).toString()
-                        fahrenheit = kelvinToFahrenheit(kelvin.toDouble()).toString()
-                    }
-                },
-                label = {
-                    Text("Kelvin")
-                },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(start = 8.dp, end = 8.dp),
-                keyboardOptions = KeyboardOptions(
-                    keyboardType = KeyboardType.Number
-                )
-            )
+                    .padding(start = 8.dp, end = 8.dp)
+            ) { Text("Options") }
+            TemperatureUnits()
         }
     }
 }
