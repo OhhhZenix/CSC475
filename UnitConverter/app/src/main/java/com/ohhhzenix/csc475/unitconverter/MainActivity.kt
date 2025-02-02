@@ -186,11 +186,10 @@ fun nauticalMileToYard(nm: Double): Double = nm * 2025.37
 fun nauticalMileToFoot(nm: Double): Double = nm * 6076.12
 fun nauticalMileToInch(nm: Double): Double = nm * 72913.4
 
-
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun App() {
-    val options = listOf("Temperature", "Length", "Mass")
+    var unitType by remember { mutableStateOf(UnitType.Temperature) }
     var celsius by remember { mutableStateOf("") }
     var fahrenheit by remember { mutableStateOf("") }
     var kelvin by remember { mutableStateOf("") }
