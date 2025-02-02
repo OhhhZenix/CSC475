@@ -29,8 +29,12 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+fun isDouble(value: String): Boolean {
+    return value.toDoubleOrNull() != null
+}
+
 fun celsiusToFahrenheit(celsius: Double): Double {
-    return (celsius * 9/5) + 32
+    return (celsius * 9 / 5) + 32
 }
 
 fun celsiusToKelvin(celsius: Double): Double {
@@ -38,11 +42,11 @@ fun celsiusToKelvin(celsius: Double): Double {
 }
 
 fun fahrenheitToCelsius(fahrenheit: Double): Double {
-    return (fahrenheit - 32) * 5/9
+    return (fahrenheit - 32) * 5 / 9
 }
 
 fun fahrenheitToKelvin(fahrenheit: Double): Double {
-    return (fahrenheit - 32) * 5/9 + 273.15
+    return (fahrenheit - 32) * 5 / 9 + 273.15
 }
 
 fun kelvinToCelsius(kelvin: Double): Double {
@@ -50,7 +54,7 @@ fun kelvinToCelsius(kelvin: Double): Double {
 }
 
 fun kelvinToFahrenheit(kelvin: Double): Double {
-    return (kelvin - 273.15) * 9/5 + 32
+    return (kelvin - 273.15) * 9 / 5 + 32
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -76,7 +80,6 @@ fun App() {
                 .padding(innerPadding)
                 .fillMaxSize()
         ) {
-
         }
     }
 }
