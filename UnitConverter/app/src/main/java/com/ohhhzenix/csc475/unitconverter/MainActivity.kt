@@ -365,6 +365,11 @@ fun TemperatureUnits() {
 
 @Composable
 fun LengthUnits() {
+
+}
+
+@Composable
+fun MassUnits() {
     var metricTon by remember { mutableStateOf("") }
     var kilogram by remember { mutableStateOf("") }
     var gram by remember { mutableStateOf("") }
@@ -596,12 +601,6 @@ fun LengthUnits() {
             .padding(start = 8.dp, end = 8.dp),
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
     )
-}
-
-@Composable
-fun MassUnits() {
-
-
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
