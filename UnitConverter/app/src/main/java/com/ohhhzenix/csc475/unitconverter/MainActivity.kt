@@ -8,8 +8,10 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
@@ -365,7 +367,215 @@ fun TemperatureUnits() {
 
 @Composable
 fun LengthUnits() {
+    var kilometer by remember { mutableStateOf("") }
+    var meter by remember { mutableStateOf("") }
+    var centimeter by remember { mutableStateOf("") }
+    var millimeter by remember { mutableStateOf("") }
+    var micrometer by remember { mutableStateOf("") }
+    var nanometer by remember { mutableStateOf("") }
+    var mile by remember { mutableStateOf("") }
+    var yard by remember { mutableStateOf("") }
+    var foot by remember { mutableStateOf("") }
+    var inch by remember { mutableStateOf("") }
+    var nauticalMile by remember { mutableStateOf("") }
 
+    OutlinedTextField(
+        value = kilometer,
+        onValueChange = {
+            if (isDouble(it)) {
+                kilometer = it
+                meter = kilometerToMeter(kilometer.toDouble()).toString()
+                centimeter = kilometerToCentimeter(kilometer.toDouble()).toString()
+                millimeter = kilometerToMillimeter(kilometer.toDouble()).toString()
+                micrometer = kilometerToMicrometer(kilometer.toDouble()).toString()
+                nanometer = kilometerToNanometer(kilometer.toDouble()).toString()
+                mile = kilometerToMile(kilometer.toDouble()).toString()
+                yard = kilometerToYard(kilometer.toDouble()).toString()
+                foot = kilometerToFoot(kilometer.toDouble()).toString()
+                inch = kilometerToInch(kilometer.toDouble()).toString()
+                nauticalMile = kilometerToNauticalMile(kilometer.toDouble()).toString()
+            }
+        },
+        label = {
+            Text("Kilometer")
+        },
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(start = 8.dp, end = 8.dp),
+        keyboardOptions = KeyboardOptions(
+            keyboardType = KeyboardType.Number
+        )
+    )
+    OutlinedTextField(
+        value = meter,
+        onValueChange = {
+            if (isDouble(it)) {
+                meter = it
+            }
+        },
+        label = {
+            Text("Meter")
+        },
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(start = 8.dp, end = 8.dp),
+        keyboardOptions = KeyboardOptions(
+            keyboardType = KeyboardType.Number
+        )
+    )
+    OutlinedTextField(
+        value = centimeter,
+        onValueChange = {
+            if (isDouble(it)) {
+                centimeter = it
+            }
+        },
+        label = {
+            Text("Centimeter")
+        },
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(start = 8.dp, end = 8.dp),
+        keyboardOptions = KeyboardOptions(
+            keyboardType = KeyboardType.Number
+        )
+    )
+    OutlinedTextField(
+        value = millimeter,
+        onValueChange = {
+            if (isDouble(it)) {
+                millimeter = it
+            }
+        },
+        label = {
+            Text("Millimeter")
+        },
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(start = 8.dp, end = 8.dp),
+        keyboardOptions = KeyboardOptions(
+            keyboardType = KeyboardType.Number
+        )
+    )
+    OutlinedTextField(
+        value = micrometer,
+        onValueChange = {
+            if (isDouble(it)) {
+                micrometer = it
+            }
+        },
+        label = {
+            Text("Micrometer")
+        },
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(start = 8.dp, end = 8.dp),
+        keyboardOptions = KeyboardOptions(
+            keyboardType = KeyboardType.Number
+        )
+    )
+    OutlinedTextField(
+        value = nanometer,
+        onValueChange = {
+            if (isDouble(it)) {
+                nanometer = it
+            }
+        },
+        label = {
+            Text("Nanometer")
+        },
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(start = 8.dp, end = 8.dp),
+        keyboardOptions = KeyboardOptions(
+            keyboardType = KeyboardType.Number
+        )
+    )
+    OutlinedTextField(
+        value = mile,
+        onValueChange = {
+            if (isDouble(it)) {
+                mile = it
+            }
+        },
+        label = {
+            Text("Mile")
+        },
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(start = 8.dp, end = 8.dp),
+        keyboardOptions = KeyboardOptions(
+            keyboardType = KeyboardType.Number
+        )
+    )
+    OutlinedTextField(
+        value = yard,
+        onValueChange = {
+            if (isDouble(it)) {
+                yard = it
+            }
+        },
+        label = {
+            Text("Yard")
+        },
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(start = 8.dp, end = 8.dp),
+        keyboardOptions = KeyboardOptions(
+            keyboardType = KeyboardType.Number
+        )
+    )
+    OutlinedTextField(
+        value = foot,
+        onValueChange = {
+            if (isDouble(it)) {
+                foot = it
+            }
+        },
+        label = {
+            Text("Foot")
+        },
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(start = 8.dp, end = 8.dp),
+        keyboardOptions = KeyboardOptions(
+            keyboardType = KeyboardType.Number
+        )
+    )
+    OutlinedTextField(
+        value = inch,
+        onValueChange = {
+            if (isDouble(it)) {
+                inch = it
+            }
+        },
+        label = {
+            Text("Inch")
+        },
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(start = 8.dp, end = 8.dp),
+        keyboardOptions = KeyboardOptions(
+            keyboardType = KeyboardType.Number
+        )
+    )
+    OutlinedTextField(
+        value = nauticalMile,
+        onValueChange = {
+            if (isDouble(it)) {
+                nauticalMile = it
+            }
+        },
+        label = {
+            Text("Nautical mile")
+        },
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(start = 8.dp, end = 8.dp),
+        keyboardOptions = KeyboardOptions(
+            keyboardType = KeyboardType.Number
+        )
+    )
 }
 
 @Composable
@@ -626,6 +836,7 @@ fun App() {
             modifier = Modifier
                 .padding(innerPadding)
                 .fillMaxSize()
+                .verticalScroll(rememberScrollState())
         ) {
             if (optionScreen) {
                 Text(
