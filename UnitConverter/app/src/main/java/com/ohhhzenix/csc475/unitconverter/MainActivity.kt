@@ -29,9 +29,17 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-fun celsiusToFahrenheit() {}
+fun celsiusToFahrenheit(celsius: Double) {}
 
-fun celsiusToKelvin() {}
+fun celsiusToKelvin(celsius: Double) {}
+
+fun fahrenheitToCelsius(fahrenheit: Double) {}
+
+fun fahrenheitToKelvin(fahrenheit: Double) {}
+
+fun kelvinToCelsius(kelvin: Double) {}
+
+fun kelvinToFahrenheit(kelvin: Double) {}
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
