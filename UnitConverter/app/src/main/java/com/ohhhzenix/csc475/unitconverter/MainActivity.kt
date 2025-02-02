@@ -343,10 +343,19 @@ fun TemperatureUnits() {
     )
 }
 
+@Composable
+fun LengthUnits() {
+}
+
+@Composable
+fun MassUnits() {
+}
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun App() {
     var unitType by remember { mutableStateOf(UnitType.Temperature) }
+    var optionScreen by remember { mutableStateOf(false) }
 
     Scaffold(
         topBar = {
@@ -366,17 +375,61 @@ fun App() {
                 .padding(innerPadding)
                 .fillMaxSize()
         ) {
-            Button(
-                onClick = {},
-                shape = RoundedCornerShape(4.dp),
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(start = 8.dp, end = 8.dp)
-            ) { Text("Options") }
-            when (unitType) {
-                UnitType.Temperature -> TemperatureUnits()
-                UnitType.Length -> {}
-                UnitType.Mass -> {}
+            if (optionScreen) {
+                Text(
+                    "Current Units: ${unitType.name}",
+                    modifier = Modifier.padding(8.dp)
+                )
+                Button(
+                    onClick = {
+                        unitType = UnitType.Temperature
+                        optionScreen = false
+                    },
+                    shape = RoundedCornerShape(4.dp),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(start = 8.dp, end = 8.dp)
+                ) { Text("Show Temperature Units") }
+                Button(
+                    onClick = {
+                        unitType = UnitType.Length
+                        optionScreen = false
+                    },
+                    shape = RoundedCornerShape(4.dp),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(start = 8.dp, end = 8.dp)
+                ) { Text("Show Length Units") }
+                Button(
+                    onClick = {
+                        unitType = UnitType.Mass
+                        optionScreen = false
+                    },
+                    shape = RoundedCornerShape(4.dp),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(start = 8.dp, end = 8.dp)
+                ) { Text("Show Mass Units") }
+                Button(
+                    onClick = { optionScreen = false },
+                    shape = RoundedCornerShape(4.dp),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(start = 8.dp, end = 8.dp)
+                ) { Text("Back") }
+            } else {
+                Button(
+                    onClick = { optionScreen = true },
+                    shape = RoundedCornerShape(4.dp),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(start = 8.dp, end = 8.dp)
+                ) { Text("Options") }
+                when (unitType) {
+                    UnitType.Temperature -> TemperatureUnits()
+                    UnitType.Length -> LengthUnits()
+                    UnitType.Mass -> MassUnits()
+                }
             }
         }
     }
