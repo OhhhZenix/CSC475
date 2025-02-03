@@ -5,6 +5,78 @@ import org.junit.Test
 
 class MassConversionTests {
 
+    // Test Metric Ton to Kilogram
+    @Test
+    fun testMetricTonToKilogram() {
+        assertEquals(1000.0, metricTonToKilogram(1.0), 1e-6)
+        assertEquals(5000.0, metricTonToKilogram(5.0), 1e-6)
+        assertEquals(10_000.0, metricTonToKilogram(10.0), 1e-6)
+    }
+
+    // Test Metric Ton to Gram
+    @Test
+    fun testMetricTonToGram() {
+        assertEquals(1_000_000.0, metricTonToGram(1.0), 1e-6)
+        assertEquals(5_000_000.0, metricTonToGram(5.0), 1e-6)
+        assertEquals(10_000_000.0, metricTonToGram(10.0), 1e-6)
+    }
+
+    // Test Metric Ton to Milligram
+    @Test
+    fun testMetricTonToMilligram() {
+        assertEquals(1_000_000_000.0, metricTonToMilligram(1.0), 1e-6)
+        assertEquals(5_000_000_000.0, metricTonToMilligram(5.0), 1e-6)
+        assertEquals(10_000_000_000.0, metricTonToMilligram(10.0), 1e-6)
+    }
+
+    // Test Metric Ton to Microgram
+    @Test
+    fun testMetricTonToMicrogram() {
+        assertEquals(1_000_000_000_000.0, metricTonToMicrogram(1.0), 1e-6)
+        assertEquals(5_000_000_000_000.0, metricTonToMicrogram(5.0), 1e-6)
+        assertEquals(10_000_000_000_000.0, metricTonToMicrogram(10.0), 1e-6)
+    }
+
+    // Test Metric Ton to Imperial Ton
+    @Test
+    fun testMetricTonToImperialTon() {
+        assertEquals(0.984207, metricTonToImperialTon(1.0), 1e-6)
+        assertEquals(4.921035, metricTonToImperialTon(5.0), 1e-6)
+        assertEquals(9.84207, metricTonToImperialTon(10.0), 1e-6)
+    }
+
+    // Test Metric Ton to US Ton
+    @Test
+    fun testMetricTonToUSTon() {
+        assertEquals(1.10231, metricTonToUSTon(1.0), 1e-6)
+        assertEquals(5.51155, metricTonToUSTon(5.0), 1e-6)
+        assertEquals(11.0231, metricTonToUSTon(10.0), 1e-6)
+    }
+
+    // Test Metric Ton to Stone
+    @Test
+    fun testMetricTonToStone() {
+        assertEquals(157.473, metricTonToStone(1.0), 1e-3)
+        assertEquals(787.365, metricTonToStone(5.0), 1e-3)
+        assertEquals(1_574.73, metricTonToStone(10.0), 1e-3)
+    }
+
+    // Test Metric Ton to Pound
+    @Test
+    fun testMetricTonToPound() {
+        assertEquals(2204.62, metricTonToPound(1.0), 1e-2)
+        assertEquals(11_023.1, metricTonToPound(5.0), 1e-2)
+        assertEquals(22_046.2, metricTonToPound(10.0), 1e-2)
+    }
+
+    // Test Metric Ton to Ounce
+    @Test
+    fun testMetricTonToOunce() {
+        assertEquals(35_273.96, metricTonToOunce(1.0), 1e-2)
+        assertEquals(176_369.8, metricTonToOunce(5.0), 1e-2)
+        assertEquals(352_739.6, metricTonToOunce(10.0), 1e-2)
+    }
+
     // Test Gram to Metric Ton
     @Test
     fun testGramToMetricTon() {
