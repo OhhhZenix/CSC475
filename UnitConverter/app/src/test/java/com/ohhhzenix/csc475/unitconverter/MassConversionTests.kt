@@ -85,6 +85,78 @@ class MassConversionTests {
         assertEquals(0.01, gramToMetricTon(10_000.0), 1e-7)
     }
 
+    // Test Kilogram to Metric Ton
+    @Test
+    fun testKilogramToMetricTon() {
+        assertEquals(1.0, kilogramToMetricTon(1000.0), 1e-6)
+        assertEquals(5.0, kilogramToMetricTon(5000.0), 1e-6)
+        assertEquals(10.0, kilogramToMetricTon(10_000.0), 1e-6)
+    }
+
+    // Test Kilogram to Gram
+    @Test
+    fun testKilogramToGram() {
+        assertEquals(1000.0, kilogramToGram(1.0), 1e-6)
+        assertEquals(5000.0, kilogramToGram(5.0), 1e-6)
+        assertEquals(10_000.0, kilogramToGram(10.0), 1e-6)
+    }
+
+    // Test Kilogram to Milligram
+    @Test
+    fun testKilogramToMilligram() {
+        assertEquals(1_000_000.0, kilogramToMilligram(1.0), 1e-6)
+        assertEquals(5_000_000.0, kilogramToMilligram(5.0), 1e-6)
+        assertEquals(10_000_000.0, kilogramToMilligram(10.0), 1e-6)
+    }
+
+    // Test Kilogram to Microgram
+    @Test
+    fun testKilogramToMicrogram() {
+        assertEquals(1_000_000_000.0, kilogramToMicrogram(1.0), 1e-6)
+        assertEquals(5_000_000_000.0, kilogramToMicrogram(5.0), 1e-6)
+        assertEquals(10_000_000_000.0, kilogramToMicrogram(10.0), 1e-6)
+    }
+
+    // Test Kilogram to Imperial Ton
+    @Test
+    fun testKilogramToImperialTon() {
+        assertEquals(0.984203, kilogramToImperialTon(1000.0), 1e-6)
+        assertEquals(4.921017, kilogramToImperialTon(5000.0), 1e-6)
+        assertEquals(9.842035, kilogramToImperialTon(10_000.0), 1e-6)
+    }
+
+    // Test Kilogram to US Ton
+    @Test
+    fun testKilogramToUSTon() {
+        assertEquals(1.102311, kilogramToUSTon(1000.0), 1e-6)
+        assertEquals(5.511556, kilogramToUSTon(5000.0), 1e-6)
+        assertEquals(11.023113, kilogramToUSTon(10_000.0), 1e-6)
+    }
+
+    // Test Kilogram to Stone
+    @Test
+    fun testKilogramToStone() {
+        assertEquals(157.480, kilogramToStone(1000.0), 1e-3)
+        assertEquals(787.401, kilogramToStone(5000.0), 1e-3)
+        assertEquals(1_574.803, kilogramToStone(10_000.0), 1e-3)
+    }
+
+    // Test Kilogram to Pound
+    @Test
+    fun testKilogramToPound() {
+        assertEquals(2.20462, kilogramToPound(1.0), 1e-6)
+        assertEquals(11.0231, kilogramToPound(5.0), 1e-6)
+        assertEquals(22.0462, kilogramToPound(10.0), 1e-6)
+    }
+
+    // Test Kilogram to Ounce
+    @Test
+    fun testKilogramToOunce() {
+        assertEquals(35.274, kilogramToOunce(1.0), 1e-2)
+        assertEquals(176.37, kilogramToOunce(5.0), 1e-2)
+        assertEquals(352.74, kilogramToOunce(10.0), 1e-2)
+    }
+
     // Test Gram to Kilogram
     @Test
     fun testGramToKilogram() {
