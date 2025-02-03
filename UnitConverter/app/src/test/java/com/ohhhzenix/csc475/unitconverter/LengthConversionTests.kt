@@ -644,4 +644,84 @@ class LengthConversionTests {
         assertEquals(0.0024686847, yardToNauticalMile(5.0), 1e-10)
         assertEquals(0.0049373694, yardToNauticalMile(10.0), 1e-10)
     }
+
+    // Test Foot to Kilometer
+    @Test
+    fun testFootToKilometer() {
+        assertEquals(0.0003048, footToKilometer(1.0), 1e-7)
+        assertEquals(0.001524, footToKilometer(5.0), 1e-7)
+        assertEquals(0.003048, footToKilometer(10.0), 1e-7)
+    }
+
+    // Test Foot to Meter
+    @Test
+    fun testFootToMeter() {
+        assertEquals(0.3048, footToMeter(1.0), 1e-4)
+        assertEquals(1.524, footToMeter(5.0), 1e-4)
+        assertEquals(3.048, footToMeter(10.0), 1e-4)
+    }
+
+    // Test Foot to Centimeter
+    @Test
+    fun testFootToCentimeter() {
+        assertEquals(30.48, footToCentimeter(1.0), 1e-2)
+        assertEquals(152.4, footToCentimeter(5.0), 1e-2)
+        assertEquals(304.8, footToCentimeter(10.0), 1e-2)
+    }
+
+    // Test Foot to Millimeter
+    @Test
+    fun testFootToMillimeter() {
+        assertEquals(304.8, footToMillimeter(1.0), 1e-2)
+        assertEquals(1524.0, footToMillimeter(5.0), 1e-2)
+        assertEquals(3048.0, footToMillimeter(10.0), 1e-2)
+    }
+
+    // Test Foot to Micrometer
+    @Test
+    fun testFootToMicrometer() {
+        assertEquals(304800.0, footToMicrometer(1.0), 1e-3)
+        assertEquals(1524000.0, footToMicrometer(5.0), 1e-3)
+        assertEquals(3048000.0, footToMicrometer(10.0), 1e-3)
+    }
+
+    // Test Foot to Nanometer
+    @Test
+    fun testFootToNanometer() {
+        assertEquals(304800000.0, footToNanometer(1.0), 1e-6)
+        assertEquals(1524000000.0, footToNanometer(5.0), 1e-6)
+        assertEquals(3048000000.0, footToNanometer(10.0), 1e-6)
+    }
+
+    // Test Foot to Mile
+    @Test
+    fun testFootToMile() {
+        assertEquals(0.0001893939, footToMile(1.0), 1e-10)
+        assertEquals(0.0009469696, footToMile(5.0), 1e-10)
+        assertEquals(0.0018939393, footToMile(10.0), 1e-10)
+    }
+
+    // Test Foot to Yard
+    @Test
+    fun testFootToYard() {
+        assertEquals(0.3333333333, footToYard(1.0), 1e-10)
+        assertEquals(1.6666666666, footToYard(5.0), 1e-10)
+        assertEquals(3.3333333333, footToYard(10.0), 1e-10)
+    }
+
+    // Test Foot to Inch
+    @Test
+    fun testFootToInch() {
+        assertEquals(12.0, footToInch(1.0), 1e-1)
+        assertEquals(60.0, footToInch(5.0), 1e-1)
+        assertEquals(120.0, footToInch(10.0), 1e-1)
+    }
+
+    // Test Foot to Nautical Mile
+    @Test
+    fun testFootToNauticalMile() {
+        assertEquals(0.0001645787, footToNauticalMile(1.0), 1e-10)
+        assertEquals(0.0008228935, footToNauticalMile(5.0), 1e-10)
+        assertEquals(0.0016457871, footToNauticalMile(10.0), 1e-10)
+    }
 }
