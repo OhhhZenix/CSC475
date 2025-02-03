@@ -364,4 +364,76 @@ class MassConversionTests {
         assertEquals(1.76369e-10, microgramToOunce(5.0), 1e-15)
         assertEquals(3.52739e-10, microgramToOunce(10.0), 1e-15)
     }
+
+    // Test Imperial Ton to Metric Ton
+    @Test
+    fun testImperialTonToMetricTon() {
+        assertEquals(1.016, imperialTonToMetricTon(1.0), 1e-3)
+        assertEquals(5.08, imperialTonToMetricTon(5.0), 1e-3)
+        assertEquals(10.16, imperialTonToMetricTon(10.0), 1e-3)
+    }
+
+    // Test Imperial Ton to Kilogram
+    @Test
+    fun testImperialTonToKilogram() {
+        assertEquals(1016.05, imperialTonToKilogram(1.0), 1e-2)
+        assertEquals(5080.25, imperialTonToKilogram(5.0), 1e-2)
+        assertEquals(10160.5, imperialTonToKilogram(10.0), 1e-2)
+    }
+
+    // Test Imperial Ton to Gram
+    @Test
+    fun testImperialTonToGram() {
+        assertEquals(1_016_050.0, imperialTonToGram(1.0), 1e-1)
+        assertEquals(5_080_250.0, imperialTonToGram(5.0), 1e-1)
+        assertEquals(10_160_500.0, imperialTonToGram(10.0), 1e-1)
+    }
+
+    // Test Imperial Ton to Milligram
+    @Test
+    fun testImperialTonToMilligram() {
+        assertEquals(1_016_050_000.0, imperialTonToMilligram(1.0), 1e-2)
+        assertEquals(5_080_250_000.0, imperialTonToMilligram(5.0), 1e-2)
+        assertEquals(10_160_500_000.0, imperialTonToMilligram(10.0), 1e-2)
+    }
+
+    // Test Imperial Ton to Microgram
+    @Test
+    fun testImperialTonToMicrogram() {
+        assertEquals(1_016_050_000_000.0, imperialTonToMicrogram(1.0), 1e-2)
+        assertEquals(5_080_250_000_000.0, imperialTonToMicrogram(5.0), 1e-2)
+        assertEquals(10_160_500_000_000.0, imperialTonToMicrogram(10.0), 1e-2)
+    }
+
+    // Test Imperial Ton to US Ton
+    @Test
+    fun testImperialTonToUSTon() {
+        assertEquals(1.119, imperialTonToUSTon(1.0), 1e-3)
+        assertEquals(5.595, imperialTonToUSTon(5.0), 1e-3)
+        assertEquals(11.19, imperialTonToUSTon(10.0), 1e-3)
+    }
+
+    // Test Imperial Ton to Stone
+    @Test
+    fun testImperialTonToStone() {
+        assertEquals(20.0, imperialTonToStone(1.0), 1e-2)
+        assertEquals(100.0, imperialTonToStone(5.0), 1e-2)
+        assertEquals(200.0, imperialTonToStone(10.0), 1e-2)
+    }
+
+    // Test Imperial Ton to Pound
+    @Test
+    fun testImperialTonToPound() {
+        assertEquals(2240.0, imperialTonToPound(1.0), 1e-2)
+        assertEquals(11_200.0, imperialTonToPound(5.0), 1e-2)
+        assertEquals(22_400.0, imperialTonToPound(10.0), 1e-2)
+    }
+
+    // Test Imperial Ton to Ounce
+    @Test
+    fun testImperialTonToOunce() {
+        assertEquals(35_840.0, imperialTonToOunce(1.0), 1e-2)
+        assertEquals(179_200.0, imperialTonToOunce(5.0), 1e-2)
+        assertEquals(358_400.0, imperialTonToOunce(10.0), 1e-2)
+    }
 }
