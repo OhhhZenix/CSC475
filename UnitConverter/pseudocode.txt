@@ -383,3 +383,217 @@ start LengthUnits()
         set keyboard type to number
     end OutlinedTextField
 end LengthUnits
+
+start MassUnits()
+    Declarations
+        metricTon = initialize mutable state with empty string
+        kilogram = initialize mutable state with empty string
+        gram = initialize mutable state with empty string
+        milligram = initialize mutable state with empty string
+        microgram = initialize mutable state with empty string
+        imperialTon = initialize mutable state with empty string
+        usTon = initialize mutable state with empty string
+        stone = initialize mutable state with empty string
+        pound = initialize mutable state with empty string
+        ounce = initialize mutable state with empty string
+
+    start OutlinedTextField
+        set value to metricTon
+        set on value change to
+            if input is a valid double then
+                set metricTon to input
+                set kilogram to metricTonToKilogram(metricTon)
+                set gram to metricTonToGram(metricTon)
+                set milligram to metricTonToMilligram(metricTon)
+                set microgram to metricTonToMicrogram(metricTon)
+                set imperialTon to metricTonToImperialTon(metricTon)
+                set usTon to metricTonToUSTon(metricTon)
+                set stone to metricTonToStone(metricTon)
+                set pound to metricTonToPound(metricTon)
+                set ounce to metricTonToOunce(metricTon)
+        set label to "Metric ton"
+        set fill max width
+        set padding to 8 (start, end)
+        set keyboard type to number
+    end OutlinedTextField
+
+    start OutlinedTextField
+        set value to kilogram
+        set on value change to
+            if input is a valid double then
+                set kilogram to input
+                set metricTon to kilogramToMetricTon(kilogram)
+                set gram to kilogramToGram(kilogram)
+                set milligram to kilogramToMilligram(kilogram)
+                set microgram to kilogramToMicrogram(kilogram)
+                set imperialTon to kilogramToImperialTon(kilogram)
+                set usTon to kilogramToUSTon(kilogram)
+                set stone to kilogramToStone(kilogram)
+                set pound to kilogramToPound(kilogram)
+                set ounce to kilogramToOunce(kilogram)
+        set label to "Kilogram"
+        set fill max width
+        set padding to 8 (start, end)
+        set keyboard type to number
+    end OutlinedTextField
+
+    start OutlinedTextField
+        set value to gram
+        set on value change to
+            if input is a valid double then
+                set gram to input
+                set metricTon to gramToMetricTon(gram)
+                set kilogram to gramToKilogram(gram)
+                set milligram to gramToMilligram(gram)
+                set microgram to gramToMicrogram(gram)
+                set imperialTon to gramToImperialTon(gram)
+                set usTon to gramToUSTon(gram)
+                set stone to gramToStone(gram)
+                set pound to gramToPound(gram)
+                set ounce to gramToOunce(gram)
+        set label to "Gram"
+        set fill max width
+        set padding to 8 (start, end)
+        set keyboard type to number
+    end OutlinedTextField
+
+    start OutlinedTextField
+        set value to milligram
+        set on value change to
+            if input is a valid double then
+                set milligram to input
+                set metricTon to milligramToMetricTon(milligram)
+                set kilogram to milligramToKilogram(milligram)
+                set gram to milligramToGram(milligram)
+                set microgram to milligramToMicrogram(milligram)
+                set imperialTon to milligramToImperialTon(milligram)
+                set usTon to milligramToUSTon(milligram)
+                set stone to milligramToStone(milligram)
+                set pound to milligramToPound(milligram)
+                set ounce to milligramToOunce(milligram)
+        set label to "Milligram"
+        set fill max width
+        set padding to 8 (start, end)
+        set keyboard type to number
+    end OutlinedTextField
+
+    start OutlinedTextField
+        set value to microgram
+        set on value change to
+            if input is a valid double then
+                set microgram to input
+                set metricTon to microgramToMetricTon(microgram)
+                set kilogram to microgramToKilogram(microgram)
+                set gram to microgramToGram(microgram)
+                set milligram to microgramToMilligram(microgram)
+                set imperialTon to microgramToImperialTon(microgram)
+                set usTon to microgramToUSTon(microgram)
+                set stone to microgramToStone(microgram)
+                set pound to microgramToPound(microgram)
+                set ounce to microgramToOunce(microgram)
+        set label to "Microgram"
+        set fill max width
+        set padding to 8 (start, end)
+        set keyboard type to number
+    end OutlinedTextField
+
+    start OutlinedTextField
+        set value to imperialTon
+        set on value change to
+            if input is a valid double then
+                set imperialTon to input
+                set metricTon to imperialTonToMetricTon(imperialTon)
+                set kilogram to imperialTonToKilogram(imperialTon)
+                set gram to imperialTonToGram(imperialTon)
+                set milligram to imperialTonToMilligram(imperialTon)
+                set microgram to imperialTonToMicrogram(imperialTon)
+                set usTon to imperialTonToUSTon(imperialTon)
+                set stone to imperialTonToStone(imperialTon)
+                set pound to imperialTonToPound(imperialTon)
+                set ounce to imperialTonToOunce(imperialTon)
+        set label to "Imperial ton"
+        set fill max width
+        set padding to 8 (start, end)
+        set keyboard type to number
+    end OutlinedTextField
+
+    start OutlinedTextField
+        set value to usTon
+        set on value change to
+            if input is a valid double then
+                set usTon to input
+                set metricTon to usTonToMetricTon(usTon)
+                set kilogram to usTonToKilogram(usTon)
+                set gram to usTonToGram(usTon)
+                set milligram to usTonToMilligram(usTon)
+                set microgram to usTonToMicrogram(usTon)
+                set imperialTon to usTonToImperialTon(usTon)
+                set stone to usTonToStone(usTon)
+                set pound to usTonToPound(usTon)
+                set ounce to usTonToOunce(usTon)
+        set label to "US ton"
+        set fill max width
+        set padding to 8 (start, end)
+        set keyboard type to number
+    end OutlinedTextField
+
+    start OutlinedTextField
+        set value to stone
+        set on value change to
+            if input is a valid double then
+                set stone to input
+                set metricTon to stoneToMetricTon(stone)
+                set kilogram to stoneToKilogram(stone)
+                set gram to stoneToGram(stone)
+                set milligram to stoneToMilligram(stone)
+                set microgram to stoneToMicrogram(stone)
+                set imperialTon to stoneToImperialTon(stone)
+                set usTon to stoneToUSTon(stone)
+                set pound to stoneToPound(stone)
+                set ounce to stoneToOunce(stone)
+        set label to "Stone"
+        set fill max width
+        set padding to 8 (start, end)
+        set keyboard type to number
+    end OutlinedTextField
+
+    start OutlinedTextField
+        set value to pound
+        set on value change to
+            if input is a valid double then
+                set pound to input
+                set metricTon to poundToMetricTon(pound)
+                set kilogram to poundToKilogram(pound)
+                set gram to poundToGram(pound)
+                set milligram to poundToMilligram(pound)
+                set microgram to poundToMicrogram(pound)
+                set imperialTon to poundToImperialTon(pound)
+                set usTon to poundToUSTon(pound)
+                set stone to poundToStone(pound)
+                set ounce to poundToOunce(pound)
+        set label to "Pound"
+        set fill max width
+        set padding to 8 (start, end)
+        set keyboard type to number
+    end OutlinedTextField
+
+    start OutlinedTextField
+        set value to ounce
+        set on value change to
+            if input is a valid double then
+                set ounce to input
+                set metricTon to ounceToMetricTon(ounce)
+                set kilogram to ounceToKilogram(ounce)
+                set gram to ounceToGram(ounce)
+                set milligram to ounceToMilligram(ounce)
+                set microgram to ounceToMicrogram(ounce)
+                set imperialTon to ounceToImperialTon(ounce)
+                set usTon to ounceToUSTon(ounce)
+                set stone to ounceToStone(ounce)
+                set pound to ounceToPound(ounce)
+        set label to "Ounce"
+        set fill max width
+        set padding to 8 (start, end)
+        set keyboard type to number
+    end OutlinedTextField
+end MassUnits
