@@ -436,4 +436,76 @@ class MassConversionTests {
         assertEquals(179_200.0, imperialTonToOunce(5.0), 1e-2)
         assertEquals(358_400.0, imperialTonToOunce(10.0), 1e-2)
     }
+
+    // Test US Ton to Metric Ton
+    @Test
+    fun testUSTonToMetricTon() {
+        assertEquals(0.907, usTonToMetricTon(1.0), 1e-3)
+        assertEquals(4.535, usTonToMetricTon(5.0), 1e-3)
+        assertEquals(9.071, usTonToMetricTon(10.0), 1e-3)
+    }
+
+    // Test US Ton to Kilogram
+    @Test
+    fun testUSTonToKilogram() {
+        assertEquals(907.18474, usTonToKilogram(1.0), 1e-5)
+        assertEquals(4535.9237, usTonToKilogram(5.0), 1e-5)
+        assertEquals(9071.8474, usTonToKilogram(10.0), 1e-5)
+    }
+
+    // Test US Ton to Gram
+    @Test
+    fun testUSTonToGram() {
+        assertEquals(907_184.74, usTonToGram(1.0), 1e-2)
+        assertEquals(4_535_923.7, usTonToGram(5.0), 1e-2)
+        assertEquals(9_071_847.4, usTonToGram(10.0), 1e-2)
+    }
+
+    // Test US Ton to Milligram
+    @Test
+    fun testUSTonToMilligram() {
+        assertEquals(907_184_740.0, usTonToMilligram(1.0), 1e-1)
+        assertEquals(4_535_923_700.0, usTonToMilligram(5.0), 1e-1)
+        assertEquals(9_071_847_400.0, usTonToMilligram(10.0), 1e-1)
+    }
+
+    // Test US Ton to Microgram
+    @Test
+    fun testUSTonToMicrogram() {
+        assertEquals(907_184_740_000.0, usTonToMicrogram(1.0), 1e-1)
+        assertEquals(4_535_923_700_000.0, usTonToMicrogram(5.0), 1e-1)
+        assertEquals(9_071_847_400_000.0, usTonToMicrogram(10.0), 1e-1)
+    }
+
+    // Test US Ton to Imperial Ton
+    @Test
+    fun testUSTonToImperialTon() {
+        assertEquals(0.894, usTonToImperialTon(1.0), 1e-3)
+        assertEquals(4.468, usTonToImperialTon(5.0), 1e-3)
+        assertEquals(8.936, usTonToImperialTon(10.0), 1e-3)
+    }
+
+    // Test US Ton to Stone
+    @Test
+    fun testUSTonToStone() {
+        assertEquals(142.857, usTonToStone(1.0), 1e-3)
+        assertEquals(714.285, usTonToStone(5.0), 1e-3)
+        assertEquals(1428.57, usTonToStone(10.0), 1e-3)
+    }
+
+    // Test US Ton to Pound
+    @Test
+    fun testUSTonToPound() {
+        assertEquals(2000.0, usTonToPound(1.0), 1e-2)
+        assertEquals(10_000.0, usTonToPound(5.0), 1e-2)
+        assertEquals(20_000.0, usTonToPound(10.0), 1e-2)
+    }
+
+    // Test US Ton to Ounce
+    @Test
+    fun testUSTonToOunce() {
+        assertEquals(32_000.0, usTonToOunce(1.0), 1e-2)
+        assertEquals(160_000.0, usTonToOunce(5.0), 1e-2)
+        assertEquals(320_000.0, usTonToOunce(10.0), 1e-2)
+    }
 }
