@@ -43,5 +43,53 @@ class ConversionTests {
         assertEquals(212.0, kelvinToFahrenheit(373.15), delta)
     }
 
-    
+    @Test
+    fun testKilometerToMeter() {
+        assertEquals(1000.0, kilometerToMeter(1.0), delta)
+    }
+
+    @Test
+    fun testKilometerToCentimeter() {
+        assertEquals(100000.0, kilometerToCentimeter(1.0), delta)
+    }
+
+    @Test
+    fun testKilometerToMillimeter() {
+        assertEquals(1000000.0, kilometerToMillimeter(1.0), delta)
+    }
+
+    @Test
+    fun testKilometerToMicrometer() {
+        assertEquals(1_000_000_000.0, kilometerToMicrometer(1.0), delta)
+    }
+
+    @Test
+    fun testKilometerToNanometer() {
+        assertEquals(1_000_000_000_000.0, kilometerToNanometer(1.0), delta)
+    }
+
+    @Test
+    fun testKilometerToMile() {
+        assertEquals(1.0 / 1.60934, kilometerToMile(1.0), delta)
+    }
+
+    @Test
+    fun testKilometerToYard() {
+        assertEquals(1093.61, kilometerToYard(1.0), delta)
+    }
+
+    @Test
+    fun testKilometerToFoot() {
+        assertEquals(3280.84, kilometerToFoot(1.0), delta)
+    }
+
+    @Test
+    fun testKilometerToInch() {
+        assertEquals(39370.1, kilometerToInch(1.0), delta)
+    }
+
+    @Test
+    fun testKilometerToNauticalMile() {
+        assertEquals(1.0 / 1.852, kilometerToNauticalMile(1.0), delta)
+    }
 }
