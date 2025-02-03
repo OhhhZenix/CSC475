@@ -220,4 +220,76 @@ class MassConversionTests {
         assertEquals(176.3699536, gramToOunce(5000.0), 1e-7)
         assertEquals(352.7399072, gramToOunce(10_000.0), 1e-7)
     }
+
+    // Test Milligram to Metric Ton
+    @Test
+    fun testMilligramToMetricTon() {
+        assertEquals(1.0e-9, milligramToMetricTon(1.0), 1e-12)
+        assertEquals(5.0e-9, milligramToMetricTon(5.0), 1e-12)
+        assertEquals(1.0e-8, milligramToMetricTon(10.0), 1e-12)
+    }
+
+    // Test Milligram to Kilogram
+    @Test
+    fun testMilligramToKilogram() {
+        assertEquals(1.0e-6, milligramToKilogram(1.0), 1e-9)
+        assertEquals(5.0e-6, milligramToKilogram(5.0), 1e-9)
+        assertEquals(1.0e-5, milligramToKilogram(10.0), 1e-9)
+    }
+
+    // Test Milligram to Gram
+    @Test
+    fun testMilligramToGram() {
+        assertEquals(0.001, milligramToGram(1.0), 1e-6)
+        assertEquals(0.005, milligramToGram(5.0), 1e-6)
+        assertEquals(0.01, milligramToGram(10.0), 1e-6)
+    }
+
+    // Test Milligram to Microgram
+    @Test
+    fun testMilligramToMicrogram() {
+        assertEquals(1000.0, milligramToMicrogram(1.0), 1e-3)
+        assertEquals(5000.0, milligramToMicrogram(5.0), 1e-3)
+        assertEquals(10_000.0, milligramToMicrogram(10.0), 1e-3)
+    }
+
+    // Test Milligram to Imperial Ton
+    @Test
+    fun testMilligramToImperialTon() {
+        assertEquals(9.842e-10, milligramToImperialTon(1.0), 1e-14)
+        assertEquals(4.92101e-9, milligramToImperialTon(5.0), 1e-14)
+        assertEquals(9.84203e-9, milligramToImperialTon(10.0), 1e-14)
+    }
+
+    // Test Milligram to US Ton
+    @Test
+    fun testMilligramToUSTon() {
+        assertEquals(1.10231e-9, milligramToUSTon(1.0), 1e-14)
+        assertEquals(5.51155e-9, milligramToUSTon(5.0), 1e-14)
+        assertEquals(1.102311e-8, milligramToUSTon(10.0), 1e-14)
+    }
+
+    // Test Milligram to Stone
+    @Test
+    fun testMilligramToStone() {
+        assertEquals(1.57e-7, milligramToStone(1.0), 1e-9)
+        assertEquals(7.87e-7, milligramToStone(5.0), 1e-9)
+        assertEquals(1.574e-6, milligramToStone(10.0), 1e-9)
+    }
+
+    // Test Milligram to Pound
+    @Test
+    fun testMilligramToPound() {
+        assertEquals(2.2e-9, milligramToPound(1.0), 1e-11)
+        assertEquals(1.102e-8, milligramToPound(5.0), 1e-11)
+        assertEquals(2.204e-8, milligramToPound(10.0), 1e-11)
+    }
+
+    // Test Milligram to Ounce
+    @Test
+    fun testMilligramToOunce() {
+        assertEquals(3.53e-8, milligramToOunce(1.0), 1e-10)
+        assertEquals(1.7636e-7, milligramToOunce(5.0), 1e-10)
+        assertEquals(3.5273e-7, milligramToOunce(10.0), 1e-10)
+    }
 }
