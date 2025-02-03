@@ -652,4 +652,76 @@ class MassConversionTests {
         assertEquals(80.0, poundToOunce(5.0), 1e-1)
         assertEquals(160.0, poundToOunce(10.0), 1e-1)
     }
+
+    // Test Ounce to Metric Ton
+    @Test
+    fun testOunceToMetricTon() {
+        assertEquals(2.83495e-5, ounceToMetricTon(1.0), 1e-10)
+        assertEquals(0.0001417476, ounceToMetricTon(5.0), 1e-10)
+        assertEquals(0.0002834952, ounceToMetricTon(10.0), 1e-10)
+    }
+
+    // Test Ounce to Kilogram
+    @Test
+    fun testOunceToKilogram() {
+        assertEquals(0.0283495, ounceToKilogram(1.0), 1e-7)
+        assertEquals(0.1417475, ounceToKilogram(5.0), 1e-7)
+        assertEquals(0.283495, ounceToKilogram(10.0), 1e-7)
+    }
+
+    // Test Ounce to Gram
+    @Test
+    fun testOunceToGram() {
+        assertEquals(28.3495, ounceToGram(1.0), 1e-4)
+        assertEquals(141.7475, ounceToGram(5.0), 1e-4)
+        assertEquals(283.495, ounceToGram(10.0), 1e-4)
+    }
+
+    // Test Ounce to Milligram
+    @Test
+    fun testOunceToMilligram() {
+        assertEquals(28_349.5, ounceToMilligram(1.0), 1e-1)
+        assertEquals(141_747.5, ounceToMilligram(5.0), 1e-1)
+        assertEquals(283_495.0, ounceToMilligram(10.0), 1e-1)
+    }
+
+    // Test Ounce to Microgram
+    @Test
+    fun testOunceToMicrogram() {
+        assertEquals(28_349_523_125.0, ounceToMicrogram(1.0), 1e-3)
+        assertEquals(141_747_615_625.0, ounceToMicrogram(5.0), 1e-3)
+        assertEquals(283_495_231_250.0, ounceToMicrogram(10.0), 1e-3)
+    }
+
+    // Test Ounce to Imperial Ton
+    @Test
+    fun testOunceToImperialTon() {
+        assertEquals(0.0000279, ounceToImperialTon(1.0), 1e-7)
+        assertEquals(0.0001395, ounceToImperialTon(5.0), 1e-7)
+        assertEquals(0.000279, ounceToImperialTon(10.0), 1e-7)
+    }
+
+    // Test Ounce to US Ton
+    @Test
+    fun testOunceToUSTon() {
+        assertEquals(3.125e-5, ounceToUSTon(1.0), 1e-10)
+        assertEquals(0.00015625, ounceToUSTon(5.0), 1e-10)
+        assertEquals(0.0003125, ounceToUSTon(10.0), 1e-10)
+    }
+
+    // Test Ounce to Stone
+    @Test
+    fun testOunceToStone() {
+        assertEquals(0.0044643, ounceToStone(1.0), 1e-7)
+        assertEquals(0.0223215, ounceToStone(5.0), 1e-7)
+        assertEquals(0.0446428, ounceToStone(10.0), 1e-7)
+    }
+
+    // Test Ounce to Pound
+    @Test
+    fun testOunceToPound() {
+        assertEquals(0.0625, ounceToPound(1.0), 1e-4)
+        assertEquals(0.3125, ounceToPound(5.0), 1e-4)
+        assertEquals(0.625, ounceToPound(10.0), 1e-4)
+    }
 }
