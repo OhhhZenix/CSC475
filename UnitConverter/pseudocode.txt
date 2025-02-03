@@ -137,3 +137,249 @@ start TemperatureUnits()
         set keyboard type to number
     end OutlinedTextField
 end TemperatureUnits
+
+start LengthUnits()
+    Declarations
+        kilometer = initialize mutable state with empty string
+        meter = initialize mutable state with empty string
+        centimeter = initialize mutable state with empty string
+        millimeter = initialize mutable state with empty string
+        micrometer = initialize mutable state with empty string
+        nanometer = initialize mutable state with empty string
+        mile = initialize mutable state with empty string
+        yard = initialize mutable state with empty string
+        foot = initialize mutable state with empty string
+        inch = initialize mutable state with empty string
+        nauticalMile = initialize mutable state with empty string
+
+    start OutlinedTextField
+        set value to kilometer
+        set on value change to
+            if input is a valid double then
+                set kilometer to input
+                set meter to kilometerToMeter(kilometer)
+                set centimeter to kilometerToCentimeter(kilometer)
+                set millimeter to kilometerToMillimeter(kilometer)
+                set micrometer to kilometerToMicrometer(kilometer)
+                set nanometer to kilometerToNanometer(kilometer)
+                set mile to kilometerToMile(kilometer)
+                set yard to kilometerToYard(kilometer)
+                set foot to kilometerToFoot(kilometer)
+                set inch to kilometerToInch(kilometer)
+                set nauticalMile to kilometerToNauticalMile(kilometer)
+        set label to "Kilometer"
+        set fill max width
+        set padding to 8 (start, end)
+        set keyboard type to number
+    end OutlinedTextField
+
+    start OutlinedTextField
+        set value to meter
+        set on value change to
+            if input is a valid double then
+                set meter to input
+                set kilometer to meterToKilometer(meter)
+                set centimeter to meterToCentimeter(meter)
+                set millimeter to meterToMillimeter(meter)
+                set micrometer to meterToMicrometer(meter)
+                set nanometer to meterToNanometer(meter)
+                set mile to meterToMile(meter)
+                set yard to meterToYard(meter)
+                set foot to meterToFoot(meter)
+                set inch to meterToInch(meter)
+                set nauticalMile to meterToNauticalMile(meter)
+        set label to "Meter"
+        set fill max width
+        set padding to 8 (start, end)
+        set keyboard type to number
+    end OutlinedTextField
+
+    start OutlinedTextField
+        set value to centimeter
+        set on value change to
+            if input is a valid double then
+                set centimeter to input
+                set kilometer to centimeterToKilometer(centimeter)
+                set meter to centimeterToMeter(centimeter)
+                set millimeter to centimeterToMillimeter(centimeter)
+                set micrometer to centimeterToMicrometer(centimeter)
+                set nanometer to centimeterToNanometer(centimeter)
+                set mile to centimeterToMile(centimeter)
+                set yard to centimeterToYard(centimeter)
+                set foot to centimeterToFoot(centimeter)
+                set inch to centimeterToInch(centimeter)
+                set nauticalMile to centimeterToNauticalMile(centimeter)
+        set label to "Centimeter"
+        set fill max width
+        set padding to 8 (start, end)
+        set keyboard type to number
+    end OutlinedTextField
+
+    start OutlinedTextField
+        set value to millimeter
+        set on value change to
+            if input is a valid double then
+                set millimeter to input
+                set kilometer to millimeterToKilometer(millimeter)
+                set meter to millimeterToMeter(millimeter)
+                set centimeter to millimeterToCentimeter(millimeter)
+                set micrometer to millimeterToMicrometer(millimeter)
+                set nanometer to millimeterToNanometer(millimeter)
+                set mile to millimeterToMile(millimeter)
+                set yard to millimeterToYard(millimeter)
+                set foot to millimeterToFoot(millimeter)
+                set inch to millimeterToInch(millimeter)
+                set nauticalMile to millimeterToNauticalMile(millimeter)
+        set label to "Millimeter"
+        set fill max width
+        set padding to 8 (start, end)
+        set keyboard type to number
+    end OutlinedTextField
+
+    start OutlinedTextField
+        set value to micrometer
+        set on value change to
+            if input is a valid double then
+                set micrometer to input
+                set kilometer to micrometerToKilometer(micrometer)
+                set meter to micrometerToMeter(micrometer)
+                set centimeter to micrometerToCentimeter(micrometer)
+                set millimeter to micrometerToMillimeter(micrometer)
+                set nanometer to micrometerToNanometer(micrometer)
+                set mile to micrometerToMile(micrometer)
+                set yard to micrometerToYard(micrometer)
+                set foot to micrometerToFoot(micrometer)
+                set inch to micrometerToInch(micrometer)
+                set nauticalMile to micrometerToNauticalMile(micrometer)
+        set label to "Micrometer"
+        set fill max width
+        set padding to 8 (start, end)
+        set keyboard type to number
+    end OutlinedTextField
+
+    start OutlinedTextField
+        set value to nanometer
+        set on value change to
+            if input is a valid double then
+                set nanometer to input
+                set kilometer to nanometerToKilometer(nanometer)
+                set meter to nanometerToMeter(nanometer)
+                set centimeter to nanometerToCentimeter(nanometer)
+                set millimeter to nanometerToMillimeter(nanometer)
+                set micrometer to nanometerToMicrometer(nanometer)
+                set mile to nanometerToMile(nanometer)
+                set yard to nanometerToYard(nanometer)
+                set foot to nanometerToFoot(nanometer)
+                set inch to nanometerToInch(nanometer)
+                set nauticalMile to nanometerToNauticalMile(nanometer)
+        set label to "Nanometer"
+        set fill max width
+        set padding to 8 (start, end)
+        set keyboard type to number
+    end OutlinedTextField
+
+    start OutlinedTextField
+        set value to mile
+        set on value change to
+            if input is a valid double then
+                set mile to input
+                set kilometer to mileToKilometer(mile)
+                set meter to mileToMeter(mile)
+                set centimeter to mileToCentimeter(mile)
+                set millimeter to mileToMillimeter(mile)
+                set micrometer to mileToMicrometer(mile)
+                set nanometer to mileToNanometer(mile)
+                set yard to mileToYard(mile)
+                set foot to mileToFoot(mile)
+                set inch to mileToInch(mile)
+                set nauticalMile to mileToNauticalMile(mile)
+        set label to "Mile"
+        set fill max width
+        set padding to 8 (start, end)
+        set keyboard type to number
+    end OutlinedTextField
+
+    start OutlinedTextField
+        set value to yard
+        set on value change to
+            if input is a valid double then
+                set yard to input
+                set kilometer to yardToKilometer(yard)
+                set meter to yardToMeter(yard)
+                set centimeter to yardToCentimeter(yard)
+                set millimeter to yardToMillimeter(yard)
+                set micrometer to yardToMicrometer(yard)
+                set nanometer to yardToNanometer(yard)
+                set mile to yardToMile(yard)
+                set foot to yardToFoot(yard)
+                set inch to yardToInch(yard)
+                set nauticalMile to yardToNauticalMile(yard)
+        set label to "Yard"
+        set fill max width
+        set padding to 8 (start, end)
+        set keyboard type to number
+    end OutlinedTextField
+
+    start OutlinedTextField
+        set value to foot
+        set on value change to
+            if input is a valid double then
+                set foot to input
+                set kilometer to footToKilometer(foot)
+                set meter to footToMeter(foot)
+                set centimeter to footToCentimeter(foot)
+                set millimeter to footToMillimeter(foot)
+                set micrometer to footToMicrometer(foot)
+                set nanometer to footToNanometer(foot)
+                set mile to footToMile(foot)
+                set yard to footToYard(foot)
+                set inch to footToInch(foot)
+                set nauticalMile to footToNauticalMile(foot)
+        set label to "Foot"
+        set fill max width
+        set padding to 8 (start, end)
+        set keyboard type to number
+    end OutlinedTextField
+
+    start OutlinedTextField
+        set value to inch
+        set on value change to
+            if input is a valid double then
+                set inch to input
+                set kilometer to inchToKilometer(inch)
+                set meter to inchToMeter(inch)
+                set centimeter to inchToCentimeter(inch)
+                set millimeter to inchToMillimeter(inch)
+                set micrometer to inchToMicrometer(inch)
+                set nanometer to inchToNanometer(inch)
+                set mile to inchToMile(inch)
+                set yard to inchToYard(inch)
+                set foot to inchToFoot(inch)
+                set nauticalMile to inchToNauticalMile(inch)
+        set label to "Inch"
+        set fill max width
+        set padding to 8 (start, end)
+        set keyboard type to number
+    end OutlinedTextField
+
+    start OutlinedTextField
+        set value to nauticalMile
+        set on value change to
+            if input is a valid double then
+                set nauticalMile to input
+                set kilometer to nauticalMileToKilometer(nauticalMile)
+                set meter to nauticalMileToMeter(nauticalMile)
+                set centimeter to nauticalMileToCentimeter(nauticalMile)
+                set millimeter to nauticalMileToMillimeter(nauticalMile)
+                set micrometer to nauticalMileToMicrometer(nauticalMile)
+                set nanometer to nauticalMileToNanometer(nauticalMile)
+                set mile to nauticalMileToMile(nauticalMile)
+                set yard to nauticalMileToYard(nauticalMile)
+                set foot to nauticalMileToFoot(nauticalMile)
+                set inch to nauticalMileToInch(nauticalMile)
+        set label to "Nautical Mile"
+        set fill max width
+        set padding to 8 (start, end)
+        set keyboard type to number
+    end OutlinedTextField
+end LengthUnits
