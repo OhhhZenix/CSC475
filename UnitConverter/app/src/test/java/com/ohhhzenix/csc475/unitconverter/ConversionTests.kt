@@ -523,4 +523,520 @@ class ConversionTests {
     fun inchToMillimeterTest() {
         assertEquals(25.4, inchToMillimeter(1.0), 0.001)
     }
+
+    @Test
+    fun inchToMicrometerTest() {
+        assertEquals(25_400.0, inchToMicrometer(1.0), 0.001)
+    }
+
+    @Test
+    fun inchToNanometerTest() {
+        assertEquals(25_400_000.0, inchToNanometer(1.0), 0.001)
+    }
+
+    @Test
+    fun inchToMileTest() {
+        assertEquals(1.5783e-5, inchToMile(1.0), 0.001)
+    }
+
+    @Test
+    fun inchToYardTest() {
+        assertEquals(0.0277778, inchToYard(1.0), 0.001)
+    }
+
+    @Test
+    fun inchToFootTest() {
+        assertEquals(0.0833333, inchToFoot(1.0), 0.001)
+    }
+
+    @Test
+    fun inchToNauticalMileTest() {
+        assertEquals(1.3715e-5, inchToNauticalMile(1.0), 0.001)
+    }
+
+    // Nautical Mile to other units
+    @Test
+    fun nauticalMileToKilometerTest() {
+        assertEquals(1.852, nauticalMileToKilometer(1.0), 0.001)
+    }
+
+    @Test
+    fun nauticalMileToMeterTest() {
+        assertEquals(1852.0, nauticalMileToMeter(1.0), 0.001)
+    }
+
+    @Test
+    fun nauticalMileToCentimeterTest() {
+        assertEquals(185_200.0, nauticalMileToCentimeter(1.0), 0.001)
+    }
+
+    @Test
+    fun nauticalMileToMillimeterTest() {
+        assertEquals(1_852_000.0, nauticalMileToMillimeter(1.0), 0.001)
+    }
+
+    @Test
+    fun nauticalMileToMicrometerTest() {
+        assertEquals(1_852_000_000.0, nauticalMileToMicrometer(1.0), 0.001)
+    }
+
+    @Test
+    fun nauticalMileToNanometerTest() {
+        assertEquals(1_852_000_000_000.0, nauticalMileToNanometer(1.0), 0.001)
+    }
+
+    @Test
+    fun nauticalMileToMileTest() {
+        assertEquals(1.15078, nauticalMileToMile(1.0), 0.001)
+    }
+
+    @Test
+    fun nauticalMileToYardTest() {
+        assertEquals(2025.37, nauticalMileToYard(1.0), 0.001)
+    }
+
+    @Test
+    fun nauticalMileToFootTest() {
+        assertEquals(6076.12, nauticalMileToFoot(1.0), 0.001)
+    }
+
+    @Test
+    fun nauticalMileToInchTest() {
+        assertEquals(72_913.4, nauticalMileToInch(1.0), 0.001)
+    }
+
+    // Metric Ton to other units
+    @Test
+    fun metricTonToKilogramTest() {
+        assertEquals(1000.0, metricTonToKilogram(1.0), 0.001)
+    }
+
+    @Test
+    fun metricTonToGramTest() {
+        assertEquals(1_000_000.0, metricTonToGram(1.0), 0.001)
+    }
+
+    @Test
+    fun metricTonToMilligramTest() {
+        assertEquals(1_000_000_000.0, metricTonToMilligram(1.0), 0.001)
+    }
+
+    @Test
+    fun metricTonToMicrogramTest() {
+        assertEquals(1_000_000_000_000.0, metricTonToMicrogram(1.0), 0.001)
+    }
+
+    @Test
+    fun metricTonToImperialTonTest() {
+        assertEquals(0.984207, metricTonToImperialTon(1.0), 0.001)
+    }
+
+    @Test
+    fun metricTonToUSTonTest() {
+        assertEquals(1.10231, metricTonToUSTon(1.0), 0.001)
+    }
+
+    @Test
+    fun metricTonToStoneTest() {
+        assertEquals(157.473, metricTonToStone(1.0), 0.001)
+    }
+
+    @Test
+    fun metricTonToPoundTest() {
+        assertEquals(2204.62, metricTonToPound(1.0), 0.001)
+    }
+
+    @Test
+    fun metricTonToOunceTest() {
+        assertEquals(35_273.96, metricTonToOunce(1.0), 0.001)
+    }
+
+    // Kilogram to other units
+    @Test
+    fun kilogramToMetricTonTest() {
+        assertEquals(0.001, kilogramToMetricTon(1.0), 0.001)
+    }
+
+    @Test
+    fun kilogramToGramTest() {
+        assertEquals(1000.0, kilogramToGram(1.0), 0.001)
+    }
+
+    @Test
+    fun kilogramToMilligramTest() {
+        assertEquals(1_000_000.0, kilogramToMilligram(1.0), 0.001)
+    }
+
+    @Test
+    fun kilogramToMicrogramTest() {
+        assertEquals(1_000_000_000.0, kilogramToMicrogram(1.0), 0.001)
+    }
+
+    @Test
+    fun kilogramToImperialTonTest() {
+        assertEquals(0.000984207, kilogramToImperialTon(1.0), 0.001)
+    }
+
+    @Test
+    fun kilogramToUSTonTest() {
+        assertEquals(0.00110231, kilogramToUSTon(1.0), 0.001)
+    }
+
+    @Test
+    fun kilogramToStoneTest() {
+        assertEquals(0.157473, kilogramToStone(1.0), 0.001)
+    }
+
+    @Test
+    fun kilogramToPoundTest() {
+        assertEquals(2.20462, kilogramToPound(1.0), 0.001)
+    }
+
+    @Test
+    fun kilogramToOunceTest() {
+        assertEquals(35.274, kilogramToOunce(1.0), 0.001)
+    }
+
+    // Gram to other units
+    @Test
+    fun gramToMetricTonTest() {
+        assertEquals(1e-6, gramToMetricTon(1.0), 0.001)
+    }
+
+    @Test
+    fun gramToKilogramTest() {
+        assertEquals(0.001, gramToKilogram(1.0), 0.001)
+    }
+
+    @Test
+    fun gramToMilligramTest() {
+        assertEquals(1000.0, gramToMilligram(1.0), 0.001)
+    }
+
+    @Test
+    fun gramToMicrogramTest() {
+        assertEquals(1_000_000.0, gramToMicrogram(1.0), 0.001)
+    }
+
+    @Test
+    fun gramToImperialTonTest() {
+        assertEquals(9.8421e-7, gramToImperialTon(1.0), 0.001)
+    }
+
+    @Test
+    fun gramToUSTonTest() {
+        assertEquals(1.1023e-6, gramToUSTon(1.0), 0.001)
+    }
+
+    @Test
+    fun gramToStoneTest() {
+        assertEquals(0.000157473, gramToStone(1.0), 0.001)
+    }
+
+    @Test
+    fun gramToPoundTest() {
+        assertEquals(0.00220462, gramToPound(1.0), 0.001)
+    }
+
+    @Test
+    fun gramToOunceTest() {
+        assertEquals(0.035274, gramToOunce(1.0), 0.001)
+    }
+
+    // Milligram to other units
+    @Test
+    fun milligramToMetricTonTest() {
+        assertEquals(1e-9, milligramToMetricTon(1.0), 0.001)
+    }
+
+    @Test
+    fun milligramToKilogramTest() {
+        assertEquals(1e-6, milligramToKilogram(1.0), 0.001)
+    }
+
+    @Test
+    fun milligramToGramTest() {
+        assertEquals(0.001, milligramToGram(1.0), 0.001)
+    }
+
+    @Test
+    fun milligramToMicrogramTest() {
+        assertEquals(1000.0, milligramToMicrogram(1.0), 0.001)
+    }
+
+    @Test
+    fun milligramToImperialTonTest() {
+        assertEquals(9.8421e-10, milligramToImperialTon(1.0), 0.001)
+    }
+
+    @Test
+    fun milligramToUSTonTest() {
+        assertEquals(1.1023e-9, milligramToUSTon(1.0), 0.001)
+    }
+
+    @Test
+    fun milligramToStoneTest() {
+        assertEquals(1.5747e-7, milligramToStone(1.0), 0.001)
+    }
+
+    @Test
+    fun milligramToPoundTest() {
+        assertEquals(2.2046e-6, milligramToPound(1.0), 0.001)
+    }
+
+    @Test
+    fun milligramToOunceTest() {
+        assertEquals(3.5274e-5, milligramToOunce(1.0), 0.001)
+    }
+
+    // Microgram to other units
+    @Test
+    fun microgramToMetricTonTest() {
+        assertEquals(1e-12, microgramToMetricTon(1.0), 0.001)
+    }
+
+    @Test
+    fun microgramToKilogramTest() {
+        assertEquals(1e-9, microgramToKilogram(1.0), 0.001)
+    }
+
+    @Test
+    fun microgramToGramTest() {
+        assertEquals(1e-6, microgramToGram(1.0), 0.001)
+    }
+
+    @Test
+    fun microgramToMilligramTest() {
+        assertEquals(0.001, microgramToMilligram(1.0), 0.001)
+    }
+
+    @Test
+    fun microgramToImperialTonTest() {
+        assertEquals(9.8421e-13, microgramToImperialTon(1.0), 0.001)
+    }
+
+    @Test
+    fun microgramToUSTonTest() {
+        assertEquals(1.1023e-12, microgramToUSTon(1.0), 0.001)
+    }
+
+    @Test
+    fun microgramToStoneTest() {
+        assertEquals(1.5747e-10, microgramToStone(1.0), 0.001)
+    }
+
+    @Test
+    fun microgramToPoundTest() {
+        assertEquals(2.2046e-9, microgramToPound(1.0), 0.001)
+    }
+
+    @Test
+    fun microgramToOunceTest() {
+        assertEquals(3.5274e-8, microgramToOunce(1.0), 0.001)
+    }
+
+    // Imperial Ton to other units
+    @Test
+    fun imperialTonToMetricTonTest() {
+        assertEquals(1.01605, imperialTonToMetricTon(1.0), 0.001)
+    }
+
+    @Test
+    fun imperialTonToKilogramTest() {
+        assertEquals(1016.05, imperialTonToKilogram(1.0), 0.001)
+    }
+
+    @Test
+    fun imperialTonToGramTest() {
+        assertEquals(1_016_050.0, imperialTonToGram(1.0), 0.001)
+    }
+
+    @Test
+    fun imperialTonToMilligramTest() {
+        assertEquals(1_016_050_000.0, imperialTonToMilligram(1.0), 0.001)
+    }
+
+    @Test
+    fun imperialTonToMicrogramTest() {
+        assertEquals(1_016_050_000_000.0, imperialTonToMicrogram(1.0), 0.001)
+    }
+
+    @Test
+    fun imperialTonToUSTonTest() {
+        assertEquals(1.119, imperialTonToUSTon(1.0), 0.001)
+    }
+
+    @Test
+    fun imperialTonToStoneTest() {
+        assertEquals(20.0, imperialTonToStone(1.0), 0.001)
+    }
+
+    @Test
+    fun imperialTonToPoundTest() {
+        assertEquals(2240.0, imperialTonToPound(1.0), 0.001)
+    }
+
+    @Test
+    fun imperialTonToOunceTest() {
+        assertEquals(35_840.0, imperialTonToOunce(1.0), 0.001)
+    }
+
+    // US Ton (short ton) to other units
+    @Test
+    fun usTonToMetricTonTest() {
+        assertEquals(0.907185, usTonToMetricTon(1.0), 0.001)
+    }
+
+    @Test
+    fun usTonToKilogramTest() {
+        assertEquals(907.185, usTonToKilogram(1.0), 0.001)
+    }
+
+    @Test
+    fun usTonToGramTest() {
+        assertEquals(907_185.0, usTonToGram(1.0), 0.001)
+    }
+
+    @Test
+    fun usTonToMilligramTest() {
+        assertEquals(907_185_000.0, usTonToMilligram(1.0), 0.001)
+    }
+
+    @Test
+    fun usTonToMicrogramTest() {
+        assertEquals(907_185_000_000.0, usTonToMicrogram(1.0), 0.001)
+    }
+
+    @Test
+    fun usTonToImperialTonTest() {
+        assertEquals(0.892857, usTonToImperialTon(1.0), 0.001)
+    }
+
+    @Test
+    fun usTonToStoneTest() {
+        assertEquals(142.857, usTonToStone(1.0), 0.001)
+    }
+
+    @Test
+    fun usTonToPoundTest() {
+        assertEquals(2000.0, usTonToPound(1.0), 0.001)
+    }
+
+    @Test
+    fun usTonToOunceTest() {
+        assertEquals(32_000.0, usTonToOunce(1.0), 0.001)
+    }
+
+    // Stone to other units
+    @Test
+    fun stoneToMetricTonTest() {
+        assertEquals(0.00635029, stoneToMetricTon(1.0), 0.001)
+    }
+
+    @Test
+    fun stoneToKilogramTest() {
+        assertEquals(6.35029, stoneToKilogram(1.0), 0.001)
+    }
+
+    @Test
+    fun stoneToGramTest() {
+        assertEquals(6350.29, stoneToGram(1.0), 0.001)
+    }
+
+    @Test
+    fun stoneToMilligramTest() {
+        assertEquals(6_350_290.0, stoneToMilligram(1.0), 0.001)
+    }
+
+    @Test
+    fun stoneToMicrogramTest() {
+        assertEquals(6_350_290_000.0, stoneToMicrogram(1.0), 0.001)
+    }
+
+    @Test
+    fun stoneToImperialTonTest() {
+        assertEquals(0.05, stoneToImperialTon(1.0), 0.001)
+    }
+
+    @Test
+    fun stoneToUSTonTest() {
+        assertEquals(0.007, stoneToUSTon(1.0), 0.001)
+    }
+
+    @Test
+    fun stoneToPoundTest() {
+        assertEquals(14.0, stoneToPound(1.0), 0.001)
+    }
+
+    @Test
+    fun stoneToOunceTest() {
+        assertEquals(224.0, stoneToOunce(1.0), 0.001)
+    }
+
+    // Pound to other units
+    @Test
+    fun poundToMetricTonTest() {
+        assertEquals(0.000453592, poundToMetricTon(1.0), 0.001)
+    }
+
+    @Test
+    fun poundToKilogramTest() {
+        assertEquals(0.453592, poundToKilogram(1.0), 0.001)
+    }
+
+    @Test
+    fun poundToGramTest() {
+        assertEquals(453.592, poundToGram(1.0), 0.001)
+    }
+
+    @Test
+    fun poundToMilligramTest() {
+        assertEquals(453_592.0, poundToMilligram(1.0), 0.001)
+    }
+
+    @Test
+    fun poundToMicrogramTest() {
+        assertEquals(453_592_370.0, poundToMicrogram(1.0), 0.001)
+    }
+
+    @Test
+    fun poundToImperialTonTest() {
+        assertEquals(0.000446429, poundToImperialTon(1.0), 0.001)
+    }
+
+    @Test
+    fun poundToUSTonTest() {
+        assertEquals(0.0005, poundToUSTon(1.0), 0.001)
+    }
+
+    @Test
+    fun poundToStoneTest() {
+        assertEquals(0.0714286, poundToStone(1.0), 0.001)
+    }
+
+    @Test
+    fun poundToOunceTest() {
+        assertEquals(16.0, poundToOunce(1.0), 0.001)
+    }
+
+    // Ounce to other units
+    @Test
+    fun ounceToMetricTonTest() {
+        assertEquals(2.835e-5, ounceToMetricTon(1.0), 0.001)
+    }
+
+    @Test
+    fun ounceToKilogramTest() {
+        assertEquals(0.0283495, ounceToKilogram(1.0), 0.001)
+    }
+
+    @Test
+    fun ounceToGramTest() {
+        assertEquals(28.3495, ounceToGram(1.0), 0.001)
+    }
+
+    @Test
+    fun ounceToMilligramTest() {
+        assertEquals(28_349.5, ounceToMilligram(1.0), 0.001)
+    }
 }
