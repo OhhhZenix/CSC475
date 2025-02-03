@@ -508,4 +508,76 @@ class MassConversionTests {
         assertEquals(160_000.0, usTonToOunce(5.0), 1e-2)
         assertEquals(320_000.0, usTonToOunce(10.0), 1e-2)
     }
+
+    // Test Stone to Metric Ton
+    @Test
+    fun testStoneToMetricTon() {
+        assertEquals(0.00635, stoneToMetricTon(1.0), 1e-5)
+        assertEquals(0.03175, stoneToMetricTon(5.0), 1e-5)
+        assertEquals(0.0635, stoneToMetricTon(10.0), 1e-5)
+    }
+
+    // Test Stone to Kilogram
+    @Test
+    fun testStoneToKilogram() {
+        assertEquals(6.35, stoneToKilogram(1.0), 1e-2)
+        assertEquals(31.75, stoneToKilogram(5.0), 1e-2)
+        assertEquals(63.5, stoneToKilogram(10.0), 1e-2)
+    }
+
+    // Test Stone to Gram
+    @Test
+    fun testStoneToGram() {
+        assertEquals(6350.293, stoneToGram(1.0), 1e-3)
+        assertEquals(31_751.465, stoneToGram(5.0), 1e-3)
+        assertEquals(63_502.93, stoneToGram(10.0), 1e-3)
+    }
+
+    // Test Stone to Milligram
+    @Test
+    fun testStoneToMilligram() {
+        assertEquals(6_350_293.0, stoneToMilligram(1.0), 1e-1)
+        assertEquals(31_751_465.0, stoneToMilligram(5.0), 1e-1)
+        assertEquals(63_502_930.0, stoneToMilligram(10.0), 1e-1)
+    }
+
+    // Test Stone to Microgram
+    @Test
+    fun testStoneToMicrogram() {
+        assertEquals(6_350_293_000.0, stoneToMicrogram(1.0), 1e-1)
+        assertEquals(31_751_465_000.0, stoneToMicrogram(5.0), 1e-1)
+        assertEquals(63_502_930_000.0, stoneToMicrogram(10.0), 1e-1)
+    }
+
+    // Test Stone to Imperial Ton
+    @Test
+    fun testStoneToImperialTon() {
+        assertEquals(0.05, stoneToImperialTon(1.0), 1e-2)
+        assertEquals(0.25, stoneToImperialTon(5.0), 1e-2)
+        assertEquals(0.5, stoneToImperialTon(10.0), 1e-2)
+    }
+
+    // Test Stone to US Ton
+    @Test
+    fun testStoneToUSTon() {
+        assertEquals(0.007, stoneToUSTon(1.0), 1e-3)
+        assertEquals(0.035, stoneToUSTon(5.0), 1e-3)
+        assertEquals(0.07, stoneToUSTon(10.0), 1e-3)
+    }
+
+    // Test Stone to Pound
+    @Test
+    fun testStoneToPound() {
+        assertEquals(14.0, stoneToPound(1.0), 1e-2)
+        assertEquals(70.0, stoneToPound(5.0), 1e-2)
+        assertEquals(140.0, stoneToPound(10.0), 1e-2)
+    }
+
+    // Test Stone to Ounce
+    @Test
+    fun testStoneToOunce() {
+        assertEquals(224.0, stoneToOunce(1.0), 1e-2)
+        assertEquals(1120.0, stoneToOunce(5.0), 1e-2)
+        assertEquals(2240.0, stoneToOunce(10.0), 1e-2)
+    }
 }
