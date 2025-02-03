@@ -580,4 +580,76 @@ class MassConversionTests {
         assertEquals(1120.0, stoneToOunce(5.0), 1e-2)
         assertEquals(2240.0, stoneToOunce(10.0), 1e-2)
     }
+
+    // Test Pound to Metric Ton
+    @Test
+    fun testPoundToMetricTon() {
+        assertEquals(0.000453592, poundToMetricTon(1.0), 1e-6)
+        assertEquals(0.00226796, poundToMetricTon(5.0), 1e-6)
+        assertEquals(0.00453592, poundToMetricTon(10.0), 1e-6)
+    }
+
+    // Test Pound to Kilogram
+    @Test
+    fun testPoundToKilogram() {
+        assertEquals(0.453592, poundToKilogram(1.0), 1e-6)
+        assertEquals(2.267964, poundToKilogram(5.0), 1e-6)
+        assertEquals(4.535929, poundToKilogram(10.0), 1e-6)
+    }
+
+    // Test Pound to Gram
+    @Test
+    fun testPoundToGram() {
+        assertEquals(453.592, poundToGram(1.0), 1e-3)
+        assertEquals(2267.96, poundToGram(5.0), 1e-3)
+        assertEquals(4535.92, poundToGram(10.0), 1e-3)
+    }
+
+    // Test Pound to Milligram
+    @Test
+    fun testPoundToMilligram() {
+        assertEquals(453_592.0, poundToMilligram(1.0), 1e-1)
+        assertEquals(2_267_960.0, poundToMilligram(5.0), 1e-1)
+        assertEquals(4_535_920.0, poundToMilligram(10.0), 1e-1)
+    }
+
+    // Test Pound to Microgram
+    @Test
+    fun testPoundToMicrogram() {
+        assertEquals(453_592_370.0, poundToMicrogram(1.0), 1e-1)
+        assertEquals(2_267_961_850.0, poundToMicrogram(5.0), 1e-1)
+        assertEquals(4_535_923_700.0, poundToMicrogram(10.0), 1e-1)
+    }
+
+    // Test Pound to Imperial Ton
+    @Test
+    fun testPoundToImperialTon() {
+        assertEquals(0.00044643, poundToImperialTon(1.0), 1e-6)
+        assertEquals(0.00223215, poundToImperialTon(5.0), 1e-6)
+        assertEquals(0.0044643, poundToImperialTon(10.0), 1e-6)
+    }
+
+    // Test Pound to US Ton
+    @Test
+    fun testPoundToUSTon() {
+        assertEquals(0.0005, poundToUSTon(1.0), 1e-4)
+        assertEquals(0.0025, poundToUSTon(5.0), 1e-4)
+        assertEquals(0.005, poundToUSTon(10.0), 1e-4)
+    }
+
+    // Test Pound to Stone
+    @Test
+    fun testPoundToStone() {
+        assertEquals(0.0714286, poundToStone(1.0), 1e-6)
+        assertEquals(0.357143, poundToStone(5.0), 1e-6)
+        assertEquals(0.714286, poundToStone(10.0), 1e-6)
+    }
+
+    // Test Pound to Ounce
+    @Test
+    fun testPoundToOunce() {
+        assertEquals(16.0, poundToOunce(1.0), 1e-1)
+        assertEquals(80.0, poundToOunce(5.0), 1e-1)
+        assertEquals(160.0, poundToOunce(10.0), 1e-1)
+    }
 }
