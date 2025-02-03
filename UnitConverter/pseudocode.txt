@@ -1,0 +1,93 @@
+start App()
+    Declarations
+        unitType = initialize mutable state with UnitType.Temperature
+        optionScreen = initialize mutable state with false
+        scrollState = initialize scroll state
+
+    start Scaffold
+        set top bar with title "Unit Converter"
+
+        start Column
+            set padding to innerPadding
+            set fill max size
+            set vertical scroll to scrollState
+
+            if optionScreen is true then
+                start Text
+                    set content to "Current Units: [unitType.name]"
+                    set padding to 8
+                end Text
+
+                start Button
+                    set on click to
+                        set unitType to UnitType.Temperature
+                        set optionScreen to false
+                    set shape to rounded corners (4)
+                    set fill max width
+                    set padding to 8 (start, end)
+
+                    start Text
+                        set content to "Show Temperature Units"
+                    end Text
+                end Button
+
+                start Button
+                    set on click to
+                        set unitType to UnitType.Length
+                        set optionScreen to false
+                    set shape to rounded corners (4)
+                    set fill max width
+                    set padding to 8 (start, end)
+
+                    start Text
+                        set content to "Show Length Units"
+                    end Text
+                end Button
+
+                start Button
+                    set on click to
+                        set unitType to UnitType.Mass
+                        set optionScreen to false
+                    set shape to rounded corners (4)
+                    set fill max width
+                    set padding to 8 (start, end)
+
+                    start Text
+                        set content to "Show Mass Units"
+                    end Text
+                end Button
+
+                start Button
+                    set on click to set optionScreen to false
+                    set shape to rounded corners (4)
+                    set fill max width
+                    set padding to 8 (start, end)
+
+                    start Text
+                        set content to "Back"
+                    end Text
+                end Button
+            else
+                start Button
+                    set on click to set optionScreen to true
+                    set shape to rounded corners (4)
+                    set fill max width
+                    set padding to 8 (start, end)
+
+                    start Text
+                        set content to "Options"
+                    end Text
+                end Button
+
+                switch unitType
+                    case UnitType.Temperature
+                        call TemperatureUnits()
+                    case UnitType.Length
+                        call LengthUnits()
+                    case UnitType.Mass
+                        call MassUnits()
+                endSwitch
+            endIf
+        end Column
+    end Scaffold
+end App
