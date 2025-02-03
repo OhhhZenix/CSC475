@@ -404,4 +404,84 @@ class LengthConversionTests {
         assertEquals(2.699e-9, micrometerToNauticalMile(5.0), 1e-12)
         assertEquals(5.399e-9, micrometerToNauticalMile(10.0), 1e-12)
     }
+
+    // Test Nanometer to Kilometer
+    @Test
+    fun testNanometerToKilometer() {
+        assertEquals(1e-12, nanometerToKilometer(1.0), 1e-15)
+        assertEquals(5e-12, nanometerToKilometer(5.0), 1e-15)
+        assertEquals(1e-11, nanometerToKilometer(10.0), 1e-15)
+    }
+
+    // Test Nanometer to Meter
+    @Test
+    fun testNanometerToMeter() {
+        assertEquals(1e-9, nanometerToMeter(1.0), 1e-12)
+        assertEquals(5e-9, nanometerToMeter(5.0), 1e-12)
+        assertEquals(1e-8, nanometerToMeter(10.0), 1e-12)
+    }
+
+    // Test Nanometer to Centimeter
+    @Test
+    fun testNanometerToCentimeter() {
+        assertEquals(1e-7, nanometerToCentimeter(1.0), 1e-10)
+        assertEquals(5e-7, nanometerToCentimeter(5.0), 1e-10)
+        assertEquals(1e-6, nanometerToCentimeter(10.0), 1e-10)
+    }
+
+    // Test Nanometer to Millimeter
+    @Test
+    fun testNanometerToMillimeter() {
+        assertEquals(1e-6, nanometerToMillimeter(1.0), 1e-9)
+        assertEquals(5e-6, nanometerToMillimeter(5.0), 1e-9)
+        assertEquals(1e-5, nanometerToMillimeter(10.0), 1e-9)
+    }
+
+    // Test Nanometer to Micrometer
+    @Test
+    fun testNanometerToMicrometer() {
+        assertEquals(1e-3, nanometerToMicrometer(1.0), 1e-6)
+        assertEquals(5e-3, nanometerToMicrometer(5.0), 1e-6)
+        assertEquals(1e-2, nanometerToMicrometer(10.0), 1e-6)
+    }
+
+    // Test Nanometer to Mile
+    @Test
+    fun testNanometerToMile() {
+        assertEquals(6.213711e-13, nanometerToMile(1.0), 1e-18)
+        assertEquals(3.106855e-12, nanometerToMile(5.0), 1e-18)
+        assertEquals(6.213711e-12, nanometerToMile(10.0), 1e-18)
+    }
+
+    // Test Nanometer to Yard
+    @Test
+    fun testNanometerToYard() {
+        assertEquals(1.09361e-9, nanometerToYard(1.0), 1e-12)
+        assertEquals(5.46805e-9, nanometerToYard(5.0), 1e-12)
+        assertEquals(1.09361e-8, nanometerToYard(10.0), 1e-12)
+    }
+
+    // Test Nanometer to Foot
+    @Test
+    fun testNanometerToFoot() {
+        assertEquals(3.28084e-9, nanometerToFoot(1.0), 1e-12)
+        assertEquals(1.64042e-8, nanometerToFoot(5.0), 1e-12)
+        assertEquals(3.28084e-8, nanometerToFoot(10.0), 1e-12)
+    }
+
+    // Test Nanometer to Inch
+    @Test
+    fun testNanometerToInch() {
+        assertEquals(3.93701e-8, nanometerToInch(1.0), 1e-11)
+        assertEquals(1.9685e-7, nanometerToInch(5.0), 1e-11)
+        assertEquals(3.93701e-7, nanometerToInch(10.0), 1e-11)
+    }
+
+    // Test Nanometer to Nautical Mile
+    @Test
+    fun testNanometerToNauticalMile() {
+        assertEquals(5.398e-13, nanometerToNauticalMile(1.0), 1e-15)
+        assertEquals(2.699e-12, nanometerToNauticalMile(5.0), 1e-15)
+        assertEquals(5.399e-12, nanometerToNauticalMile(10.0), 1e-15)
+    }
 }
