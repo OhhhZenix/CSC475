@@ -244,4 +244,84 @@ class LengthConversionTests {
         assertEquals(0.002699785, centimeterToNauticalMile(500.0), 0.00000001)
         assertEquals(0.00539957, centimeterToNauticalMile(1000.0), 0.00000001)
     }
+
+    // Test Millimeter to Kilometer
+    @Test
+    fun testMillimeterToKilometer() {
+        assertEquals(0.000001, millimeterToKilometer(1.0), 0.000000001)
+        assertEquals(0.005, millimeterToKilometer(5000.0), 0.000000001)
+        assertEquals(0.01, millimeterToKilometer(10000.0), 0.000000001)
+    }
+
+    // Test Millimeter to Meter
+    @Test
+    fun testMillimeterToMeter() {
+        assertEquals(0.001, millimeterToMeter(1.0), 0.0000001)
+        assertEquals(5.0, millimeterToMeter(5000.0), 0.0000001)
+        assertEquals(10.0, millimeterToMeter(10000.0), 0.0000001)
+    }
+
+    // Test Millimeter to Centimeter
+    @Test
+    fun testMillimeterToCentimeter() {
+        assertEquals(0.1, millimeterToCentimeter(1.0), 0.0001)
+        assertEquals(5.0, millimeterToCentimeter(50.0), 0.0001)
+        assertEquals(10.0, millimeterToCentimeter(100.0), 0.0001)
+    }
+
+    // Test Millimeter to Micrometer
+    @Test
+    fun testMillimeterToMicrometer() {
+        assertEquals(1000.0, millimeterToMicrometer(1.0), 0.01)
+        assertEquals(5000.0, millimeterToMicrometer(5.0), 0.01)
+        assertEquals(10000.0, millimeterToMicrometer(10.0), 0.01)
+    }
+
+    // Test Millimeter to Nanometer
+    @Test
+    fun testMillimeterToNanometer() {
+        assertEquals(1_000_000.0, millimeterToNanometer(1.0), 0.01)
+        assertEquals(5_000_000.0, millimeterToNanometer(5.0), 0.01)
+        assertEquals(10_000_000.0, millimeterToNanometer(10.0), 0.01)
+    }
+
+    // Test Millimeter to Mile
+    @Test
+    fun testMillimeterToMile() {
+        assertEquals(6.2137e-7, millimeterToMile(1.0), 1e-9)
+        assertEquals(3.10685e-6, millimeterToMile(5.0), 1e-9)
+        assertEquals(6.2137e-6, millimeterToMile(10.0), 1e-9)
+    }
+
+    // Test Millimeter to Yard
+    @Test
+    fun testMillimeterToYard() {
+        assertEquals(0.00109361, millimeterToYard(1.0), 0.0000001)
+        assertEquals(0.00546805, millimeterToYard(5.0), 0.0000001)
+        assertEquals(0.0109361, millimeterToYard(10.0), 0.0000001)
+    }
+
+    // Test Millimeter to Foot
+    @Test
+    fun testMillimeterToFoot() {
+        assertEquals(0.00328084, millimeterToFoot(1.0), 0.0000001)
+        assertEquals(0.0164042, millimeterToFoot(5.0), 0.0000001)
+        assertEquals(0.0328084, millimeterToFoot(10.0), 0.0000001)
+    }
+
+    // Test Millimeter to Inch
+    @Test
+    fun testMillimeterToInch() {
+        assertEquals(0.0393701, millimeterToInch(1.0), 0.0000001)
+        assertEquals(0.1968503, millimeterToInch(5.0), 0.0000001)
+        assertEquals(0.3937007, millimeterToInch(10.0), 0.0000001)
+    }
+
+    // Test Millimeter to Nautical Mile
+    @Test
+    fun testMillimeterToNauticalMile() {
+        assertEquals(5.398e-7, millimeterToNauticalMile(1.0), 1e-9)
+        assertEquals(2.699e-6, millimeterToNauticalMile(5.0), 1e-9)
+        assertEquals(5.399e-6, millimeterToNauticalMile(10.0), 1e-9)
+    }
 }
