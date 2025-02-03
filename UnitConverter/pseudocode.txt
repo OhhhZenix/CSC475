@@ -91,3 +91,49 @@ start App()
         end Column
     end Scaffold
 end App
+
+start TemperatureUnits()
+    Declarations
+        celsius = initialize mutable state with empty string
+        fahrenheit = initialize mutable state with empty string
+        kelvin = initialize mutable state with empty string
+
+    start OutlinedTextField
+        set value to celsius
+        set on value change to
+            if input is a valid double then
+                set celsius to input
+                set fahrenheit to celsiusToFahrenheit(celsius)
+                set kelvin to celsiusToKelvin(celsius)
+        set label to "Celsius"
+        set fill max width
+        set padding to 8 (start, end)
+        set keyboard type to number
+    end OutlinedTextField
+
+    start OutlinedTextField
+        set value to fahrenheit
+        set on value change to
+            if input is a valid double then
+                set fahrenheit to input
+                set celsius to fahrenheitToCelsius(fahrenheit)
+                set kelvin to fahrenheitToKelvin(fahrenheit)
+        set label to "Fahrenheit"
+        set fill max width
+        set padding to 8 (start, end)
+        set keyboard type to number
+    end OutlinedTextField
+
+    start OutlinedTextField
+        set value to kelvin
+        set on value change to
+            if input is a valid double then
+                set kelvin to input
+                set celsius to kelvinToCelsius(kelvin)
+                set fahrenheit to kelvinToFahrenheit(kelvin)
+        set label to "Kelvin"
+        set fill max width
+        set padding to 8 (start, end)
+        set keyboard type to number
+    end OutlinedTextField
+end TemperatureUnits
