@@ -484,4 +484,84 @@ class LengthConversionTests {
         assertEquals(2.699e-12, nanometerToNauticalMile(5.0), 1e-15)
         assertEquals(5.399e-12, nanometerToNauticalMile(10.0), 1e-15)
     }
+
+    // Test Mile to Kilometer
+    @Test
+    fun testMileToKilometer() {
+        assertEquals(1.60934, mileToKilometer(1.0), 1e-5)
+        assertEquals(8.0467, mileToKilometer(5.0), 1e-5)
+        assertEquals(16.0934, mileToKilometer(10.0), 1e-5)
+    }
+
+    // Test Mile to Meter
+    @Test
+    fun testMileToMeter() {
+        assertEquals(1609.34, mileToMeter(1.0), 1e-2)
+        assertEquals(8046.7, mileToMeter(5.0), 1e-2)
+        assertEquals(16093.4, mileToMeter(10.0), 1e-2)
+    }
+
+    // Test Mile to Centimeter
+    @Test
+    fun testMileToCentimeter() {
+        assertEquals(160934.0, mileToCentimeter(1.0), 1e-1)
+        assertEquals(804670.0, mileToCentimeter(5.0), 1e-1)
+        assertEquals(1609340.0, mileToCentimeter(10.0), 1e-1)
+    }
+
+    // Test Mile to Millimeter
+    @Test
+    fun testMileToMillimeter() {
+        assertEquals(1_609_344.0, mileToMillimeter(1.0), 1e-3)
+        assertEquals(8_046_720.0, mileToMillimeter(5.0), 1e-3)
+        assertEquals(16_093_440.0, mileToMillimeter(10.0), 1e-3)
+    }
+
+    // Test Mile to Micrometer
+    @Test
+    fun testMileToMicrometer() {
+        assertEquals(1_609_344_000.0, mileToMicrometer(1.0), 1e-6)
+        assertEquals(8_046_720_000.0, mileToMicrometer(5.0), 1e-6)
+        assertEquals(16_093_440_000.0, mileToMicrometer(10.0), 1e-6)
+    }
+
+    // Test Mile to Nanometer
+    @Test
+    fun testMileToNanometer() {
+        assertEquals(1_609_344_000_000.0, mileToNanometer(1.0), 1e-9)
+        assertEquals(8_046_720_000_000.0, mileToNanometer(5.0), 1e-9)
+        assertEquals(16_093_440_000_000.0, mileToNanometer(10.0), 1e-9)
+    }
+
+    // Test Mile to Yard
+    @Test
+    fun testMileToYard() {
+        assertEquals(1760.0, mileToYard(1.0), 1e-1)
+        assertEquals(8800.0, mileToYard(5.0), 1e-1)
+        assertEquals(17600.0, mileToYard(10.0), 1e-1)
+    }
+
+    // Test Mile to Foot
+    @Test
+    fun testMileToFoot() {
+        assertEquals(5280.0, mileToFoot(1.0), 1e-1)
+        assertEquals(26_400.0, mileToFoot(5.0), 1e-1)
+        assertEquals(52_800.0, mileToFoot(10.0), 1e-1)
+    }
+
+    // Test Mile to Inch
+    @Test
+    fun testMileToInch() {
+        assertEquals(63_360.0, mileToInch(1.0), 1e-2)
+        assertEquals(316_800.0, mileToInch(5.0), 1e-2)
+        assertEquals(633_600.0, mileToInch(10.0), 1e-2)
+    }
+
+    // Test Mile to Nautical Mile
+    @Test
+    fun testMileToNauticalMile() {
+        assertEquals(0.869, mileToNauticalMile(1.0), 1e-3)
+        assertEquals(4.345, mileToNauticalMile(5.0), 1e-3)
+        assertEquals(8.690, mileToNauticalMile(10.0), 1e-3)
+    }
 }
