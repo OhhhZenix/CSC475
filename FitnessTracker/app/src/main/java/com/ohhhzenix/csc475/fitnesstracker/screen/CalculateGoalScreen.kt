@@ -31,6 +31,8 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.ohhhzenix.csc475.fitnesstracker.AppScreen
+import com.ohhhzenix.csc475.fitnesstracker.calculateFemaleBMR
+import com.ohhhzenix.csc475.fitnesstracker.calculateMaleBMR
 import com.ohhhzenix.csc475.fitnesstracker.isDouble
 import java.text.DecimalFormat
 
