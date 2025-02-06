@@ -3,7 +3,7 @@ package com.ohhhzenix.csc475.fitnesstracker
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
-class BMRTests {
+class BMRTest {
 
     @Test
     fun testMaleBMR() {
