@@ -34,14 +34,6 @@ import com.ohhhzenix.csc475.fitnesstracker.AppScreen
 import com.ohhhzenix.csc475.fitnesstracker.isDouble
 import java.text.DecimalFormat
 
-fun calculateMaleBMR(weight: Double, height: Double, age: Double): Double {
-    return 10 * weight + 6.25 * height - 5 * age + 5
-}
-
-fun calculateFemaleBMR(weight: Double, height: Double, age: Double): Double {
-    return 10 * weight + 6.25 * height - 5 * age - 161
-}
-
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CalculateGoalScreen(
